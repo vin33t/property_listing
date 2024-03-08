@@ -16,6 +16,7 @@
     <section class="ftco-section ftco-agent">
         <div class="container-xl">
             <div class="row">
+                @foreach($agents as $agent)
                 <div class="col-md-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                     <div class="agent">
                         <div class="img">
@@ -23,8 +24,8 @@
                         </div>
                         <div class="desc">
                             <p class="h-info"><span class="position">Listing</span> <span
-                                    class="details">10 Properties</span></p>
-                            <h3><a href="{{route('properties')}}">Mike Bochs</a></h3>
+                                    class="details">{{$agent->properties_count}} Properties</span></p>
+                            <h3><a href="{{route('properties')}}">{{$agent->name}}</a></h3>
                             <ul class="ftco-social">
                                 <li class="ftco-animate"><a href="#"
                                                             class="d-flex align-items-center justify-content-center"><span
@@ -42,84 +43,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                    <div class="agent">
-                        <div class="img">
-                            <img src="{{asset('assets/images/team-2.jpg')}}" class="img-fluid" alt="Colorlib Template">
-                        </div>
-                        <div class="desc">
-                            <p class="h-info"><span class="position">Listing</span> <span
-                                    class="details">10 Properties</span></p>
-                            <h3><a href="{{route('properties')}}">Mike Bochs</a></h3>
-                            <ul class="ftco-social">
-                                <li class="ftco-animate"><a href="#"
-                                                            class="d-flex align-items-center justify-content-center"><span
-                                            class="fa fa-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#"
-                                                            class="d-flex align-items-center justify-content-center"><span
-                                            class="fa fa-facebook"></span></a></li>
-                                <li class="ftco-animate"><a href="#"
-                                                            class="d-flex align-items-center justify-content-center"><span
-                                            class="fa fa-google"></span></a></li>
-                                <li class="ftco-animate"><a href="#"
-                                                            class="d-flex align-items-center justify-content-center"><span
-                                            class="fa fa-instagram"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-                    <div class="agent">
-                        <div class="img">
-                            <img src="{{asset('assets/images/team-3.jpg')}}" class="img-fluid" alt="Colorlib Template">
-                        </div>
-                        <div class="desc">
-                            <p class="h-info"><span class="position">Listing</span> <span
-                                    class="details">10 Properties</span></p>
-                            <h3><a href="{{route('properties')}}">Jessica Moore</a></h3>
-                            <ul class="ftco-social">
-                                <li class="ftco-animate"><a href="#"
-                                                            class="d-flex align-items-center justify-content-center"><span
-                                            class="fa fa-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#"
-                                                            class="d-flex align-items-center justify-content-center"><span
-                                            class="fa fa-facebook"></span></a></li>
-                                <li class="ftco-animate"><a href="#"
-                                                            class="d-flex align-items-center justify-content-center"><span
-                                            class="fa fa-google"></span></a></li>
-                                <li class="ftco-animate"><a href="#"
-                                                            class="d-flex align-items-center justify-content-center"><span
-                                            class="fa fa-instagram"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
-                    <div class="agent">
-                        <div class="img">
-                            <img src="{{asset('assets/images/team-4.jpg')}}" class="img-fluid" alt="Colorlib Template">
-                        </div>
-                        <div class="desc">
-                            <p class="h-info"><span class="position">Listing</span> <span
-                                    class="details">10 Properties</span></p>
-                            <h3><a href="{{route('properties')}}">Sarah Geronimo</a></h3>
-                            <ul class="ftco-social">
-                                <li class="ftco-animate"><a href="#"
-                                                            class="d-flex align-items-center justify-content-center"><span
-                                            class="fa fa-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#"
-                                                            class="d-flex align-items-center justify-content-center"><span
-                                            class="fa fa-facebook"></span></a></li>
-                                <li class="ftco-animate"><a href="#"
-                                                            class="d-flex align-items-center justify-content-center"><span
-                                            class="fa fa-google"></span></a></li>
-                                <li class="ftco-animate"><a href="#"
-                                                            class="d-flex align-items-center justify-content-center"><span
-                                            class="fa fa-instagram"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
 
             </div>
         </div>

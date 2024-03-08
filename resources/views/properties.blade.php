@@ -199,55 +199,36 @@
     <section class="ftco-section bg-light">
         <div class="container-xl">
             <div class="row">
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                @foreach($properties as $property)
+                    @php
+                        $image = $property->medias->first();
+                    @endphp
+                    <div class="col-md-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                     <div class="property-wrap">
-                        <a href="#" class="img img-property" style="background-image: url({{asset('assets/images/work-1.jpg')}});">
-                            <p class="price"><span class="orig-price">£300,000</span></p>
+                        <a href="#" class="img img-property" style="background-image: url({{asset('storage/'. $image?->path)}});">
+                            <p class="price"><span class="orig-price">£{{$property->price}}</span></p>
                         </a>
                         <div class="text">
                             <div class="list-team d-flex align-items-center mb-4">
                                 <div class="d-flex align-items-center">
                                     <div class="img" style="background-image: url({{asset('assets/images/person_1.jpg')}});"></div>
-                                    <h3 class="ml-2">John Dorf</h3>
+                                    <h3 class="ml-2">{{$property->user->name}}</h3>
                                 </div>
                                 <span class="text-right">2 weeks ago</span>
                             </div>
-                            <h3><a href="#">Sunny Loft Property</a></h3>
-                            <span class="location"><i class="ion-ios-pin"></i> New York <span
-                                    class="sale">Sale</span></span>
+                            <h3><a href="#">{{$property->name}}</a></h3>
+                            <span class="location"><i class="ion-ios-pin"></i> {{$property->location}} <span
+                                    class="sale">{{ucfirst($property->type)}}</span></span>
                             <ul class="property_list mt-3 mb-0">
-                                <li><span class="flaticon-bed"></span>3</li>
-                                <li><span class="flaticon-bathtub"></span>2</li>
-                                <li><span class="flaticon-blueprint"></span>1,878 sqft</li>
+                                <li><span class="flaticon-bed"></span>{{$property->rooms}}</li>
+                                <li><span class="flaticon-bathtub"></span>{{$property->bathrooms}}</li>
+                                <li><span class="flaticon-blueprint"></span>{{$property->area}} sqft</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                    <div class="property-wrap">
-                        <a href="#" class="img img-property" style="background-image: url({{asset('assets/images/work-2.jpg')}});">
-                            <p class="price"><span class="old-price">800,000</span><span class="orig-price">£3,050<small> / mo</small></span>
-                            </p>
-                        </a>
-                        <div class="text">
-                            <div class="list-team d-flex align-items-center mb-4">
-                                <div class="d-flex align-items-center">
-                                    <div class="img" style="background-image: url({{asset('assets/images/person_1.jpg')}});"></div>
-                                    <h3 class="ml-2">John Dorf</h3>
-                                </div>
-                                <span class="text-right">2 weeks ago</span>
-                            </div>
-                            <h3><a href="#">Sunny Loft Property</a></h3>
-                            <span class="location"><i class="ion-ios-pin"></i> New York <span
-                                    class="rent">Rent</span></span>
-                            <ul class="property_list mt-3 mb-0">
-                                <li><span class="flaticon-bed"></span>3</li>
-                                <li><span class="flaticon-bathtub"></span>2</li>
-                                <li><span class="flaticon-blueprint"></span>1,878 sqft</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
             </div>
             <div class="row mt-5">
                 <div class="col text-center">

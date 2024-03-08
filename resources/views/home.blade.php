@@ -341,98 +341,103 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                @foreach($properties as $property)
+                    <div class="col-md-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                     <div class="property-wrap">
-                        <a href="#" class="img img-property" style="background-image: url({{asset('assets/images/work-1.jpg')}});">
-                            <p class="price"><span class="orig-price">£300,000</span></p>
+                        @php
+                            $image = $property->medias->first();
+                        @endphp
+                        <a href="#" class="img img-property" style="background-image: url({{asset('storage/'. $image?->path)}});">
+                            <p class="price"><span class="orig-price">£{{$property->price}}</span></p>
                         </a>
                         <div class="text">
                             <div class="list-team d-flex align-items-center mb-4">
                                 <div class="d-flex align-items-center">
                                     <div class="img" style="background-image: url({{asset('assets/images/person_1.jpg')}});"></div>
-                                    <h3 class="ml-2">John Dorf</h3>
+                                    <h3 class="ml-2">{{$property->user->name}}</h3>
                                 </div>
                                 <span class="text-right">2 weeks ago</span>
                             </div>
-                            <h3><a href="#">Sunny Loft Property</a></h3>
+                            <h3><a href="#">{{$property->title}}</a></h3>
                             <span class="location"><i class="ion-ios-pin"></i> New York <span class="sale">Sale</span></span>
                             <ul class="property_list mt-3 mb-0">
-                                <li><span class="flaticon-bed"></span>3</li>
-                                <li><span class="flaticon-bathtub"></span>2</li>
-                                <li><span class="flaticon-blueprint"></span>1,878 sqft</li>
+                                <li><span class="flaticon-bed"></span>{{$property->rooms}}</li>
+                                <li><span class="flaticon-bathtub"></span>{{$property->bathrooms}}</li>
+                                <li><span class="flaticon-blueprint"></span>{{$property->area}} sqft</li>
                             </ul>
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                    <div class="property-wrap">
-                        <a href="#" class="img img-property" style="background-image: url({{asset('assets/images/work-2.jpg')}});">
-                            <p class="price"><span class="old-price">800,000</span><span class="orig-price">£3,050<small> / mo</small></span></p>
-                        </a>
-                        <div class="text">
-                            <div class="list-team d-flex align-items-center mb-4">
-                                <div class="d-flex align-items-center">
-                                    <div class="img" style="background-image: url({{asset('assets/images/person_1.jpg')}});"></div>
-                                    <h3 class="ml-2">John Dorf</h3>
-                                </div>
-                                <span class="text-right">2 weeks ago</span>
-                            </div>
-                            <h3><a href="#">Sunny Loft Property</a></h3>
-                            <span class="location"><i class="ion-ios-pin"></i> New York <span class="rent">Rent</span></span>
-                            <ul class="property_list mt-3 mb-0">
-                                <li><span class="flaticon-bed"></span>3</li>
-                                <li><span class="flaticon-bathtub"></span>2</li>
-                                <li><span class="flaticon-blueprint"></span>1,878 sqft</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-                    <div class="property-wrap">
-                        <a href="#" class="img img-property" style="background-image: url({{asset('assets/images/work-3.jpg')}});">
-                            <p class="price"><span class="orig-price">£300</span></p>
-                        </a>
-                        <div class="text">
-                            <div class="list-team d-flex align-items-center mb-4">
-                                <div class="d-flex align-items-center">
-                                    <div class="img" style="background-image: url({{asset('assets/images/person_1.jpg')}});"></div>
-                                    <h3 class="ml-2">John Dorf</h3>
-                                </div>
-                                <span class="text-right">2 weeks ago</span>
-                            </div>
-                            <h3><a href="#">Sunny Loft Property</a></h3>
-                            <span class="location"><i class="ion-ios-pin"></i> New York <span class="sale">Sale</span></span>
-                            <ul class="property_list mt-3 mb-0">
-                                <li><span class="flaticon-bed"></span>3</li>
-                                <li><span class="flaticon-bathtub"></span>2</li>
-                                <li><span class="flaticon-blueprint"></span>1,878 sqft</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
-                    <div class="property-wrap">
-                        <a href="#" class="img img-property" style="background-image: url({{asset('assets/images/work-4.jpg')}});">
-                            <p class="price"><span class="orig-price">£300<small> / mo</small></span></p>
-                        </a>
-                        <div class="text">
-                            <div class="list-team d-flex align-items-center mb-4">
-                                <div class="d-flex align-items-center">
-                                    <div class="img" style="background-image: url({{asset('assets/images/person_1.jpg')}});"></div>
-                                    <h3 class="ml-2">John Dorf</h3>
-                                </div>
-                                <span class="text-right">2 weeks ago</span>
-                            </div>
-                            <h3><a href="#">Sunny Loft Property</a></h3>
-                            <span class="location"><i class="ion-ios-pin"></i> New York <span class="rent">Rent</span></span>
-                            <ul class="property_list mt-3 mb-0">
-                                <li><span class="flaticon-bed"></span>3</li>
-                                <li><span class="flaticon-bathtub"></span>2</li>
-                                <li><span class="flaticon-blueprint"></span>1,878 sqft</li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+{{--                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">--}}
+{{--                    <div class="property-wrap">--}}
+{{--                        <a href="#" class="img img-property" style="background-image: url({{asset('assets/images/work-2.jpg')}});">--}}
+{{--                            <p class="price"><span class="old-price">800,000</span><span class="orig-price">£3,050<small> / mo</small></span></p>--}}
+{{--                        </a>--}}
+{{--                        <div class="text">--}}
+{{--                            <div class="list-team d-flex align-items-center mb-4">--}}
+{{--                                <div class="d-flex align-items-center">--}}
+{{--                                    <div class="img" style="background-image: url({{asset('assets/images/person_1.jpg')}});"></div>--}}
+{{--                                    <h3 class="ml-2">John Dorf</h3>--}}
+{{--                                </div>--}}
+{{--                                <span class="text-right">2 weeks ago</span>--}}
+{{--                            </div>--}}
+{{--                            <h3><a href="#">Sunny Loft Property</a></h3>--}}
+{{--                            <span class="location"><i class="ion-ios-pin"></i> New York <span class="rent">Rent</span></span>--}}
+{{--                            <ul class="property_list mt-3 mb-0">--}}
+{{--                                <li><span class="flaticon-bed"></span>3</li>--}}
+{{--                                <li><span class="flaticon-bathtub"></span>2</li>--}}
+{{--                                <li><span class="flaticon-blueprint"></span>1,878 sqft</li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">--}}
+{{--                    <div class="property-wrap">--}}
+{{--                        <a href="#" class="img img-property" style="background-image: url({{asset('assets/images/work-3.jpg')}});">--}}
+{{--                            <p class="price"><span class="orig-price">£300</span></p>--}}
+{{--                        </a>--}}
+{{--                        <div class="text">--}}
+{{--                            <div class="list-team d-flex align-items-center mb-4">--}}
+{{--                                <div class="d-flex align-items-center">--}}
+{{--                                    <div class="img" style="background-image: url({{asset('assets/images/person_1.jpg')}});"></div>--}}
+{{--                                    <h3 class="ml-2">John Dorf</h3>--}}
+{{--                                </div>--}}
+{{--                                <span class="text-right">2 weeks ago</span>--}}
+{{--                            </div>--}}
+{{--                            <h3><a href="#">Sunny Loft Property</a></h3>--}}
+{{--                            <span class="location"><i class="ion-ios-pin"></i> New York <span class="sale">Sale</span></span>--}}
+{{--                            <ul class="property_list mt-3 mb-0">--}}
+{{--                                <li><span class="flaticon-bed"></span>3</li>--}}
+{{--                                <li><span class="flaticon-bathtub"></span>2</li>--}}
+{{--                                <li><span class="flaticon-blueprint"></span>1,878 sqft</li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">--}}
+{{--                    <div class="property-wrap">--}}
+{{--                        <a href="#" class="img img-property" style="background-image: url({{asset('assets/images/work-4.jpg')}});">--}}
+{{--                            <p class="price"><span class="orig-price">£300<small> / mo</small></span></p>--}}
+{{--                        </a>--}}
+{{--                        <div class="text">--}}
+{{--                            <div class="list-team d-flex align-items-center mb-4">--}}
+{{--                                <div class="d-flex align-items-center">--}}
+{{--                                    <div class="img" style="background-image: url({{asset('assets/images/person_1.jpg')}});"></div>--}}
+{{--                                    <h3 class="ml-2">John Dorf</h3>--}}
+{{--                                </div>--}}
+{{--                                <span class="text-right">2 weeks ago</span>--}}
+{{--                            </div>--}}
+{{--                            <h3><a href="#">Sunny Loft Property</a></h3>--}}
+{{--                            <span class="location"><i class="ion-ios-pin"></i> New York <span class="rent">Rent</span></span>--}}
+{{--                            <ul class="property_list mt-3 mb-0">--}}
+{{--                                <li><span class="flaticon-bed"></span>3</li>--}}
+{{--                                <li><span class="flaticon-bathtub"></span>2</li>--}}
+{{--                                <li><span class="flaticon-blueprint"></span>1,878 sqft</li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </div>
     </section>
@@ -623,14 +628,15 @@
                 </div>
             </div>
             <div class="row">
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
+                @foreach($agents as $agent)
+                    <div class="col-md-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                     <div class="agent">
                         <div class="img">
                             <img src="{{asset('assets/images/team-1.jpg')}}" class="img-fluid" alt="Colorlib Template">
                         </div>
                         <div class="desc">
-                            <p class="h-info"><span class="position">Listing</span> <span class="details">10 Properties</span></p>
-                            <h3><a href="#">Mike Bochs</a></h3>
+                            <p class="h-info"><span class="position">Listing</span> <span class="details">{{$agent->properties_count}} Properties</span></p>
+                            <h3><a href="#">{{$agent->name}}</a></h3>
                             <ul class="ftco-social">
                                 <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a></li>
                                 <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a></li>
@@ -640,57 +646,59 @@
                         </div>
                     </div>
                 </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                    <div class="agent">
-                        <div class="img">
-                            <img src="{{asset('assets/images/team-2.jpg')}}" class="img-fluid" alt="Colorlib Template">
-                        </div>
-                        <div class="desc">
-                            <p class="h-info"><span class="position">Listing</span> <span class="details">10 Properties</span></p>
-                            <h3><a href="#">Mike Bochs</a></h3>
-                            <ul class="ftco-social">
-                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a></li>
-                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-google"></span></a></li>
-                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-                    <div class="agent">
-                        <div class="img">
-                            <img src="{{asset('assets/images/team-3.jpg')}}" class="img-fluid" alt="Colorlib Template">
-                        </div>
-                        <div class="desc">
-                            <p class="h-info"><span class="position">Listing</span> <span class="details">10 Properties</span></p>
-                            <h3><a href="#">Jessica Moore</a></h3>
-                            <ul class="ftco-social">
-                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a></li>
-                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-google"></span></a></li>
-                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
-                    <div class="agent">
-                        <div class="img">
-                            <img src="{{asset('assets/images/team-4.jpg')}}" class="img-fluid" alt="Colorlib Template">
-                        </div>
-                        <div class="desc">
-                            <p class="h-info"><span class="position">Listing</span> <span class="details">10 Properties</span></p>
-                            <h3><a href="#">Sarah Geronimo</a></h3>
-                            <ul class="ftco-social">
-                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a></li>
-                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-google"></span></a></li>
-                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                @endforeach
+
+                {{--                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">--}}
+{{--                    <div class="agent">--}}
+{{--                        <div class="img">--}}
+{{--                            <img src="{{asset('assets/images/team-2.jpg')}}" class="img-fluid" alt="Colorlib Template">--}}
+{{--                        </div>--}}
+{{--                        <div class="desc">--}}
+{{--                            <p class="h-info"><span class="position">Listing</span> <span class="details">10 Properties</span></p>--}}
+{{--                            <h3><a href="#">Mike Bochs</a></h3>--}}
+{{--                            <ul class="ftco-social">--}}
+{{--                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a></li>--}}
+{{--                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a></li>--}}
+{{--                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-google"></span></a></li>--}}
+{{--                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"></span></a></li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">--}}
+{{--                    <div class="agent">--}}
+{{--                        <div class="img">--}}
+{{--                            <img src="{{asset('assets/images/team-3.jpg')}}" class="img-fluid" alt="Colorlib Template">--}}
+{{--                        </div>--}}
+{{--                        <div class="desc">--}}
+{{--                            <p class="h-info"><span class="position">Listing</span> <span class="details">10 Properties</span></p>--}}
+{{--                            <h3><a href="#">Jessica Moore</a></h3>--}}
+{{--                            <ul class="ftco-social">--}}
+{{--                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a></li>--}}
+{{--                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a></li>--}}
+{{--                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-google"></span></a></li>--}}
+{{--                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"></span></a></li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">--}}
+{{--                    <div class="agent">--}}
+{{--                        <div class="img">--}}
+{{--                            <img src="{{asset('assets/images/team-4.jpg')}}" class="img-fluid" alt="Colorlib Template">--}}
+{{--                        </div>--}}
+{{--                        <div class="desc">--}}
+{{--                            <p class="h-info"><span class="position">Listing</span> <span class="details">10 Properties</span></p>--}}
+{{--                            <h3><a href="#">Sarah Geronimo</a></h3>--}}
+{{--                            <ul class="ftco-social">--}}
+{{--                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a></li>--}}
+{{--                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a></li>--}}
+{{--                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-google"></span></a></li>--}}
+{{--                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"></span></a></li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
             </div>
         </div>
     </section>
