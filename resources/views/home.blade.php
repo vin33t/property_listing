@@ -9,7 +9,8 @@
                     $media = \App\Models\Media::where('model_type', 'App\Models\Slide')->where('model_id', $slide->id)->first();
                 @endphp
                 <x-banner_slide
-                    image="{{asset('storage/'. $media?->path)}}"
+                    image="{{asset('assets1/images/bg_2.jpg')}}"
+{{--                    image="{{asset('storage/'. $media?->path)}}"--}}
                     title="{{$slide->title}}"
                     description="{{$slide->slide_description}}"
                     link="{{route('properties')}}">
