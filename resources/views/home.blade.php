@@ -4,7 +4,7 @@
     <section class="slider-hero">
         <div class="overlay"></div>
         <div class="hero-slider">
-            @foreach($slider->slides as $slide)
+            @foreach($slider?->slides as $slide)
                 @php
                     $media = \App\Models\Media::where('model_type', 'App\Models\Slide')->where('model_id', $slide->id)->first();
                 @endphp
