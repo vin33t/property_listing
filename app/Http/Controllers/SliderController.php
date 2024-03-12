@@ -41,7 +41,7 @@ class SliderController extends Controller
 
                 if ($slide){
                     if($mediaArr != null){
-                        $image = $mediaArr[$key]->store('public/slider/images');
+                        $image = $mediaArr[$key]->store('public/');
                         Media::create([
                             'model_type' => 'App\Models\Slide',
                             'model_id' => $slide->id,
@@ -102,7 +102,7 @@ class SliderController extends Controller
 
                 if ($slide){
                     if($mediaArr != null){
-                        $image = $mediaArr[$key]->store('public/slider/images');
+                        $image = $mediaArr[$key]->store('public/');
                         Media::create([
                             'model_type' => 'App\Models\Slide',
                             'model_id' => $slide->id,
