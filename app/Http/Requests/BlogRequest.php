@@ -25,6 +25,7 @@ class BlogRequest extends FormRequest
             'title'=> 'required',
             'slug'=> '',
             'category_id' => 'required',
+            'content' => 'required',
             'status' => '',
             'category_id' => '',
             'meta_description' => 'nullable',

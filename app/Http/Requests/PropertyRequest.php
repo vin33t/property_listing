@@ -31,7 +31,8 @@ class PropertyRequest extends FormRequest
             'bathrooms' => 'required',
             'category_id' => 'required',
             'user_id' => 'required',
-            'media.*' => 'mimes:jpg,png,jpeg',
+            'media.*' => '',
+            //'media.*' => 'mimes:jpg,png,jpeg',
             'type' => 'required',
             'is_featured' => 'required',
         ];

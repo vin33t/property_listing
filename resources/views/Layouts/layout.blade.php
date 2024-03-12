@@ -8,12 +8,12 @@
     <link href="https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@200;300;400;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ionicons/4.5.6/css/ionicons.min.css">
-    <link rel="stylesheet" href="{{asset('assets/css/animate.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/flaticon.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/tiny-slider.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/glightbox.min.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/aos.css')}}">
-    <link rel="stylesheet" href="{{asset('assets/css/style.css')}}">
+    <link rel="stylesheet" href="{{asset('assets1/css/animate.css')}}">
+    <link rel="stylesheet" href="{{asset('assets1/css/flaticon.css')}}">
+    <link rel="stylesheet" href="{{asset('assets1/css/tiny-slider.css')}}">
+    <link rel="stylesheet" href="{{asset('assets1/css/glightbox.min.css')}}">
+    <link rel="stylesheet" href="{{asset('assets1/css/aos.css')}}">
+    <link rel="stylesheet" href="{{asset('assets1/css/style.css')}}">
 </head>
 <body>
 
@@ -24,13 +24,13 @@
 
 
 
-    <script src="{{asset('assets/js/bootstrap.bundle.min.js')}}"></script>
-    <script src="{{asset('assets/js/tiny-slider.js')}}"></script>
-    <script src="{{asset('assets/js/glightbox.min.js')}}"></script>
-    <script src="{{asset('assets/js/aos.js')}}"></script>
+    <script src="{{asset('assets1/js/bootstrap.bundle.min.js')}}"></script>
+    <script src="{{asset('assets1/js/tiny-slider.js')}}"></script>
+    <script src="{{asset('assets1/js/glightbox.min.js')}}"></script>
+    <script src="{{asset('assets1/js/aos.js')}}"></script>
     <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="{{asset('assets/js/google-map.js')}}"></script>
-    <script src="{{asset('assets/js/main.js')}}"></script>
+    <script src="{{asset('assets1/js/google-map.js')}}"></script>
+    <script src="{{asset('assets1/js/main.js')}}"></script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>
     <script>

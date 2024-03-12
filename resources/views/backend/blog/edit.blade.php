@@ -16,11 +16,11 @@
 
             <h2 class="text-xl font-semibold mb-4">Blog</h2>
             <!-- Form -->
-            <form action="{{route('blog.update', ['property' => $property])}}" method="POST" enctype="multipart/form-data">
+            <form action="{{route('blog.update', ['blog' => $blog])}}" method="POST" enctype="multipart/form-data">
                 @csrf
                 <div class="mb-4">
                     <label for="title" class="block text-sm font-medium text-gray-700">Title</label>
-                    <input type="text" id="title" name="title" value="{{$property->title}}" class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                    <input type="text" id="title" name="title" value="{{$blog->title}}" class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                 </div>
 
                 <div class="mb-4">
@@ -39,14 +39,18 @@
                     </div>
                 </div>
                 <div class="mb-4">
+                    <label for="content" class="block text-sm font-medium text-gray-700">Content</label>
+                    <textarea id="content" name="content" rows="4" class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500">{{$blog->content}}</textarea>
+                </div>
+                <div class="mb-4">
                     <label for="meta_description" class="block text-sm font-medium text-gray-700">Description</label>
-                    <textarea id="meta_description" name="meta_description" rows="4" class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500">{{$property->meta_description}}</textarea>
+                    <textarea id="meta_description" name="meta_description" rows="4" class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500">{{$blog->meta_description}}</textarea>
                 </div>
                 <div class="mb-4">
                     <label for="category_id" class="block text-sm font-medium text-gray-700">Category</label>
                     <select name="category_id" id="" class="mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                         @foreach($categories as $category)
-                            <option value="{{$category->id}}" {{$property->category_id == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
+                            <option value="{{$category->id}}" {{$blog->category_id == $category->id ? 'selected' : ''}}>{{$category->name}}</option>
                         @endforeach
                     </select>
                 </div>

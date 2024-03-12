@@ -9,12 +9,14 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
-    public function index(){
+    public function index(Request $request){
+
+
         $properties = Property::where('is_featured', true)->get();
         $agents = User::where('role', 'agent')->withCount('properties')
             ->get();
         $categories = Category::all();
-        return view('home', compact('properties', 'agents', ));
+        return view('home', compact('properties', 'agents', 'categories'));
     }
 
     public function about(){

@@ -5,19 +5,19 @@
         <div class="overlay"></div>
         <div class="hero-slider">
             <x-banner_slide
-                image="{{asset('assets/images/bg_1.jpg')}}"
+                image="{{asset('assets1/images/bg_1.jpg')}}"
                 title="Your Property Is Our Priority"
                 description="A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth."
                 link="#">
             </x-banner_slide>
             <x-banner_slide
-                image="{{asset('assets/images/bg_2.jpg')}}"
+                image="{{asset('assets1/images/bg_2.jpg')}}"
                 title="Find Your Dream Property"
                 description="A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth."
                 link="#">
             </x-banner_slide>
             <x-banner_slide
-                image="{{asset('assets/images/bg_3.jpg')}}"
+                image="{{asset('assets1/images/bg_3.jpg')}}"
                 title="Best Place To Find Your Home"
                 description="A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth."
                 link="#">
@@ -207,14 +207,18 @@
             <div class="row justify-content-center">
                 <div class="col-md-10">
                     <div class="row g-1 mb-1">
+                        @foreach($categories as $category)
+
+
                         <div class="col-md-3 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                             <a href="#" class="services">
                                 <div class="icon"><span class="flaticon-architect"></span></div>
                                 <div class="text">
-                                    <h2>Land</h2>
+                                    <h2>{{$category->name}}</h2>
                                 </div>
                             </a>
                         </div>
+                        @endforeach
                         <div class="col-md-3 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                             <a href="#" class="services">
                                 <div class="icon"><span class="flaticon-house"></span></div>
@@ -222,23 +226,23 @@
                                     <h2>Residential</h2>
                                 </div>
                             </a>
-                        </div>
-                        <div class="col-md-3 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-                            <a href="#" class="services">
-                                <div class="icon"><span class="flaticon-apartment"></span></div>
-                                <div class="text">
-                                    <h2>Commercial</h2>
-                                </div>
-                            </a>
-                        </div>
-                        <div class="col-md-3 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
-                            <a href="#" class="services">
-                                <div class="icon"><span class="flaticon-factory"></span></div>
-                                <div class="text">
-                                    <h2>Industrial</h2>
-                                </div>
-                            </a>
-                        </div>
+{{--                        </div>--}}
+{{--                        <div class="col-md-3 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">--}}
+{{--                            <a href="#" class="services">--}}
+{{--                                <div class="icon"><span class="flaticon-apartment"></span></div>--}}
+{{--                                <div class="text">--}}
+{{--                                    <h2>Commercial</h2>--}}
+{{--                                </div>--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
+{{--                        <div class="col-md-3 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">--}}
+{{--                            <a href="#" class="services">--}}
+{{--                                <div class="icon"><span class="flaticon-factory"></span></div>--}}
+{{--                                <div class="text">--}}
+{{--                                    <h2>Industrial</h2>--}}
+{{--                                </div>--}}
+{{--                            </a>--}}
+{{--                        </div>--}}
                     </div>
                 </div>
 {{--                <div class="col-md-10">--}}
@@ -353,7 +357,7 @@
                         <div class="text">
                             <div class="list-team d-flex align-items-center mb-4">
                                 <div class="d-flex align-items-center">
-                                    <div class="img" style="background-image: url({{asset('assets/images/person_1.jpg')}});"></div>
+                                    <div class="img" style="background-image: url({{asset('assets1/images/person_1.jpg')}});"></div>
                                     <h3 class="ml-2">{{$property->user->name}}</h3>
                                 </div>
                                 <span class="text-right">2 weeks ago</span>
@@ -371,13 +375,13 @@
                 @endforeach
 {{--                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">--}}
 {{--                    <div class="property-wrap">--}}
-{{--                        <a href="#" class="img img-property" style="background-image: url({{asset('assets/images/work-2.jpg')}});">--}}
+{{--                        <a href="#" class="img img-property" style="background-image: url({{asset('assets1/images/work-2.jpg')}});">--}}
 {{--                            <p class="price"><span class="old-price">800,000</span><span class="orig-price">£3,050<small> / mo</small></span></p>--}}
 {{--                        </a>--}}
 {{--                        <div class="text">--}}
 {{--                            <div class="list-team d-flex align-items-center mb-4">--}}
 {{--                                <div class="d-flex align-items-center">--}}
-{{--                                    <div class="img" style="background-image: url({{asset('assets/images/person_1.jpg')}});"></div>--}}
+{{--                                    <div class="img" style="background-image: url({{asset('assets1/images/person_1.jpg')}});"></div>--}}
 {{--                                    <h3 class="ml-2">John Dorf</h3>--}}
 {{--                                </div>--}}
 {{--                                <span class="text-right">2 weeks ago</span>--}}
@@ -394,13 +398,13 @@
 {{--                </div>--}}
 {{--                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">--}}
 {{--                    <div class="property-wrap">--}}
-{{--                        <a href="#" class="img img-property" style="background-image: url({{asset('assets/images/work-3.jpg')}});">--}}
+{{--                        <a href="#" class="img img-property" style="background-image: url({{asset('assets1/images/work-3.jpg')}});">--}}
 {{--                            <p class="price"><span class="orig-price">£300</span></p>--}}
 {{--                        </a>--}}
 {{--                        <div class="text">--}}
 {{--                            <div class="list-team d-flex align-items-center mb-4">--}}
 {{--                                <div class="d-flex align-items-center">--}}
-{{--                                    <div class="img" style="background-image: url({{asset('assets/images/person_1.jpg')}});"></div>--}}
+{{--                                    <div class="img" style="background-image: url({{asset('assets1/images/person_1.jpg')}});"></div>--}}
 {{--                                    <h3 class="ml-2">John Dorf</h3>--}}
 {{--                                </div>--}}
 {{--                                <span class="text-right">2 weeks ago</span>--}}
@@ -417,13 +421,13 @@
 {{--                </div>--}}
 {{--                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">--}}
 {{--                    <div class="property-wrap">--}}
-{{--                        <a href="#" class="img img-property" style="background-image: url({{asset('assets/images/work-4.jpg')}});">--}}
+{{--                        <a href="#" class="img img-property" style="background-image: url({{asset('assets1/images/work-4.jpg')}});">--}}
 {{--                            <p class="price"><span class="orig-price">£300<small> / mo</small></span></p>--}}
 {{--                        </a>--}}
 {{--                        <div class="text">--}}
 {{--                            <div class="list-team d-flex align-items-center mb-4">--}}
 {{--                                <div class="d-flex align-items-center">--}}
-{{--                                    <div class="img" style="background-image: url({{asset('assets/images/person_1.jpg')}});"></div>--}}
+{{--                                    <div class="img" style="background-image: url({{asset('assets1/images/person_1.jpg')}});"></div>--}}
 {{--                                    <h3 class="ml-2">John Dorf</h3>--}}
 {{--                                </div>--}}
 {{--                                <span class="text-right">2 weeks ago</span>--}}
@@ -441,7 +445,7 @@
             </div>
         </div>
     </section>
-    <section class="img vid-section" style="background-image: url({{asset('assets/images/bg_4.jpg')}});">
+    <section class="img vid-section" style="background-image: url({{asset('assets1/images/bg_4.jpg')}});">
         <div class="overlay"></div>
         <div class="container-xl">
             <div class="row justify-content-center">
@@ -461,7 +465,7 @@
         <div class="container-xl">
             <div class="row g-xl-5">
                 <div class="col-md-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-                    <div class="img w-100" style="background-image: url({{asset('assets/images/about.jpg')}});"></div>
+                    <div class="img w-100" style="background-image: url({{asset('assets1/images/about.jpg')}});"></div>
                 </div>
                 <div class="col-md-8 heading-section" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                     <span class="subheading">About Us</span>
@@ -501,13 +505,13 @@
                             </div>
                         </div>
                     </div>
-                    <div class="img img-2" style="background-image: url({{asset('assets/images/about-1.jpg')}});" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
+                    <div class="img img-2" style="background-image: url({{asset('assets1/images/about-1.jpg')}});" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="ftco-intro ftco-no-pt ftco-no-pb img" style="background-image: url({{asset('assets/images/bg_4.jpg')}});">
+    <section class="ftco-intro ftco-no-pt ftco-no-pb img" style="background-image: url({{asset('assets1/images/bg_4.jpg')}});">
         <div class="overlay"></div>
         <div class="container-xl py-5">
             <div class="row justify-content-center">
@@ -544,7 +548,7 @@
                                 <div class="text">
                                     <p class="mb-4 msg">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                                     <div class="d-flex align-items-center">
-                                        <div class="user-img" style="background-image: url({{asset('assets/images/person_1.jpg')}})"></div>
+                                        <div class="user-img" style="background-image: url({{asset('assets1/images/person_1.jpg')}})"></div>
                                         <div class="pl-3 tx">
                                             <p class="name">Roger Scott</p>
                                             <span class="position">Marketing Manager</span>
@@ -559,7 +563,7 @@
                                 <div class="text">
                                     <p class="mb-4 msg">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                                     <div class="d-flex align-items-center">
-                                        <div class="user-img" style="background-image: url({{asset('assets/images/person_2.jpg')}})"></div>
+                                        <div class="user-img" style="background-image: url({{asset('assets1/images/person_2.jpg')}})"></div>
                                         <div class="pl-3 tx">
                                             <p class="name">Roger Scott</p>
                                             <span class="position">Marketing Manager</span>
@@ -574,7 +578,7 @@
                                 <div class="text">
                                     <p class="mb-4 msg">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                                     <div class="d-flex align-items-center">
-                                        <div class="user-img" style="background-image: url({{asset('assets/images/person_3.jpg')}})"></div>
+                                        <div class="user-img" style="background-image: url({{asset('assets1/images/person_3.jpg')}})"></div>
                                         <div class="pl-3 tx">
                                             <p class="name">Roger Scott</p>
                                             <span class="position">Marketing Manager</span>
@@ -589,7 +593,7 @@
                                 <div class="text">
                                     <p class="mb-4 msg">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                                     <div class="d-flex align-items-center">
-                                        <div class="user-img" style="background-image: url({{asset('assets/images/person_1.jpg')}})"></div>
+                                        <div class="user-img" style="background-image: url({{asset('assets1/images/person_1.jpg')}})"></div>
                                         <div class="pl-3 tx">
                                             <p class="name">Roger Scott</p>
                                             <span class="position">Marketing Manager</span>
@@ -604,7 +608,7 @@
                                 <div class="text">
                                     <p class="mb-4 msg">Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts.</p>
                                     <div class="d-flex align-items-center">
-                                        <div class="user-img" style="background-image: url({{asset('assets/images/person_2.jpg')}})"></div>
+                                        <div class="user-img" style="background-image: url({{asset('assets1/images/person_2.jpg')}})"></div>
                                         <div class="pl-3 tx">
                                             <p class="name">Roger Scott</p>
                                             <span class="position">Marketing Manager</span>
@@ -618,40 +622,40 @@
             </div>
         </div>
     </section>
-    <section class="ftco-section ftco-agent ftco-no-pb">
-        <div class="overlay"></div>
-        <div class="container-xl">
-            <div class="row justify-content-center pb-5">
-                <div class="col-md-10 heading-section heading-section-white" data-aos="fade-up" data-aos-duration="1000">
-                    <span class="subheading">Meets Our Agents</span>
-                    <h2 class="mb-4">Our Agents</h2>
-                </div>
-            </div>
-            <div class="row">
-                @foreach($agents as $agent)
-                    <div class="col-md-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-                    <div class="agent">
-                        <div class="img">
-                            <img src="{{asset('assets/images/team-1.jpg')}}" class="img-fluid" alt="Colorlib Template">
-                        </div>
-                        <div class="desc">
-                            <p class="h-info"><span class="position">Listing</span> <span class="details">{{$agent->properties_count}} Properties</span></p>
-                            <h3><a href="#">{{$agent->name}}</a></h3>
-                            <ul class="ftco-social">
-                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a></li>
-                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a></li>
-                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-google"></span></a></li>
-                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"></span></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-                @endforeach
-
-                {{--                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">--}}
+{{--    <section class="ftco-section ftco-agent ftco-no-pb">--}}
+{{--        <div class="overlay"></div>--}}
+{{--        <div class="container-xl">--}}
+{{--            <div class="row justify-content-center pb-5">--}}
+{{--                <div class="col-md-10 heading-section heading-section-white" data-aos="fade-up" data-aos-duration="1000">--}}
+{{--                    <span class="subheading">Meets Our Agents</span>--}}
+{{--                    <h2 class="mb-4">Our Agents</h2>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="row">--}}
+{{--                @foreach($agents as $agent)--}}
+{{--                    <div class="col-md-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">--}}
 {{--                    <div class="agent">--}}
 {{--                        <div class="img">--}}
-{{--                            <img src="{{asset('assets/images/team-2.jpg')}}" class="img-fluid" alt="Colorlib Template">--}}
+{{--                            <img src="{{asset('assets1/images/team-1.jpg')}}" class="img-fluid" alt="Colorlib Template">--}}
+{{--                        </div>--}}
+{{--                        <div class="desc">--}}
+{{--                            <p class="h-info"><span class="position">Listing</span> <span class="details">{{$agent->properties_count}} Properties</span></p>--}}
+{{--                            <h3><a href="#">{{$agent->name}}</a></h3>--}}
+{{--                            <ul class="ftco-social">--}}
+{{--                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-twitter"></span></a></li>--}}
+{{--                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-facebook"></span></a></li>--}}
+{{--                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-google"></span></a></li>--}}
+{{--                                <li class="ftco-animate"><a href="#" class="d-flex align-items-center justify-content-center"><span class="fa fa-instagram"></span></a></li>--}}
+{{--                            </ul>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                @endforeach--}}
+
+{{--                --}}{{--                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">--}}
+{{--                    <div class="agent">--}}
+{{--                        <div class="img">--}}
+{{--                            <img src="{{asset('assets1/images/team-2.jpg')}}" class="img-fluid" alt="Colorlib Template">--}}
 {{--                        </div>--}}
 {{--                        <div class="desc">--}}
 {{--                            <p class="h-info"><span class="position">Listing</span> <span class="details">10 Properties</span></p>--}}
@@ -668,7 +672,7 @@
 {{--                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">--}}
 {{--                    <div class="agent">--}}
 {{--                        <div class="img">--}}
-{{--                            <img src="{{asset('assets/images/team-3.jpg')}}" class="img-fluid" alt="Colorlib Template">--}}
+{{--                            <img src="{{asset('assets1/images/team-3.jpg')}}" class="img-fluid" alt="Colorlib Template">--}}
 {{--                        </div>--}}
 {{--                        <div class="desc">--}}
 {{--                            <p class="h-info"><span class="position">Listing</span> <span class="details">10 Properties</span></p>--}}
@@ -685,7 +689,7 @@
 {{--                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">--}}
 {{--                    <div class="agent">--}}
 {{--                        <div class="img">--}}
-{{--                            <img src="{{asset('assets/images/team-4.jpg')}}" class="img-fluid" alt="Colorlib Template">--}}
+{{--                            <img src="{{asset('assets1/images/team-4.jpg')}}" class="img-fluid" alt="Colorlib Template">--}}
 {{--                        </div>--}}
 {{--                        <div class="desc">--}}
 {{--                            <p class="h-info"><span class="position">Listing</span> <span class="details">10 Properties</span></p>--}}
@@ -699,63 +703,63 @@
 {{--                        </div>--}}
 {{--                    </div>--}}
 {{--                </div>--}}
-            </div>
-        </div>
-    </section>
-    <section class="ftco-section bg-light">
-        <div class="container-xl">
-            <div class="row justify-content-center mb-5">
-                <div class="col-md-7 heading-section text-center" data-aos="fade-up" data-aos-duration="1000">
-                    <span class="subheading">Our Blog</span>
-                    <h2>Recent Blog</h2>
-                </div>
-            </div>
-            <div class="row">
-                <div class="col-md-3 d-flex">
-                    <div class="blog-entry justify-content-end" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">
-                        <a href="#" class="block-20 img d-flex align-items-end" style="background-image: url({{asset('assets/images/image_1.jpg')}});">
-                        </a>
-                        <div class="text">
-                            <p class="meta"><span>Admin</span> <span>Dec. 01, 2020</span><a href="#">3 Comments</a></p>
-                            <h3 class="heading mb-3"><a href="#">New Home Sales Picked Up in December</a></h3>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 d-flex">
-                    <div class="blog-entry justify-content-end" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">
-                        <a href="#" class="block-20 img d-flex align-items-end" style="background-image: url({{asset('assets/images/image_2.jpg')}});">
-                        </a>
-                        <div class="text">
-                            <p class="meta"><span>Admin</span> <span>Dec. 01, 2020</span><a href="#">3 Comments</a></p>
-                            <h3 class="heading mb-3"><a href="#">New Home Sales Picked Up in December</a></h3>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 d-flex">
-                    <div class="blog-entry justify-content-end" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-                        <a href="#" class="block-20 img d-flex align-items-end" style="background-image: url({{asset('assets/images/image_3.jpg')}});">
-                        </a>
-                        <div class="text">
-                            <p class="meta"><span>Admin</span> <span>Dec. 01, 2020</span><a href="#">3 Comments</a></p>
-                            <h3 class="heading mb-3"><a href="#">New Home Sales Picked Up in December</a mb-3></h3>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3 d-flex">
-                    <div class="blog-entry justify-content-end" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">
-                        <a href="#" class="block-20 img d-flex align-items-end" style="background-image: url({{asset('assets/images/image_4.jpg')}});">
-                        </a>
-                        <div class="text">
-                            <p class="meta"><span>Admin</span> <span>Dec. 01, 2020</span><a href="#">3 Comments</a></p>
-                            <h3 class="heading mb-3"><a href="#">New Home Sales Picked Up in December</a mb-3></h3>
-                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
+{{--    <section class="ftco-section bg-light">--}}
+{{--        <div class="container-xl">--}}
+{{--            <div class="row justify-content-center mb-5">--}}
+{{--                <div class="col-md-7 heading-section text-center" data-aos="fade-up" data-aos-duration="1000">--}}
+{{--                    <span class="subheading">Our Blog</span>--}}
+{{--                    <h2>Recent Blog</h2>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--            <div class="row">--}}
+{{--                <div class="col-md-3 d-flex">--}}
+{{--                    <div class="blog-entry justify-content-end" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="100">--}}
+{{--                        <a href="#" class="block-20 img d-flex align-items-end" style="background-image: url({{asset('assets1/images/image_1.jpg')}});">--}}
+{{--                        </a>--}}
+{{--                        <div class="text">--}}
+{{--                            <p class="meta"><span>Admin</span> <span>Dec. 01, 2020</span><a href="#">3 Comments</a></p>--}}
+{{--                            <h3 class="heading mb-3"><a href="#">New Home Sales Picked Up in December</a></h3>--}}
+{{--                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-3 d-flex">--}}
+{{--                    <div class="blog-entry justify-content-end" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="200">--}}
+{{--                        <a href="#" class="block-20 img d-flex align-items-end" style="background-image: url({{asset('assets1/images/image_2.jpg')}});">--}}
+{{--                        </a>--}}
+{{--                        <div class="text">--}}
+{{--                            <p class="meta"><span>Admin</span> <span>Dec. 01, 2020</span><a href="#">3 Comments</a></p>--}}
+{{--                            <h3 class="heading mb-3"><a href="#">New Home Sales Picked Up in December</a></h3>--}}
+{{--                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-3 d-flex">--}}
+{{--                    <div class="blog-entry justify-content-end" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">--}}
+{{--                        <a href="#" class="block-20 img d-flex align-items-end" style="background-image: url({{asset('assets1/images/image_3.jpg')}});">--}}
+{{--                        </a>--}}
+{{--                        <div class="text">--}}
+{{--                            <p class="meta"><span>Admin</span> <span>Dec. 01, 2020</span><a href="#">3 Comments</a></p>--}}
+{{--                            <h3 class="heading mb-3"><a href="#">New Home Sales Picked Up in December</a mb-3></h3>--}}
+{{--                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                <div class="col-md-3 d-flex">--}}
+{{--                    <div class="blog-entry justify-content-end" data-aos="fade-up" data-aos-duration="1000" data-aos-delay="300">--}}
+{{--                        <a href="#" class="block-20 img d-flex align-items-end" style="background-image: url({{asset('assets1/images/image_4.jpg')}});">--}}
+{{--                        </a>--}}
+{{--                        <div class="text">--}}
+{{--                            <p class="meta"><span>Admin</span> <span>Dec. 01, 2020</span><a href="#">3 Comments</a></p>--}}
+{{--                            <h3 class="heading mb-3"><a href="#">New Home Sales Picked Up in December</a mb-3></h3>--}}
+{{--                            <p>A small river named Duden flows by their place and supplies it with the necessary regelialia.</p>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--            </div>--}}
+{{--        </div>--}}
+{{--    </section>--}}
 @endsection

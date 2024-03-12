@@ -34,7 +34,7 @@
 <nav class="navbar navbar-expand-lg  ftco-navbar-light">
     <div class="container-xl">
         <a class="navbar-brand align-items-center" href="{{route('home')}}">
-            <img src="{{asset('assets/images/logo.jpg')}}" alt="" style="height: 50px; width: auto">
+            <img src="{{asset('assets1/images/logo.jpg')}}" alt="" style="height: 50px; width: auto">
         </a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
             <span class="fa fa-bars"></span> Menu
@@ -44,8 +44,8 @@
                 <li class="nav-item"><a class="nav-link" href="{{route('home')}}">Home</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{route('about')}}">About</a></li>
                 <li class="nav-item"><a class="nav-link" href="{{route('properties')}}">Properties</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{route('agents')}}">Agents</a></li>
-                <li class="nav-item"><a class="nav-link" href="{{route('blog')}}">Blog</a></li>
+{{--                <li class="nav-item"><a class="nav-link" href="{{route('agents')}}">Agents</a></li>--}}
+{{--                <li class="nav-item"><a class="nav-link" href="{{route('blog')}}">Blog</a></li>--}}
                 <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Contact</a></li>
             </ul>
             <p class="mb-0"><a href="#" class="btn btn-primary rounded">Submit A Property</a></p>

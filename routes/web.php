@@ -6,6 +6,7 @@ use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\SliderController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,6 +27,9 @@ Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/blogDetails', [HomeController::class, 'blogDetails'])->name('blogDetails');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 
+Route::get('termsCondition', function (){return view('terms_and_condition');})->name('termsCondition');
+Route::get('privacyPolicy', function (){return view('privacy_policy');})->name('privacyPolicy');
+
 
 Route::get('register', [\App\Http\Controllers\AuthController::class, 'registerForm'])->name('register');
 Route::post('register', [\App\Http\Controllers\AuthController::class, 'register'])->name('register');
@@ -33,14 +37,14 @@ Route::post('register', [\App\Http\Controllers\AuthController::class, 'register'
 Route::get('login', [\App\Http\Controllers\AuthController::class, 'loginForm'])->name('login');
 Route::post('login', [\App\Http\Controllers\AuthController::class, 'login'])->name('login');
 
-Route::post('logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
+Route::get('logout', [\App\Http\Controllers\AuthController::class, 'logout'])->name('logout');
 
 
 Route::middleware(['auth'])->group(function(){
 
     Route::get('dashboard', function (){
         return view('backend.dashboard');
-    });
+    })->name('dashboard');
     Route::prefix('category')->name('category.')->group(function(){
         Route::get('/', [CategoryController::class, 'index'])->name('index');
         Route::get('create', [CategoryController::class, 'create'])->name('create');
@@ -68,6 +72,25 @@ Route::middleware(['auth'])->group(function(){
         Route::get('destroy/{blog}', [BlogController::class, 'destroy'])->name('destroy');
     });
 
+
+    Route::prefix('slider')->name('slider.')->group(function(){
+        Route::get('/', [SliderController::class, 'index'])->name('index');
+        Route::get('create', [SliderController::class, 'create'])->name('create');
+        Route::post('store', [SliderController::class, 'store'])->name('store');
+        Route::post('update/{slider}', [SliderController::class, 'update'])->name('update');
+        Route::get('edit/{slider}', [SliderController::class, 'edit'])->name('edit');
+        Route::get('destroy/{slider}', [SliderController::class, 'destroy'])->name('destroy');
+        Route::get('status/{slider}', [SliderController::class, 'status'])->name('status');
+    });
+
+    Route::get('slide/remove/{slide}', [\App\Http\Controllers\SlideController::class, 'slideRemove'])->name('slide.remove');
+
     Route::get('mediaDelete/{media}', [MediaController::class, 'mediaDelete'])->name('mediaDelete');
+
+    Route::get('termAndCondition/index', [\App\Http\Controllers\TermAndConditionController::class, 'index'])->name('termAndCondition.index');
+    Route::post('termAndCondition/update/{termAndCondition?}', [\App\Http\Controllers\TermAndConditionController::class, 'update'])->name('termAndCondition.update');
+
+    Route::get('privacyPolicy/index', [\App\Http\Controllers\PrivacyPolicyController::class, 'index'])->name('privacyPolicy.index');
+    Route::post('privacyPolicy/update/{termAndCondition?}', [\App\Http\Controllers\PrivacyPolicyController::class, 'update'])->name('privacyPolicy.update');
 });
 
