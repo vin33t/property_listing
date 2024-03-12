@@ -1,7 +1,7 @@
 @extends('Layouts.layout')
 
 @section('content')
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('assets/images/bg_4.jpg')}});">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('assets1/images/bg_4.jpg')}});">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -20,7 +20,7 @@
                 <div class="col-md-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                     <div class="agent">
                         <div class="img">
-                            <img src="{{asset('assets/images/team-1.jpg')}}" class="img-fluid" alt="Colorlib Template">
+                            <img src="{{asset('assets1/images/team-1.jpg')}}" class="img-fluid" alt="Colorlib Template">
                         </div>
                         <div class="desc">
                             <p class="h-info"><span class="position">Listing</span> <span

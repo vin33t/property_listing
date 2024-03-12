@@ -27,7 +27,7 @@
                                         <div class="mdc-layout-grid__inner">
                                             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                                                 <div class="mdc-text-field mdc-text-field--outlined">
-                                                    <input name="title" type="text" class="mdc-text-field__input">
+                                                    <input name="title" type="text" value="{{$property->title}}" class="mdc-text-field__input">
                                                     <div class="mdc-notched-outline">
                                                         <div class="mdc-notched-outline__leading"></div>
                                                         <div class="mdc-notched-outline__notch">
@@ -186,7 +186,7 @@
 
                                             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                                                 <div class="mdc-text-field mdc-text-field--outlined">
-                                                    <textarea name="description" class="mdc-text-field__input" rows="10"></textarea>
+                                                    <textarea name="description" class="mdc-text-field__input" rows="10">{{$property->description}}</textarea>
                                                     <div class="mdc-notched-outline">
                                                         <div class="mdc-notched-outline__leading"></div>
                                                         <div class="mdc-notched-outline__notch">

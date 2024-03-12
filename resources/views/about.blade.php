@@ -18,7 +18,7 @@
             <div class="row g-xl-5">
                 <div class="col-md-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100"
                      data-aos-duration="1000">
-                    <div class="img w-100" style="background-image: url({{asset('assets/images/about.jpg')}});"></div>
+                    <div class="img w-100" style="background-image: url({{asset('assets1/images/about.jpg')}});"></div>
                 </div>
                 <div class="col-md-8 heading-section" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                     <span class="subheading">About Us</span>
@@ -69,14 +69,14 @@
                             </div>
                         </div>
                     </div>
-                    <div class="img img-2" style="background-image: url({{asset('assets/images/about-1.jpg')}});" data-aos="fade-up"
+                    <div class="img img-2" style="background-image: url({{asset('assets1/images/about-1.jpg')}});" data-aos="fade-up"
                          data-aos-delay="400" data-aos-duration="1000">
                     </div>
                 </div>
             </div>
         </div>
     </section>
-    <section class="img vid-section" style="background-image: url({{asset('assets/images/bg_4.jpg')}});">
+    <section class="img vid-section" style="background-image: url({{asset('assets1/images/bg_4.jpg')}});">
         <div class="overlay"></div>
         <div class="container-xl">
             <div class="row justify-content-center">
@@ -93,7 +93,7 @@
             </div>
         </div>
     </section>
-    <section class="ftco-intro ftco-no-pt ftco-no-pb img" style="background-image: url({{asset('assets/images/bg_4.jpg')}});">
+    <section class="ftco-intro ftco-no-pt ftco-no-pb img" style="background-image: url({{asset('assets1/images/bg_4.jpg')}});">
         <div class="overlay"></div>
         <div class="container-xl py-5">
             <div class="row justify-content-center">
@@ -132,7 +132,7 @@
                                     <p class="mb-4 msg">Far far away, behind the word mountains, far from the countries
                                         Vokalia and Consonantia, there live the blind texts.</p>
                                     <div class="d-flex align-items-center">
-                                        <div class="user-img" style="background-image: url({{asset('assets/images/person_1.jpg')}})"></div>
+                                        <div class="user-img" style="background-image: url({{asset('assets1/images/person_1.jpg')}})"></div>
                                         <div class="pl-3 tx">
                                             <p class="name">Roger Scott</p>
                                             <span class="position">Marketing Manager</span>
@@ -149,7 +149,7 @@
                                     <p class="mb-4 msg">Far far away, behind the word mountains, far from the countries
                                         Vokalia and Consonantia, there live the blind texts.</p>
                                     <div class="d-flex align-items-center">
-                                        <div class="user-img" style="background-image: url({{asset('assets/images/person_2.jpg')}})"></div>
+                                        <div class="user-img" style="background-image: url({{asset('assets1/images/person_2.jpg')}})"></div>
                                         <div class="pl-3 tx">
                                             <p class="name">Roger Scott</p>
                                             <span class="position">Marketing Manager</span>
@@ -166,7 +166,7 @@
                                     <p class="mb-4 msg">Far far away, behind the word mountains, far from the countries
                                         Vokalia and Consonantia, there live the blind texts.</p>
                                     <div class="d-flex align-items-center">
-                                        <div class="user-img" style="background-image: url({{asset('assets/images/person_3.jpg')}})"></div>
+                                        <div class="user-img" style="background-image: url({{asset('assets1/images/person_3.jpg')}})"></div>
                                         <div class="pl-3 tx">
                                             <p class="name">Roger Scott</p>
                                             <span class="position">Marketing Manager</span>
@@ -183,7 +183,7 @@
                                     <p class="mb-4 msg">Far far away, behind the word mountains, far from the countries
                                         Vokalia and Consonantia, there live the blind texts.</p>
                                     <div class="d-flex align-items-center">
-                                        <div class="user-img" style="background-image: url({{asset('assets/images/person_1.jpg')}})"></div>
+                                        <div class="user-img" style="background-image: url({{asset('assets1/images/person_1.jpg')}})"></div>
                                         <div class="pl-3 tx">
                                             <p class="name">Roger Scott</p>
                                             <span class="position">Marketing Manager</span>
@@ -200,7 +200,7 @@
                                     <p class="mb-4 msg">Far far away, behind the word mountains, far from the countries
                                         Vokalia and Consonantia, there live the blind texts.</p>
                                     <div class="d-flex align-items-center">
-                                        <div class="user-img" style="background-image: url({{asset('assets/images/person_2.jpg')}})"></div>
+                                        <div class="user-img" style="background-image: url({{asset('assets1/images/person_2.jpg')}})"></div>
                                         <div class="pl-3 tx">
                                             <p class="name">Roger Scott</p>
                                             <span class="position">Marketing Manager</span>

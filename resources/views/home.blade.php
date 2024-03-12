@@ -4,24 +4,30 @@
     <section class="slider-hero">
         <div class="overlay"></div>
         <div class="hero-slider">
-            <x-banner_slide
-                image="{{asset('assets1/images/bg_1.jpg')}}"
-                title="Your Property Is Our Priority"
-                description="A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth."
-                link="#">
-            </x-banner_slide>
-            <x-banner_slide
-                image="{{asset('assets1/images/bg_2.jpg')}}"
-                title="Find Your Dream Property"
-                description="A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth."
-                link="#">
-            </x-banner_slide>
-            <x-banner_slide
-                image="{{asset('assets1/images/bg_3.jpg')}}"
-                title="Best Place To Find Your Home"
-                description="A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth."
-                link="#">
-            </x-banner_slide>
+            @foreach($slider->slides as $slide)
+                @php
+                    $media = \App\Models\Media::where('model_type', 'App\Models\Slide')->where('model_id', $slide->id)->first();
+                @endphp
+                <x-banner_slide
+                    image="{{asset('storage/'. $media->path)}}"
+                    title="{{$slide->title}}"
+                    description="{{$slide->slide_description}}"
+                    link="{{route('properties')}}">
+                </x-banner_slide>
+
+            @endforeach
+{{--            <x-banner_slide--}}
+{{--                image="{{asset('assets1/images/bg_2.jpg')}}"--}}
+{{--                title="Find Your Dream Property"--}}
+{{--                description="A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth."--}}
+{{--                link="#">--}}
+{{--            </x-banner_slide>--}}
+{{--            <x-banner_slide--}}
+{{--                image="{{asset('assets1/images/bg_3.jpg')}}"--}}
+{{--                title="Best Place To Find Your Home"--}}
+{{--                description="A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth."--}}
+{{--                link="#">--}}
+{{--            </x-banner_slide>--}}
         </div>
     </section>
     <section class="ftco-section ftco-no-pb ftco-no-pt">
@@ -200,7 +206,7 @@
         <div class="container-xl">
             <div class="row justify-content-center">
                 <div class="col-md-8 heading-section text-center mb-5" data-aos="fade-up" data-aos-duration="1000">
-                    <span class="subheading">Oakberry Categories</span>
+                    <span class="subheading">Categories</span>
                     <h2 class="mb-4">Explore Our Categories &amp; Places</h2>
                 </div>
             </div>
@@ -208,42 +214,23 @@
                 <div class="col-md-10">
                     <div class="row g-1 mb-1">
                         @foreach($categories as $category)
-
-
+                            @php
+                                $media = \App\Models\Media::where('model_type', 'App\Models\Category')->where('model_id', $category->id)->first();
+                            @endphp
                         <div class="col-md-3 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                             <a href="#" class="services">
-                                <div class="icon"><span class="flaticon-architect"></span></div>
+                                @if($media==Null)
+                                  <img src="{{asset('assets1/images/noImg.jpg')}}" style="height: 100px; width: 100px; border-radius: 50%" alt="">
+                                @else
+                                <img src="{{asset('storage/'. $media->path)}}" style="height: 100px; width: 100px; border-radius: 50%" alt="">
+                                @endif
                                 <div class="text">
                                     <h2>{{$category->name}}</h2>
                                 </div>
                             </a>
                         </div>
+
                         @endforeach
-                        <div class="col-md-3 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                            <a href="#" class="services">
-                                <div class="icon"><span class="flaticon-house"></span></div>
-                                <div class="text">
-                                    <h2>Residential</h2>
-                                </div>
-                            </a>
-{{--                        </div>--}}
-{{--                        <div class="col-md-3 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">--}}
-{{--                            <a href="#" class="services">--}}
-{{--                                <div class="icon"><span class="flaticon-apartment"></span></div>--}}
-{{--                                <div class="text">--}}
-{{--                                    <h2>Commercial</h2>--}}
-{{--                                </div>--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-md-3 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">--}}
-{{--                            <a href="#" class="services">--}}
-{{--                                <div class="icon"><span class="flaticon-factory"></span></div>--}}
-{{--                                <div class="text">--}}
-{{--                                    <h2>Industrial</h2>--}}
-{{--                                </div>--}}
-{{--                            </a>--}}
-{{--                        </div>--}}
-                    </div>
                 </div>
 {{--                <div class="col-md-10">--}}
 {{--                    <div class="row">--}}
@@ -349,7 +336,7 @@
                     <div class="col-md-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                     <div class="property-wrap">
                         @php
-                            $image = $property->medias->first();
+                            $image = \App\Models\Media::where('model_type', 'App\Models\Property')->where('model_id', $property->id)->first();
                         @endphp
                         <a href="#" class="img img-property" style="background-image: url({{asset('storage/'. $image?->path)}});">
                             <p class="price"><span class="orig-price">£{{$property->price}}</span></p>
@@ -365,8 +352,14 @@
                             <h3><a href="#">{{$property->title}}</a></h3>
                             <span class="location"><i class="ion-ios-pin"></i> New York <span class="sale">Sale</span></span>
                             <ul class="property_list mt-3 mb-0">
-                                <li><span class="flaticon-bed"></span>{{$property->rooms}}</li>
-                                <li><span class="flaticon-bathtub"></span>{{$property->bathrooms}}</li>
+                                @if($property->rooms)
+                                    <li><span class="flaticon-bed"></span>{{$property->rooms}}</li>
+                                @endif
+
+                                @if($property->rooms)
+                                    <li><span class="flaticon-bathtub"></span>{{$property->bathrooms}}</li>
+                                @endif
+
                                 <li><span class="flaticon-blueprint"></span>{{$property->area}} sqft</li>
                             </ul>
                         </div>

@@ -63,7 +63,6 @@
                     <h2 class="ftco-heading-2">Offers</h2>
                     <ul class="list-unstyled">
                         <li><a href="{{route('properties')}}"><span class="fa fa-chevron-right mr-2"></span>Properties</a></li>
-                        <li><a href="{{route('agents')}}"><span class="fa fa-chevron-right mr-2"></span>Agents</a></li>
                     </ul>
                 </div>
             </div>

@@ -16,12 +16,12 @@ return new class extends Migration
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->string('title');
-            $table->text('description');
+            $table->text('description')->nullable();
             $table->decimal('price', 10, 2);
             $table->string('location');
             $table->integer('area');
-            $table->integer('rooms');
-            $table->integer('bathrooms');
+            $table->integer('rooms')->nullable();
+            $table->integer('bathrooms')->nullable();
             $table->enum('type', ['sale', 'rent']);
             $table->boolean('is_featured');
             $table->timestamps();

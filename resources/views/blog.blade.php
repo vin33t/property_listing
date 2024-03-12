@@ -1,7 +1,7 @@
 @extends('Layouts.layout')
 
 @section('content')
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('assets/images/bg_4.jpg')}});">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('assets1/images/bg_4.jpg')}});">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -20,7 +20,7 @@
                     <div class="blog-entry justify-content-end" data-aos="fade-up" data-aos-duration="1000"
                          data-aos-delay="100">
                         <a href="{{route('blogDetails')}}" class="block-20 img d-flex align-items-end"
-                           style="background-image: url({{asset('assets/images/image_1.jpg')}});">
+                           style="background-image: url({{asset('assets1/images/image_1.jpg')}});">
                         </a>
                         <div class="text">
                             <p class="meta"><span>Admin</span> <span>Dec. 01, 2020</span><a href="#">3 Comments</a></p>
@@ -34,7 +34,7 @@
                     <div class="blog-entry justify-content-end" data-aos="fade-up" data-aos-duration="1000"
                          data-aos-delay="200">
                         <a href="{{route('blogDetails')}}" class="block-20 img d-flex align-items-end"
-                           style="background-image: url({{asset('assets/images/image_2.jpg')}});">
+                           style="background-image: url({{asset('assets1/images/image_2.jpg')}});">
                         </a>
                         <div class="text">
                             <p class="meta"><span>Admin</span> <span>Dec. 01, 2020</span><a href="#">3 Comments</a></p>
@@ -48,7 +48,7 @@
                     <div class="blog-entry justify-content-end" data-aos="fade-up" data-aos-duration="1000"
                          data-aos-delay="300">
                         <a href="{{route('blogDetails')}}" class="block-20 img d-flex align-items-end"
-                           style="background-image: url({{asset('assets/images/image_3.jpg')}});">
+                           style="background-image: url({{asset('assets1/images/image_3.jpg')}});">
                         </a>
                         <div class="text">
                             <p class="meta"><span>Admin</span> <span>Dec. 01, 2020</span><a href="#">3 Comments</a></p>
@@ -62,7 +62,7 @@
                     <div class="blog-entry justify-content-end" data-aos="fade-up" data-aos-duration="1000"
                          data-aos-delay="300">
                         <a href="{{route('blogDetails')}}" class="block-20 img d-flex align-items-end"
-                           style="background-image: url({{asset('assets/images/image_4.jpg')}});">
+                           style="background-image: url({{asset('assets1/images/image_4.jpg')}});">
                         </a>
                         <div class="text">
                             <p class="meta"><span>Admin</span> <span>Dec. 01, 2020</span><a href="#">3 Comments</a></p>

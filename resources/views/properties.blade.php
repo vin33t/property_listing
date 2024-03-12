@@ -1,7 +1,7 @@
 @extends('Layouts.layout')
 
 @section('content')
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('assets/images/bg_4.jpg')}});">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('assets1/images/bg_4.jpg')}});">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -211,7 +211,7 @@
                         <div class="text">
                             <div class="list-team d-flex align-items-center mb-4">
                                 <div class="d-flex align-items-center">
-                                    <div class="img" style="background-image: url({{asset('assets/images/person_1.jpg')}});"></div>
+                                    <div class="img" style="background-image: url({{asset('assets1/images/person_1.jpg')}});"></div>
                                     <h3 class="ml-2">{{$property->user->name}}</h3>
                                 </div>
                                 <span class="text-right">2 weeks ago</span>
