@@ -13,14 +13,21 @@
             </div>
         </div>
     </section>
+
+
     <section class="ftco-section ftco-about-section">
-        @php
-            $privacyPolicy = \App\Models\TermAndCondition::find(1);
-        @endphp
-        <div class="px-4">
-            {!! $privacyPolicy->content !!}
+        <div class="container-xl">
+            <div class="row g-xl-5">
+                @php
+                    $privacyPolicy = \App\Models\TermAndCondition::find(1);
+                @endphp
+                <div class="col-md-12 heading-section" style="color: black" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                    {!! $privacyPolicy->content !!}
+                </div>
+            </div>
         </div>
     </section>
+
 
 
 
