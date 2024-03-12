@@ -39,13 +39,11 @@
                                             <td class="text-left">{{$property->area}}</td>
                                             <td class="text-left">
                                                 @php
-                                                    $images = \App\Models\Media::where('model_type', 'App\Models\Category')->where('model_id', $property->id)->get();
+                                                    $image = $property->medias->first();
                                                 @endphp
-                                                @foreach($images as $image)
                                                     <div>
                                                         <img src="{{asset('storage/'. $image->path)}}" alt="" style="width: 100px;">
                                                     </div>
-                                                @endforeach
                                             </td>
                                             <td class="text-left">
                                                 <a href="{{route('property.edit', ['property' => $property])}}" class="mdc-button text-button--info">
