@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SliderRequest;
+use App\Models\homeSlider;
 use App\Models\Media;
 use App\Models\Slide;
 use App\Models\Slider;
@@ -10,110 +11,71 @@ use Illuminate\Http\Request;
 
 class SliderController extends Controller
 {
+
     public function index(){
-        $sliders = Slider::all();
-        return view('backend.slider.index', compact('sliders'));
+        $sliders = homeSlider::all();
+        return view('backend.homeSlider.index' , compact('sliders'));
     }
 
     public function create(){
-        return view('backend.slider.create');
+        $formData= [
+            'method' => 'POST',
+            'url' => route('homeSlider.store')
+        ];
+        $isEdit = false;
+
+        return view('backend.homeSlider.create')->with(['formData' => $formData, 'isEdit' => $isEdit]);
     }
 
-    public function edit(Slider $slider){
-        return view('backend.slider.edit', compact('slider'));
-    }
+    public function store(Request $request){
+        $request->validate([
+            'heading' => 'required',
+            'description' => 'required',
+            'image' => 'required',
+        ]);
 
-    public function store(SliderRequest $request){
-//dd($request->all());
-        $slider = Slider::create($request->all());
-
-        $titleArr = $request->title;
-        $slideDescriptionArr = $request->title;
-        $mediaArr = $request->file('media');
-
-        if($slider){
-            foreach ($titleArr as $key=>$value){
-                $slide = new Slide();
-                $slide->slider_id = $slider->id;
-                $slide->title = $titleArr[$key];
-                $slide->slide_description = $slideDescriptionArr[$key];
-                $slide->save();
-
-                if ($slide){
-                    if($mediaArr != null){
-                        $image = $mediaArr[$key]->store('public/');
-                        Media::create([
-                            'model_type' => 'App\Models\Slide',
-                            'model_id' => $slide->id,
-                            'path' => str_replace('public/', '', $image),
-                        ]);
-                    }
-
-                }
-
-            }
+        $homeSlider = new homeSlider();
+        $homeSlider->heading = $request->heading;
+        $homeSlider->description = $request->description;
+        if ($request->hasFile('image')) {
+            $sliderImg = $request->file('image')->store('public');
+            $homeSlider->image = str_replace('public/', '', $sliderImg);
+            $homeSlider->save();
         }
-        return redirect('slider/');
+        return redirect('homeSlider/');
     }
 
-    public function status(Slider $slider){
-        if($slider->status == 'active'){
-            $slider->status = 'inactive';
-        }else{
-            $slider->status = 'active';
+    public function edit(homeSlider $homeSlider){
+        $formData= [
+            'method' => 'POST',
+            'url' => route('homeSlider.update', $homeSlider->id)
+
+        ];
+        $isEdit = true;
+
+        return view('backend.homeSlider.create')->with(['formData' => $formData, 'isEdit' => $isEdit, 'homeSlider' => $homeSlider]);
+    }
+
+    public function update(Request $request, homeSlider $homeSlider){
+        $request->validate([
+            'heading' => 'required',
+            'description' => 'required',
+        ]);
+
+        $homeSlider->heading = $request->heading;
+        $homeSlider->description = $request->description;
+        if ($request->hasFile('image')) {
+            $sliderImg = $request->file('image')->store('public');
+            $homeSlider->image = str_replace('public/', '', $sliderImg);
         }
-        $slider->save();
+        $homeSlider->save();
+
+        return redirect('homeSlider/');
+    }
+
+    public function destroy(homeSlider $homeSlider){
+        $homeSlider->delete();
         return redirect()->back();
     }
 
-    public function destroy(Slider $slider){
-        foreach ($slider->slides as $slide){
-            $media = Media::where('model_type', 'App\Models\Slide')->where('model_id', $slide->id)->first();
-            if($media){
-                unlink('storage/'. $media->path);
-            }
-            $media->delete();
-        }
-        $slider->slides()->delete();
-        $slider->delete();
-        return redirect()->back();
-    }
-
-    public function update(SliderRequest $request, Slider $slider){
-        foreach ($slider->slides as $slide){
-            $media = Media::where('model_type', 'App\Models\Slide')->where('model_id', $slide->id)->first();
-            if($media){
-                unlink('storage/'. $media->path);
-            }
-            $media->delete();
-        }
-        $slider->slides()->delete();
-        $titleArr = $request->title;
-        $slideDescriptionArr = $request->title;
-        $mediaArr = $request->file('media');
-
-        if($slider){
-            foreach ($titleArr as $key=>$value){
-                $slide = new Slide();
-                $slide->slider_id = $slider->id;
-                $slide->title = $titleArr[$key];
-                $slide->slide_description = $slideDescriptionArr[$key];
-                $slide->save();
-
-                if ($slide){
-                    if($mediaArr != null){
-                        $image = $mediaArr[$key]->store('public/');
-                        Media::create([
-                            'model_type' => 'App\Models\Slide',
-                            'model_id' => $slide->id,
-                            'path' => str_replace('public/', '', $image),
-                        ]);
-                    }
-
-                }
-
-            }
-        }
-        return redirect('slider/');
-    }
 }

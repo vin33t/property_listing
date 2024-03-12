@@ -4,15 +4,12 @@
     <section class="slider-hero">
         <div class="overlay"></div>
         <div class="hero-slider">
-            @foreach($slider->slides as $slide)
-                @php
-                    $media = \App\Models\Media::where('model_type', 'App\Models\Slide')->where('model_id', $slide->id)->first();
-                @endphp
+            @foreach($slides as $slide)
                 <x-banner_slide
-                    image="{{asset('storage/'. $media?->path)}}"
+                    image="{{asset('storage/'. $slide->image)}}"
 {{--                    image="{{asset('storage/'. $media?->path)}}"--}}
-                    title="{{$slide->title}}"
-                    description="{{$slide->slide_description}}"
+                    title="{{$slide->heading}}"
+                    description="{{$slide->description}}"
                     link="{{route('properties')}}">
                 </x-banner_slide>
 

@@ -46,10 +46,17 @@
                         </a>
                     </div>
 
+{{--                    <div class="mdc-list-item mdc-drawer-item">--}}
+{{--                        <a class="mdc-drawer-link" href="{{route('slider.index')}}">--}}
+{{--                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">image</i>--}}
+{{--                            Slider--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
+
                     <div class="mdc-list-item mdc-drawer-item">
-                        <a class="mdc-drawer-link" href="{{route('slider.index')}}">
+                        <a class="mdc-drawer-link" href="{{route('homeSlider.index')}}">
                             <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">image</i>
-                            Slider
+                            Home Slider
                         </a>
                     </div>
 
