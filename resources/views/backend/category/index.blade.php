@@ -19,10 +19,10 @@
                                     <thead>
                                     <tr>
                                         <th class="text-left">S No.</th>
-                                        <th>Name</th>
-                                        <th>Description</th>
-{{--                                        <th>Image</th>--}}
-                                        <th>Action</th>
+                                        <th class="text-left">Name</th>
+                                        <th class="text-left">Description</th>
+{{--                                        <th class="text-left">Image</th>--}}
+                                        <th class="text-left">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -30,9 +30,9 @@
                                     @foreach($categories as $category)
                                     <tr>
                                         <td class="text-left">{{$loop->iteration}}</td>
-                                        <td>{{$category->name}}</td>
-                                        <td>{{$category->description}}</td>
-{{--                                        <td>--}}
+                                        <td class="text-left">{{$category->name}}</td>
+                                        <td class="text-left">{{$category->description}}</td>
+{{--                                        <td class="text-left">--}}
 {{--                                            @php--}}
 {{--                                                $images = \App\Models\Media::where('model_type', 'App\Models\Category')->where('model_id', $category->id)->get();--}}
 {{--                                            @endphp--}}
@@ -42,7 +42,7 @@
 {{--                                                </div>--}}
 {{--                                            @endforeach--}}
 {{--                                        </td>--}}
-                                        <td>
+                                        <td class="text-left">
                                             <a href="{{route('category.edit', ['category' => $category])}}" class="mdc-button text-button--info">
                                             Edit
                                             </a>

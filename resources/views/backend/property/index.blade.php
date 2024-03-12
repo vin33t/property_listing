@@ -20,12 +20,12 @@
                                     <thead>
                                     <tr>
                                         <th class="text-left">S No.</th>
-                                        <th>Title</th>
-                                        <th>Price</th>
-                                        <th>Location</th>
-                                        <th>Area</th>
-                                        <th>Image</th>
-                                        <th>Action</th>
+                                        <th class="text-left">Title</th>
+                                        <th class="text-left">Price</th>
+                                        <th class="text-left">Location</th>
+                                        <th class="text-left">Area</th>
+                                        <th class="text-left">Image</th>
+                                        <th class="text-left">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -33,11 +33,11 @@
                                     @foreach($properties as $property)
                                         <tr>
                                             <td class="text-left">{{$loop->iteration}}</td>
-                                            <td>{{$property->title}}</td>
-                                            <td>{{$property->price}}</td>
-                                            <td>{{$property->location}}</td>
-                                            <td>{{$property->area}}</td>
-                                            <td>
+                                            <td class="text-left">{{$property->title}}</td>
+                                            <td class="text-left">{{$property->price}}</td>
+                                            <td class="text-left">{{$property->location}}</td>
+                                            <td class="text-left">{{$property->area}}</td>
+                                            <td class="text-left">
                                                 @php
                                                     $images = \App\Models\Media::where('model_type', 'App\Models\Category')->where('model_id', $property->id)->get();
                                                 @endphp
@@ -47,7 +47,7 @@
                                                     </div>
                                                 @endforeach
                                             </td>
-                                            <td>
+                                            <td class="text-left">
                                                 <a href="{{route('property.edit', ['property' => $property])}}" class="mdc-button text-button--info">
                                                     Edit
                                                 </a>

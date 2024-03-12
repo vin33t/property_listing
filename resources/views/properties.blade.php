@@ -32,30 +32,25 @@
                                 <div class="tab-content" id="v-pills-tabContent">
                                     <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
                                          aria-labelledby="v-pills-nextgen-tab">
-                                        <form action="#" class="search-property-1">
+                                        <form action="{{route('searchProperties')}}" method="POST" class="search-property-1">
+                                            @csrf
                                             <div class="row g-0">
-                                                <div class="col-md d-flex">
-                                                    <div class="form-group p-4 border-0">
-                                                        <label for="#">Enter Keyword</label>
-                                                        <div class="form-field">
-                                                            <div class="icon"><span class="fa fa-search"></span></div>
-                                                            <input type="text" class="form-control"
-                                                                   placeholder="Enter Keyword">
-                                                        </div>
-                                                    </div>
-                                                </div>
+
                                                 <div class="col-md d-flex">
                                                     <div class="form-group p-4">
                                                         <label for="#">Property Type</label>
                                                         <div class="form-field">
                                                             <div class="select-wrap">
-                                                                <div class="icon"><span class="fa fa-chevron-down"></span>
-                                                                </div>
-                                                                <select name id class="form-control">
-                                                                    <option value>Residential</option>
-                                                                    <option value>Commercial</option>
-                                                                    <option value>Land</option>
-                                                                    <option value>Industrial</option>
+                                                                <div class="icon"><span class="fa fa-chevron-down"></span></div>
+
+                                                                @php
+                                                                    $categories = \App\Models\Category::all();
+                                                                @endphp
+
+                                                                <select name="property_type" id class="form-control">
+                                                                    @foreach($categories as $category)
+                                                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                                                    @endforeach
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -66,8 +61,16 @@
                                                         <label for="#">Location</label>
                                                         <div class="form-field">
                                                             <div class="icon"><span class="ion-ios-pin"></span></div>
-                                                            <input type="text" class="form-control"
-                                                                   placeholder="Search Location">
+                                                            <input type="text" name="location" class="form-control" value="New York" placeholder="Search Location">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md d-flex">
+                                                    <div class="form-group p-4">
+                                                        <label for="#">Area(Sq.Ft.)</label>
+                                                        <div class="form-field">
+                                                            <div class="icon"><span class="ion-ios-map"></span></div>
+                                                            <input type="number" name="area" class="form-control"  value="100">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -76,23 +79,15 @@
                                                         <label for="#">Price Limit</label>
                                                         <div class="form-field">
                                                             <div class="select-wrap">
-                                                                <div class="icon"><span class="fa fa-chevron-down"></span>
-                                                                </div>
-                                                                <select name id class="form-control">
-                                                                    <option value>£100</option>
-                                                                    <option value>£10,000</option>
-                                                                    <option value>£50,000</option>
-                                                                    <option value>£100,000</option>
-                                                                    <option value>£200,000</option>
-                                                                    <option value>£300,000</option>
-                                                                    <option value>£400,000</option>
-                                                                    <option value>£500,000</option>
-                                                                    <option value>£600,000</option>
-                                                                    <option value>£700,000</option>
-                                                                    <option value>£800,000</option>
-                                                                    <option value>£900,000</option>
-                                                                    <option value>£1,000,000</option>
-                                                                    <option value>£2,000,000</option>
+                                                                <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                                                                <select name="price" class="form-control">
+                                                                    <option value="100">£100</option>
+                                                                    <option value="10000">£10,000</option>
+                                                                    <option value="50000">£50,000</option>
+                                                                    <option value="100000">£100,000</option>
+                                                                    <option value="200000">£200,000</option>
+                                                                    <option value="300000">£300,000</option>
+
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -101,40 +96,35 @@
                                                 <div class="col-md d-flex">
                                                     <div class="form-group d-flex w-100 border-0">
                                                         <div class="form-field w-100 align-items-center d-flex">
-                                                            <input type="submit" value="Search"
-                                                                   class="align-self-stretch form-control btn btn-primary">
+                                                            <input type="submit" class="align-self-stretch form-control btn btn-primary">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </form>
+
                                     </div>
                                     <div class="tab-pane fade" id="v-pills-2" role="tabpanel"
                                          aria-labelledby="v-pills-performance-tab">
-                                        <form action="#" class="search-property-1">
+                                        <form action="{{route('searchProperties')}}" method="POST" class="search-property-1">
+                                            @csrf
                                             <div class="row g-0">
-                                                <div class="col-md d-flex">
-                                                    <div class="form-group p-4 border-0">
-                                                        <label for="#">Enter Keyword</label>
-                                                        <div class="form-field">
-                                                            <div class="icon"><span class="fa fa-search"></span></div>
-                                                            <input type="text" class="form-control"
-                                                                   placeholder="Enter Keyword">
-                                                        </div>
-                                                    </div>
-                                                </div>
+
                                                 <div class="col-md d-flex">
                                                     <div class="form-group p-4">
                                                         <label for="#">Property Type</label>
                                                         <div class="form-field">
                                                             <div class="select-wrap">
-                                                                <div class="icon"><span class="fa fa-chevron-down"></span>
-                                                                </div>
-                                                                <select name id class="form-control">
-                                                                    <option value>Residential</option>
-                                                                    <option value>Commercial</option>
-                                                                    <option value>Land</option>
-                                                                    <option value>Industrial</option>
+                                                                <div class="icon"><span class="fa fa-chevron-down"></span></div>
+
+                                                                @php
+                                                                    $categories = \App\Models\Category::all();
+                                                                @endphp
+
+                                                                <select name="property_type" id class="form-control">
+                                                                    @foreach($categories as $category)
+                                                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                                                    @endforeach
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -145,8 +135,16 @@
                                                         <label for="#">Location</label>
                                                         <div class="form-field">
                                                             <div class="icon"><span class="ion-ios-pin"></span></div>
-                                                            <input type="text" class="form-control"
-                                                                   placeholder="Search Location">
+                                                            <input type="text" name="location" class="form-control" value="New York" placeholder="Search Location">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md d-flex">
+                                                    <div class="form-group p-4">
+                                                        <label for="#">Area(Sq.Ft.)</label>
+                                                        <div class="form-field">
+                                                            <div class="icon"><span class="ion-ios-map"></span></div>
+                                                            <input type="number" name="area" class="form-control"  value="100">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -155,23 +153,15 @@
                                                         <label for="#">Price Limit</label>
                                                         <div class="form-field">
                                                             <div class="select-wrap">
-                                                                <div class="icon"><span class="fa fa-chevron-down"></span>
-                                                                </div>
-                                                                <select name id class="form-control">
-                                                                    <option value>£100</option>
-                                                                    <option value>£10,000</option>
-                                                                    <option value>£50,000</option>
-                                                                    <option value>£100,000</option>
-                                                                    <option value>£200,000</option>
-                                                                    <option value>£300,000</option>
-                                                                    <option value>£400,000</option>
-                                                                    <option value>£500,000</option>
-                                                                    <option value>£600,000</option>
-                                                                    <option value>£700,000</option>
-                                                                    <option value>£800,000</option>
-                                                                    <option value>£900,000</option>
-                                                                    <option value>£1,000,000</option>
-                                                                    <option value>£2,000,000</option>
+                                                                <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                                                                <select name="price" class="form-control">
+                                                                    <option value="100">£100</option>
+                                                                    <option value="10000">£10,000</option>
+                                                                    <option value="50000">£50,000</option>
+                                                                    <option value="100000">£100,000</option>
+                                                                    <option value="200000">£200,000</option>
+                                                                    <option value="300000">£300,000</option>
+
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -180,13 +170,13 @@
                                                 <div class="col-md d-flex">
                                                     <div class="form-group d-flex w-100 border-0">
                                                         <div class="form-field w-100 align-items-center d-flex">
-                                                            <input type="submit" value="Search"
-                                                                   class="align-self-stretch form-control btn btn-primary">
+                                                            <input type="submit" class="align-self-stretch form-control btn btn-primary">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </form>
+
                                     </div>
                                 </div>
                             </div>
@@ -199,13 +189,13 @@
     <section class="ftco-section bg-light">
         <div class="container-xl">
             <div class="row">
-                @foreach($properties as $property)
+                @forelse($properties as $property)
                     @php
                         $image = $property->medias->first();
                     @endphp
                     <div class="col-md-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                     <div class="property-wrap">
-                        <a href="#" class="img img-property" style="background-image: url({{asset('storage/'. $image?->path)}});">
+                        <a href="{{route('propertyDetails', ['property' => $property])}}" class="img img-property" style="background-image: url({{asset('storage/'. $image?->path)}});">
                             <p class="price"><span class="orig-price">£{{$property->price}}</span></p>
                         </a>
                         <div class="text">
@@ -216,7 +206,7 @@
                                 </div>
                                 <span class="text-right">2 weeks ago</span>
                             </div>
-                            <h3><a href="#">{{$property->name}}</a></h3>
+                            <h3><a href="{{route('propertyDetails', ['property' => $property])}}">{{$property->title}}</a></h3>
                             <span class="location"><i class="ion-ios-pin"></i> {{$property->location}} <span
                                     class="sale">{{ucfirst($property->type)}}</span></span>
                             <ul class="property_list mt-3 mb-0">
@@ -227,7 +217,11 @@
                         </div>
                     </div>
                 </div>
-                @endforeach
+                @empty
+                    <div class="col-md-12">
+                        <h3 class="text-center">No Properties Found</h3>
+                    </div>
+                @endforelse
 
             </div>
             <div class="row mt-5">

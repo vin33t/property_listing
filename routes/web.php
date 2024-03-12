@@ -105,5 +105,12 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('privacyPolicy/index', [\App\Http\Controllers\PrivacyPolicyController::class, 'index'])->name('privacyPolicy.index');
     Route::post('privacyPolicy/update/{termAndCondition?}', [\App\Http\Controllers\PrivacyPolicyController::class, 'update'])->name('privacyPolicy.update');
+
+
+    Route::post('search-properties', [\App\Http\Controllers\searchController::class, 'index'])->name('searchProperties');
+
+
+
+
 });
 
