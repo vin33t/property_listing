@@ -93,11 +93,14 @@
                                                         </div>
                                                     </div>
                                                 </div>
-                                            </div>
-                                            <div class="mdc-text-field mdc-text-field--outlined">
-                                                <a href="{{route('slide.remove', ['slide' => $slide])}}" class="mdc-button mdc-button--outlined outlined-button--danger">Remove Slide</a>
+                                                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                                                    <div class="mdc-text-field mdc-text-field--outlined">
+                                                        <a href="{{route('slide.remove', ['slide' => $slide])}}" class="mdc-button mdc-button--outlined outlined-button--danger">Remove Slide</a>
+                                                    </div>
+                                                </div>
                                             </div>
                                         @endforeach
+
                                     </div>
 
 

@@ -21,7 +21,7 @@
                         <div class="mdc-layout-grid__cell--span-12">
                             <div class="mdc-card">
                                 <h6 class="card-title">Create Category</h6>
-                                <form action="{{route('property.store')}}" method="post">
+                                <form action="{{route('property.update', ['property' => $property])}}" method="post">
                                     @csrf
                                     <div class="template-demo">
                                         <div class="mdc-layout-grid__inner">
@@ -180,6 +180,17 @@
                                                             <label for="text-field-hero-input" class="mdc-floating-label">Images</label>
                                                         </div>
                                                         <div class="mdc-notched-outline__trailing"></div>
+                                                    </div>
+                                                    <div>
+                                                        @php
+                                                            $images = \App\Models\Media::where('model_type', 'App\Models\Property')->where('model_id', $property->id)->get();
+                                                        @endphp
+                                                        @foreach($images as $image)
+                                                            <div class="flex w-max relative">
+                                                                <img src="{{ asset('storage/' . $image->path) }}" alt="" class="" style="width: 100px;">
+                                                                <a href="{{ route('mediaDelete', ['media' => $image]) }}" class="p-1 absolute h-max rounded-md bg-red-500 top-0 right-0">X</a>
+                                                            </div>
+                                                        @endforeach
                                                     </div>
                                                 </div>
                                             </div>

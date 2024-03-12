@@ -46,4 +46,8 @@ class HomeController extends Controller
     public function contact(){
         return view('contact');
     }
+
+    public function propertyDetails(Property $property){
+        return view('propertyDetails', compact('property'));
+    }
 }

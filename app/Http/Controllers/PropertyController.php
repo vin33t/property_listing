@@ -47,6 +47,7 @@ class PropertyController extends Controller
     public function update(Property $property, PropertyRequest $request){
 //        dd($request->all());
         $property->update($request->all());
+
         if ($request->file('media')){
             $images = $request->file('media');
             foreach ($images as $image){

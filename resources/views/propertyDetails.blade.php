@@ -18,26 +18,24 @@
             <div class="row g-xl-5">
                 <div class="col-md-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100"
                      data-aos-duration="1000">
-                    <div class="img w-100" style="background-image: url({{asset('assets1/images/about.jpg')}});"></div>
+                    @php
+                        $media = \App\Models\Media::where('model_type', 'App\Models\Property')->where('model_id', $property->id)->first();
+                    @endphp
+                    <div class="img w-100" style="background-image: url({{asset('storage/'. $media->path)}});"></div>
                 </div>
                 <div class="col-md-8 heading-section" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                    <span class="subheading">About Us</span>
-                    <h2 class="mb-4">Karanjee Properties</h2>
-                    <p>                    Committed to giving the best service possible to our clients.
+                    <span class="subheading">Property Details</span>
+                    <h2 class="mb-4">{{$property->title}}</h2>
+                    <p>
+                        {{$property->description}}
                     </p>
-                    <p>                    We find exclusive deals, lands, warehouses, investments and off market properties for our potential investors.
-                    </p>
-                    <p>In 2018, Karanjee began his journey in the world of Real Estate. Before getting his hands on properties, Karanjee was the marketing executive at Galaxy Real Estate. He had responsibilities to make sure the images and the website looked to the top notch for customers to have easy access as well as there were no issues in the marketing aspect. </p>
-                    <p>Thereafter, Karanjee took on the role to become as a Letting agent. During his experience, he faced many challenges to make sure the compliance was completed, the clients were not facing any issues when moved into the property and the landlord was fully satisfied when given the service. </p>
-                    <p>In 2019, Karanjee left Galaxy to finish his studies at Roehampton and graduated in Film. After his Graduation, Karanjee became a freelance Agent in Commercial properties and became an expertise in the field. </p>
-                    <p>Now, Karanjee is a known individual in the Real Estate industry, as well as a respected Fashion Super Model in the Fashion. Beside Real Estate, Karanjee has worked in fashion for over 7 years.</p>
                     <div class="row py-5">
                         <div class="col-md-6 col-lg-3">
                             <div class="counter-wrap" data-aos="fade-up" data-aos-duration="1000">
                                 <div class="text">
                                 <span class="d-block number gradient-text"><span id="count1" class="counter"
-                                                                                 data-count="10">0</span></span>
-                                    <p>Years of Experienced</p>
+                                                                                 data-count="{{$property->area}}">0</span></span>
+                                    <p>Area</p>
                                 </div>
                             </div>
                         </div>
@@ -45,8 +43,8 @@
                             <div class="counter-wrap" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                                 <div class="text">
                                 <span class="d-block number gradient-text"><span id="count2" class="counter"
-                                                                                 data-count="210">0</span>K+</span>
-                                    <p>Total Properties</p>
+                                                                                 data-count="{{$property->price}}">0</span>K+</span>
+                                    <p>Price</p>
                                 </div>
                             </div>
                         </div>
@@ -54,8 +52,8 @@
                             <div class="counter-wrap" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                                 <div class="text">
                                 <span class="d-block number gradient-text"><span id="count2" class="counter"
-                                                                                 data-count="450">0</span></span>
-                                    <p>Qualified Realtors</p>
+                                                                                 data-count="{{$property->bathrooms}}">0</span></span>
+                                    <p>Bathrooms</p>
                                 </div>
                             </div>
                         </div>
@@ -63,8 +61,8 @@
                             <div class="counter-wrap" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
                                 <div class="text">
                                 <span class="d-block number gradient-text"><span id="count2" class="counter"
-                                                                                 data-count="100">0</span></span>
-                                    <p>Total Branches</p>
+                                                                                 data-count="{{$property->rooms}}">0</span></span>
+                                    <p>Rooms</p>
                                 </div>
                             </div>
                         </div>

@@ -2,6 +2,7 @@
 
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
+use App\Http\Controllers\GalleryCategoryController;
 use App\Http\Controllers\PropertyController;
 use App\Http\Controllers\MediaController;
 use App\Http\Controllers\HomeController;
@@ -25,7 +26,10 @@ Route::get('/properties', [HomeController::class, 'properties'])->name('properti
 Route::get('/agents', [HomeController::class, 'agents'])->name('agents');
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/blogDetails', [HomeController::class, 'blogDetails'])->name('blogDetails');
+Route::get('/propertyDetails/{property}', [HomeController::class, 'propertyDetails'])->name('propertyDetails');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+
+
 
 Route::get('termsCondition', function (){return view('terms_and_condition');})->name('termsCondition');
 Route::get('privacyPolicy', function (){return view('privacy_policy');})->name('privacyPolicy');
@@ -81,6 +85,15 @@ Route::middleware(['auth'])->group(function(){
         Route::get('edit/{slider}', [SliderController::class, 'edit'])->name('edit');
         Route::get('destroy/{slider}', [SliderController::class, 'destroy'])->name('destroy');
         Route::get('status/{slider}', [SliderController::class, 'status'])->name('status');
+    });
+
+    Route::prefix('galleryCategory')->name('galleryCategory.')->group(function(){
+        Route::get('/', [GalleryCategoryController::class, 'index'])->name('index');
+        Route::get('create', [GalleryCategoryController::class, 'create'])->name('create');
+        Route::post('store', [GalleryCategoryController::class, 'store'])->name('store');
+        Route::post('update/{galleryCategory}', [GalleryCategoryController::class, 'update'])->name('update');
+        Route::get('edit/{galleryCategory}', [GalleryCategoryController::class, 'edit'])->name('edit');
+        Route::get('destroy/{galleryCategory}', [GalleryCategoryController::class, 'destroy'])->name('destroy');
     });
 
     Route::get('slide/remove/{slide}', [\App\Http\Controllers\SlideController::class, 'slideRemove'])->name('slide.remove');

@@ -350,7 +350,7 @@
                                 </div>
                                 <span class="text-right">2 weeks ago</span>
                             </div>
-                            <h3><a href="#">{{$property->title}}</a></h3>
+                            <h3><a href="{{route('propertyDetails', ['property' => $property])}}">{{$property->title}}</a></h3>
                             <span class="location"><i class="ion-ios-pin"></i> New York <span class="sale">Sale</span></span>
                             <ul class="property_list mt-3 mb-0">
                                 @if($property->rooms)
@@ -463,7 +463,7 @@
                 </div>
                 <div class="col-md-8 heading-section" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
                     <span class="subheading">About Us</span>
-                    <h2 class="mb-4">Oakberry A Real Estate Company</h2>
+                    <h2 class="mb-4">Karanjee</h2>
                     <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
                     <div class="row py-5">
                         <div class="col-md-6 col-lg-3">
