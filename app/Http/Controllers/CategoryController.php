@@ -23,7 +23,7 @@ class CategoryController extends Controller
         if ($request->file('media')){
             $images = $request->file('media');
             foreach ($images as $image){
-                $path = $image->store('public/category/images');
+                $path = $image->store('public/');
                 Media::create([
                     'model_id' => $category->id,
                     'model_type' => 'App\Models\Category',
@@ -43,7 +43,7 @@ class CategoryController extends Controller
         if ($request->file('media')){
             $images = $request->file('media');
             foreach ($images as $image){
-                $path = $image->store('public/category/images');
+                $path = $image->store('public/');
                 Media::create([
                     'model_id' => $category->id,
                     'model_type' => 'App\Models\Category',

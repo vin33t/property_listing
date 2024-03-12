@@ -27,7 +27,7 @@ class PropertyController extends Controller
         if ($request->file('media')){
             $images = $request->file('media');
             foreach ($images as $image){
-                $path = $image->store('public/property/images');
+                $path = $image->store('public/');
                 Media::create([
                     'model_id' => $property->id,
                     'model_type' => 'App\Models\Property',
@@ -50,7 +50,7 @@ class PropertyController extends Controller
         if ($request->file('media')){
             $images = $request->file('media');
             foreach ($images as $image){
-                $path = $image->store('public/property/images');
+                $path = $image->store('public/');
                 Media::create([
                     'model_id' => $property->id,
                     'model_type' => 'App\Models\Property',
