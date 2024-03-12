@@ -2,7 +2,7 @@
 
 @section('content')
     @php
-        $media = \App\Models\Media::where('model_type', 'App\Models\Property')->where('model_id', $property->id)->first();
+          $media = $property->medias->first();
     @endphp
     <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('storage/'. $media?->path)}});">
         <div class="overlay"></div>
