@@ -24,7 +24,7 @@ class PropertyRequest extends FormRequest
         return [
             'title' => 'required',
             'description' => '',
-            'price' => 'required',
+            'price' => '',
             'location' => 'required',
             'area' => 'required',
             'rooms' => '',
@@ -35,6 +35,7 @@ class PropertyRequest extends FormRequest
             //'media.*' => 'mimes:jpg,png,jpeg',
             'type' => 'required',
             'is_featured' => 'required',
+            'year' => '',
         ];
     }
 }

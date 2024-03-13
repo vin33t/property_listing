@@ -37,6 +37,19 @@
                                             </div>
                                             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                                                 <div class="mdc-text-field mdc-text-field--outlined">
+                                                    <input type="file" multiple name="media[]" class="mdc-text-field__input" id="image-input">
+                                                    <div class="mdc-notched-outline">
+                                                        <div class="mdc-notched-outline__leading"></div>
+                                                        <div class="mdc-notched-outline__notch">
+                                                            <label for="image-input" class="mdc-floating-label">Images</label>
+                                                        </div>
+                                                        <div class="mdc-notched-outline__trailing"></div>
+                                                    </div>
+                                                </div>
+                                            </div>
+
+                                            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                                                <div class="mdc-text-field mdc-text-field--outlined">
                                                     <select name="gallery_category_id" id="user_id" class="mdc-text-field__input mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                                                         @foreach($galleryCategories as $gallery)
                                                             <option value="{{$gallery->id}}">{{$gallery->name}}</option>
@@ -45,19 +58,7 @@
                                                     <div class="mdc-notched-outline">
                                                         <div class="mdc-notched-outline__leading"></div>
                                                         <div class="mdc-notched-outline__notch">
-                                                            <label for="gallery_category_id" class="mdc-floating-label">Agent</label>
-                                                        </div>
-                                                        <div class="mdc-notched-outline__trailing"></div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
-                                                <div class="mdc-text-field mdc-text-field--outlined">
-                                                    <textarea name="description" class="mdc-text-field__input" rows="10"></textarea>
-                                                    <div class="mdc-notched-outline">
-                                                        <div class="mdc-notched-outline__leading"></div>
-                                                        <div class="mdc-notched-outline__notch">
-                                                            <label for="description-input" class="mdc-floating-label">Description</label>
+                                                            <label for="gallery_category_id" class="mdc-floating-label">Gallery</label>
                                                         </div>
                                                         <div class="mdc-notched-outline__trailing"></div>
                                                     </div>

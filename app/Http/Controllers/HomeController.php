@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\Gallery;
+use App\Models\GalleryCategory;
 use App\Models\homeSlider;
 use App\Models\Property;
 use App\Models\User;
@@ -26,8 +28,12 @@ class HomeController extends Controller
         return view('about');
     }
 
-    public function properties(){
-        $properties = Property::all();
+    public function properties($id = null){
+        if($id){
+            $properties = Property::where('category_id', $id)->get();
+        }else{
+            $properties = Property::all();
+        }
         return view('properties', compact('properties'));
     }
 
@@ -50,5 +56,17 @@ class HomeController extends Controller
 
     public function propertyDetails(Property $property){
         return view('propertyDetails', compact('property'));
+    }
+
+    public function galleries($id = null){
+
+        if($id){
+            $galleries = Gallery::where('gallery_category_id', $id)->get();
+//            dd($galleries);
+        }else{
+            $galleries = Gallery::all();
+        }
+        $galleryCategories = GalleryCategory::all();
+        return view('gallery', compact('galleries', 'galleryCategories'));
     }
 }

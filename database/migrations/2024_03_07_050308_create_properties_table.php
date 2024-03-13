@@ -17,12 +17,12 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->decimal('price', 10, 2);
+            $table->decimal('price', 10, 2)->default('POA');
             $table->string('location');
             $table->integer('area');
             $table->integer('rooms')->nullable();
             $table->integer('bathrooms')->nullable();
-            $table->enum('type', ['sale', 'rent']);
+            $table->enum('type', ['sale', 'rent', 'leasehold']);
             $table->boolean('is_featured');
             $table->timestamps();
         });

@@ -216,7 +216,7 @@
                                 $media = \App\Models\Media::where('model_type', 'App\Models\Category')->where('model_id', $category->id)->first();
                             @endphp
                         <div class="col-md-3 text-center d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-                            <a href="#" class="services">
+                            <a href="{{route('properties', ['id' => $category])}}" class="services">
                                 @if($media==Null)
                                   <img src="{{asset('assets1/images/noImg.jpg')}}" style="height: 100px; width: 100px; border-radius: 50%" alt="">
                                 @else
@@ -229,6 +229,7 @@
                         </div>
 
                         @endforeach
+                    </div>
                 </div>
 
             </div>
@@ -258,7 +259,7 @@
                                     <div class="img" style="background-image: url({{asset('assets1/images/person_1.jpg')}});"></div>
                                     <h3 class="ml-2">{{$property->user->name}}</h3>
                                 </div>
-                                <span class="text-right">2 weeks ago</span>
+                                <span class="text-right">{{($property->created_at->diffInDays(\Carbon\Carbon::now()) == 0 ) ? 'today' : $property->created_at->diffInDays(\Carbon\Carbon::now()) .' days ago'}}</span>
                             </div>
                             <h3><a href="{{route('propertyDetails', ['property' => $property])}}">{{$property->title}}</a></h3>
                             <span class="location"><i class="ion-ios-pin"></i> {{$property->location}}<span class="sale">{{$property->type}}</span></span>

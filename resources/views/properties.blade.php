@@ -204,7 +204,7 @@
                                     <div class="img" style="background-image: url({{asset('assets1/images/person_1.jpg')}});"></div>
                                     <h3 class="ml-2">{{$property->user->name}}</h3>
                                 </div>
-                                <span class="text-right">2 weeks ago</span>
+                                <span class="text-right">{{($property->created_at->diffInDays(\Carbon\Carbon::now()) == 0 ) ? 'today' : $property->created_at->diffInDays(\Carbon\Carbon::now()) .' days ago'}}</span>
                             </div>
                             <h3><a href="{{route('propertyDetails', ['property' => $property])}}">{{$property->title}}</a></h3>
                             <span class="location"><i class="ion-ios-pin"></i> {{$property->location}} <span

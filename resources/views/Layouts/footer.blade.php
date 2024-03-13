@@ -1,36 +1,19 @@
 <section class="ftco-gallery">
     <div class="container-xl-fluid">
         <div class="row g-0">
+            @php
+                $galleries = \App\Models\Media::where('model_type', 'App\Models\Gallery')->limit(6)->get();
+            @endphp
+        @foreach($galleries as $gallery)
+{{--            @dd($gallery->path);--}}
+
             <div class="col-md-2" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-                <a href="{{asset('assets1/images/gallery-1.jpg')}}" class="gallery-wrap img d-flex align-items-center justify-content-center glightbox" style="background-image: url({{asset('assets1/images/gallery-1.jpg')}});">
+                <a href="{{asset('storage/'. $gallery->path)}}" class="gallery-wrap img d-flex align-items-center justify-content-center glightbox" style="background-image: url({{asset('storage/'. $gallery->path)}});">
                     <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-search"></span></div>
                 </a>
             </div>
-            <div class="col-md-2" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                <a href="{{asset('assets1/images/gallery-2.jpg')}}" class="gallery-wrap img d-flex align-items-center justify-content-center glightbox" style="background-image: url({{asset('assets1/images/gallery-2.jpg')}});">
-                    <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-search"></span></div>
-                </a>
-            </div>
-            <div class="col-md-2" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-                <a href="{{asset('assets1/images/gallery-3.jpg')}}" class="gallery-wrap img d-flex align-items-center justify-content-center glightbox" style="background-image: url({{asset('assets1/images/gallery-3.jpg')}});">
-                    <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-search"></span></div>
-                </a>
-            </div>
-            <div class="col-md-2" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
-                <a href="{{asset('assets1/images/gallery-4.jpg')}}" class="gallery-wrap img d-flex align-items-center justify-content-center glightbox" style="background-image: url({{asset('assets1/images/gallery-4.jpg')}});">
-                    <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-search"></span></div>
-                </a>
-            </div>
-            <div class="col-md-2" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">
-                <a href="{{asset('assets1/images/gallery-5.jpg')}}" class="gallery-wrap img d-flex align-items-center justify-content-center glightbox" style="background-image: url({{asset('assets1/images/gallery-5.jpg')}});">
-                    <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-search"></span></div>
-                </a>
-            </div>
-            <div class="col-md-2" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">
-                <a href="{{asset('assets1/images/gallery-6.jpg')}}" class="gallery-wrap img d-flex align-items-center justify-content-center glightbox" style="background-image: url({{asset('assets1/images/gallery-6.jpg')}});">
-                    <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-search"></span></div>
-                </a>
-            </div>
+            @endforeach
+
         </div>
     </div>
 </section>

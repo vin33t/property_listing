@@ -78,16 +78,17 @@
 
                     <div class="swiffy-slider">
                         <ul class="slider-container">
-                            <li>
-                                <div class="img img-2" style="background-image: url({{asset('assets1/images/about-1.jpg')}});" data-aos="fade-up"
-                                     data-aos-delay="400" data-aos-duration="1000">
-                                </div>
-                            </li>
-                            <li>
-                                <div class="img img-2" style="background-image: url({{asset('assets1/images/about-2.jpg')}});" data-aos="fade-up"
-                                     data-aos-delay="400" data-aos-duration="1000">
-                                </div>
-                            </li>
+                            @php
+                                $images = \App\Models\Media::where('model_type', 'App\Models\Property')->where('model_id', $property->id)->get();
+                            @endphp
+                            @foreach($images as $image)
+                                <li>
+                                    <div class="img img-2" style="background-image: url({{asset('storage/'. $image->path)}});" data-aos="fade-up"
+                                         data-aos-delay="400" data-aos-duration="1000">
+                                    </div>
+                                </li>
+                            @endforeach
+
                         </ul>
 
                         <button type="button" class="slider-nav"></button>

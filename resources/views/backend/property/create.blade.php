@@ -20,13 +20,9 @@
                 <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell--span-12">
                         <div class="mdc-card">
-<<<<<<< HEAD
-                            <h6 class="card-title">Create Category</h6>
-                            <form action="{{route('property.store')}}" method="post" enctype="multipart/form-data">
-=======
+
                             <h6 class="card-title">Create Property</h6>
-                            <form action="{{route('property.store')}}" method="post">
->>>>>>> b8005bf62be8f298adcfff9355735aea97964445
+                            <form action="{{route('property.store')}}" method="post" enctype="multipart/form-data">
                                 @csrf
                                 <div class="template-demo">
                                     <div class="mdc-layout-grid__inner">
@@ -146,9 +142,24 @@
 
                                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                                             <div class="mdc-text-field mdc-text-field--outlined">
+                                                <input id="year" name="year" type="text" class="mdc-text-field__input">
+                                                <div class="mdc-notched-outline">
+                                                    <div class="mdc-notched-outline__leading"></div>
+                                                    <div class="mdc-notched-outline__notch">
+                                                        <label for="year" class="mdc-floating-label">Year</label>
+                                                    </div>
+                                                    <div class="mdc-notched-outline__trailing"></div>
+                                                </div>
+                                            </div>
+                                        </div>
+
+
+                                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                                            <div class="mdc-text-field mdc-text-field--outlined">
                                                 <select name="type" id="type" class="mdc-text-field__input">
                                                     <option value="sale">Sale</option>
                                                     <option value="rent">Rent</option>
+                                                    <option value="leasehold">Leasehold</option>
                                                 </select>
                                                 <div class="mdc-notched-outline">
                                                     <div class="mdc-notched-outline__leading"></div>

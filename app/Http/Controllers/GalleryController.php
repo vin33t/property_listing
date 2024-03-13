@@ -12,8 +12,8 @@ class GalleryController extends Controller
 {
     public function index(){
 
-        $galleryCategories = Gallery::all();
-        return view('backend.gallery.index', compact('galleryCategories'));
+        $galleries = Gallery::all();
+        return view('backend.gallery.index', compact('galleries'));
     }
 
     public function create(){
