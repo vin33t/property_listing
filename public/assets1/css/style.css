@@ -1543,11 +1543,12 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5,
     .topper .text p {
       margin-bottom: 0;
       font-size: 12px; }
-.topper .text .con {
-    margin-bottom: 0;
-    font-size: 12px;
-    font-weight: 500;
+.topper .text .con a {
     color: #c7c6c6;
+    text-transform: uppercase;
+    margin-right: 5px;
+    font-size: 10px;
+    letter-spacing: 1px;
 }
       .topper .text .con span {
         font-weight: 600;
