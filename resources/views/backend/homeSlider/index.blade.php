@@ -22,6 +22,7 @@
                                         <th class="text-left">Heading</th>
                                         <th class="text-left">Description</th>
                                         <th class="text-left">Image</th>
+                                        <th class="text-left">Status</th>
                                         <th class="text-left">Action</th>
                                     </tr>
                                     </thead>
@@ -33,6 +34,13 @@
                                             <td class="text-left">{{$slider->heading}}</td>
                                             <td class="text-left">{{$slider->description}}</td>
                                             <td class="text-left"><img src="{{asset('storage/'. $slider->image)}}" alt="" style="height: 100px"></td>
+                                            <td class="text-left">  <a href="{{route('homeSlider.changeStatus', ['homeSlider' => $slider->id])}}"  class="mdc-button text-button--{{$slider->status == 1? 'success': 'secondary'}}">
+                                                    @if($slider->status == 1)
+                                                        Active
+                                                    @else
+                                                        Inactive
+                                                    @endif
+                                                </a></td>
 
                                             <td class="text-left">
                                                 <a href="{{route('homeSlider.edit', ['homeSlider' => $slider->id])}}"  class="mdc-button text-button--primary">
@@ -41,6 +49,7 @@
                                                 <a href="{{route('homeSlider.destroy', ['homeSlider' => $slider->id])}}"  class="mdc-button text-button--secondary">
                                                     Delete
                                                 </a>
+
                                             </td>
                                         </tr>
                                     @endforeach

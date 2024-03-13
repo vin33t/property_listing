@@ -17,8 +17,8 @@
         <div class="container-xl">
             <div class="row justify-content-center">
                 <div class="col-md-8 heading-section text-center mb-5" data-aos="fade-up" data-aos-duration="1000">
-                    <span class="subheading">Galleries</span>
-                    <h2>Galleries</h2>
+                    <span class="subheading">Our Gallery</span>
+                    <h2>Gallery</h2>
                 </div>
             </div>
             <div class="container-xl-fluid">

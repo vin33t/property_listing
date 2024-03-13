@@ -56,6 +56,12 @@ class SliderController extends Controller
         return view('backend.homeSlider.create')->with(['formData' => $formData, 'isEdit' => $isEdit, 'homeSlider' => $homeSlider]);
     }
 
+    public function changeStatus(homeSlider $homeSlider){
+        $homeSlider->status = !$homeSlider->status;
+        $homeSlider->save();
+        return redirect()->back();
+    }
+
     public function update(Request $request, homeSlider $homeSlider){
         $request->validate([
             'heading' => 'required',

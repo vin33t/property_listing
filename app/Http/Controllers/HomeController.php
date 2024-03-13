@@ -21,8 +21,8 @@ class HomeController extends Controller
 
     public function index(Request $request){
 
-        $slides = homeSlider::all();
-
+       // get all slides where status is 1
+        $slides = homeSlider::where('status', 1)->get();
         $properties = Property::where('is_featured', true)->get();
         $agents = User::where('role', 'agent')->withCount('properties')
             ->get();

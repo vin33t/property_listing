@@ -12,6 +12,7 @@ return new class extends Migration {
             $table->string('heading');
             $table->longText('description');
             $table->string('image');
+            $table->tinyInteger('status')->default(1);
             $table->timestamps();
         });
     }

@@ -35,7 +35,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                                             <div class="mdc-text-field mdc-text-field--outlined">
                                                 <textarea name="description" class="mdc-text-field__input" rows="10">{{$homeSlider->description?? ''}} </textarea>
@@ -48,7 +47,6 @@
                                                 </div>
                                             </div>
                                         </div>
-
                                         <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12-desktop">
                                             <div class="mdc-text-field mdc-text-field--outlined">
                                                 <input type="file" name="image" class="mdc-text-field__input" id="image-input">
@@ -57,11 +55,14 @@
                                                     <div class="mdc-notched-outline__notch">
                                                         <label for="image-input" class="mdc-floating-label">Image</label>
                                                     </div>
-                                                    <div class="mdc-notched-outline__trailing"></div>
+                                                    <div class="mdc-notched-outline__trailing">
+
+                                                    </div>
                                                 </div>
+                                                <span style="color: indianred; font-size: 12px; margin: auto 0px"><span style="font-size: 15px">*</span> Size should be more than 800px(Height) * 1600px(width) </span>
+
                                             </div>
                                         </div>
-
                                     </div>
 
                                 </div>

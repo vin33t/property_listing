@@ -83,6 +83,7 @@ Route::middleware(['auth'])->group(function(){
         Route::get('create', [SliderController::class, 'create'])->name('create');
         Route::post('store', [SliderController::class, 'store'])->name('store');
         Route::get('edit/{homeSlider}', [SliderController::class, 'edit'])->name('edit');
+        Route::get('changeStatus/{homeSlider}', [SliderController::class, 'changeStatus'])->name('changeStatus');
         Route::post('update/{homeSlider}', [SliderController::class, 'update'])->name('update');
         Route::get('destroy/{homeSlider}', [SliderController::class, 'destroy'])->name('destroy');
     });
