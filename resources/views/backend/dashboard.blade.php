@@ -22,7 +22,7 @@
                                 <div class="card-inner">
                                     <h5 class="card-title">Categories</h5>
                                     <h5 class="font-weight-light pb-2 mb-1 border-bottom">{{$categories->count()}}</h5>
-                                    <p class="tx-12 text-muted">55% target reached</p>
+{{--                                    <p class="tx-12 text-muted">55% target reached</p>--}}
                                     <div class="card-icon-wrapper">
                                         <i class="material-icons">attach_money</i>
                                     </div>
