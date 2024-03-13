@@ -15,7 +15,8 @@ class HomeController extends Controller
 {
     public function dashboard(){
         $properties = Property::all();
-        return view('backend.dashboard');
+        $categories = Category::all();
+        return view('backend.dashboard', compact('properties', 'categories'));
     }
 
     public function index(Request $request){
