@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Real State</title>
-    <link rel="icon" type="image/x-icon" href="assets1/images/logo.jpg">
+    <link rel="icon" type="image/x-icon" href="../assets1/images/logo.jpg">
     <!-- plugins:css -->
     <link rel="stylesheet" href="{{asset('assets/vendors/mdi/css/materialdesignicons.min.css')}}">
     <link rel="stylesheet" href="{{asset('assets/vendors/css/vendor.bundle.base.css')}}">
@@ -73,6 +73,7 @@
                             Property
                         </a>
                     </div>
+
                     <div class="mdc-list-item mdc-drawer-item">
                         <a class="mdc-drawer-link" href="{{route('termAndCondition.index')}}">
                             <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">track_changes</i>
