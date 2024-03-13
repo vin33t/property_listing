@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\Http\Requests\CategoryRequest;
+use App\Http\Requests\GalleryCategoryRequest;
 use App\Models\GalleryCategory;
 use App\Models\Media;
 use Illuminate\Http\Request;
@@ -10,8 +10,9 @@ use Illuminate\Http\Request;
 class GalleryCategoryController extends Controller
 {
     public function index(){
+
         $galleryCategories = GalleryCategory::all();
-        return view('backend.galleryCategory.create', compact('galleryCategories'));
+        return view('backend.galleryCategory.index', compact('galleryCategories'));
     }
 
     public function create(){

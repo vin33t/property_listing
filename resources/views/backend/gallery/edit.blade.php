@@ -50,7 +50,7 @@
                                         </div>
                                         <div>
                                             @php
-                                                $images = \App\Models\Media::where('model_type', 'App\Models\GalleryCategory')->where('model_id', $galleryCategory->id)->get();
+                                                $images = \App\Models\Media::where('model_type', 'App\Models\Category')->where('model_id', $galleryCategory->id)->get();
                                             @endphp
                                             @foreach($images as $image)
                                                 <div class="flex w-max relative">

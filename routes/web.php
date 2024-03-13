@@ -8,6 +8,7 @@ use App\Http\Controllers\MediaController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\SliderController;
+use App\Http\Controllers\GalleryController;
 
 /*
 |--------------------------------------------------------------------------
@@ -94,6 +95,15 @@ Route::middleware(['auth'])->group(function(){
         Route::post('update/{galleryCategory}', [GalleryCategoryController::class, 'update'])->name('update');
         Route::get('edit/{galleryCategory}', [GalleryCategoryController::class, 'edit'])->name('edit');
         Route::get('destroy/{galleryCategory}', [GalleryCategoryController::class, 'destroy'])->name('destroy');
+    });
+
+    Route::prefix('gallery')->name('gallery.')->group(function(){
+        Route::get('/', [GalleryController::class, 'index'])->name('index');
+        Route::get('create', [GalleryController::class, 'create'])->name('create');
+        Route::post('store', [GalleryController::class, 'store'])->name('store');
+        Route::post('update/{gallery}', [GalleryController::class, 'update'])->name('update');
+        Route::get('edit/{gallery}', [GalleryController::class, 'edit'])->name('edit');
+        Route::get('destroy/{gallery}', [GalleryController::class, 'destroy'])->name('destroy');
     });
 
     Route::get('slide/remove/{slide}', [\App\Http\Controllers\SlideController::class, 'slideRemove'])->name('slide.remove');

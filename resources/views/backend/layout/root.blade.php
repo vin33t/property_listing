@@ -81,6 +81,20 @@
                     </div>
 
                     <div class="mdc-list-item mdc-drawer-item">
+                        <a class="mdc-drawer-link" href="{{route('galleryCategory.index')}}">
+                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">grid_on</i>
+                            Gallery
+                        </a>
+                    </div>
+
+                    <div class="mdc-list-item mdc-drawer-item">
+                        <a class="mdc-drawer-link" href="{{route('gallery.index')}}">
+                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">grid_on</i>
+                            Gallery Image
+                        </a>
+                    </div>
+
+                    <div class="mdc-list-item mdc-drawer-item">
                         <a class="mdc-drawer-link" href="{{route('logout')}}">
                             <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">home</i>
                             Logout

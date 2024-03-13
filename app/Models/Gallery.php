@@ -8,4 +8,10 @@ use Illuminate\Database\Eloquent\Model;
 class Gallery extends Model
 {
     use HasFactory;
+
+    protected $guarded = ['id'];
+
+    public function galleryCategory(){
+        return $this->belongsTo(GalleryCategory::class, 'gallery_category_id');
+    }
 }
