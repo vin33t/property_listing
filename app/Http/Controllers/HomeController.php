@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Category;
+use App\Models\homeSlider;
 use App\Models\Property;
 use App\Models\User;
 use App\Models\Slider;
@@ -12,13 +13,13 @@ class HomeController extends Controller
 {
     public function index(Request $request){
 
+        $slides = homeSlider::all();
 
-        $slider = Slider::where('status', 'active')->first();
         $properties = Property::where('is_featured', true)->get();
         $agents = User::where('role', 'agent')->withCount('properties')
             ->get();
         $categories = Category::all();
-        return view('home', compact('properties', 'agents', 'categories', 'slider'));
+        return view('home', compact('properties', 'agents', 'categories', 'slides'));
     }
 
     public function about(){

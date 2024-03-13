@@ -78,14 +78,14 @@ Route::middleware(['auth'])->group(function(){
     });
 
 
-    Route::prefix('slider')->name('slider.')->group(function(){
+
+    Route::prefix('homeSlider')->name('homeSlider.')->group(function(){
         Route::get('/', [SliderController::class, 'index'])->name('index');
         Route::get('create', [SliderController::class, 'create'])->name('create');
         Route::post('store', [SliderController::class, 'store'])->name('store');
-        Route::post('update/{slider}', [SliderController::class, 'update'])->name('update');
-        Route::get('edit/{slider}', [SliderController::class, 'edit'])->name('edit');
-        Route::get('destroy/{slider}', [SliderController::class, 'destroy'])->name('destroy');
-        Route::get('status/{slider}', [SliderController::class, 'status'])->name('status');
+        Route::get('edit/{homeSlider}', [SliderController::class, 'edit'])->name('edit');
+        Route::post('update/{homeSlider}', [SliderController::class, 'update'])->name('update');
+        Route::get('destroy/{homeSlider}', [SliderController::class, 'destroy'])->name('destroy');
     });
 
     Route::prefix('galleryCategory')->name('galleryCategory.')->group(function(){
@@ -115,5 +115,12 @@ Route::middleware(['auth'])->group(function(){
 
     Route::get('privacyPolicy/index', [\App\Http\Controllers\PrivacyPolicyController::class, 'index'])->name('privacyPolicy.index');
     Route::post('privacyPolicy/update/{termAndCondition?}', [\App\Http\Controllers\PrivacyPolicyController::class, 'update'])->name('privacyPolicy.update');
+
+
+    Route::post('search-properties', [\App\Http\Controllers\searchController::class, 'index'])->name('searchProperties');
+
+
+
+
 });
 

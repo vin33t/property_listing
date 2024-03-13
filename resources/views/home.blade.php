@@ -4,15 +4,12 @@
     <section class="slider-hero">
         <div class="overlay"></div>
         <div class="hero-slider">
-            @foreach($slider->slides as $slide)
-                @php
-                    $media = \App\Models\Media::where('model_type', 'App\Models\Slide')->where('model_id', $slide->id)->first();
-                @endphp
+            @foreach($slides as $slide)
                 <x-banner_slide
-                    image="{{asset('storage/'. $media?->path)}}"
+                    image="{{asset('storage/'. $slide->image)}}"
 {{--                    image="{{asset('storage/'. $media?->path)}}"--}}
-                    title="{{$slide->title}}"
-                    description="{{$slide->slide_description}}"
+                    title="{{$slide->heading}}"
+                    description="{{$slide->description}}"
                     link="{{route('properties')}}">
                 </x-banner_slide>
 
@@ -50,28 +47,25 @@
 
                                     {{--tab content here--}}
                                     <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel" aria-labelledby="v-pills-nextgen-tab">
-                                        <form action="#" class="search-property-1">
+                                        <form action="{{route('searchProperties')}}" method="POST" class="search-property-1">
+                                            @csrf
                                             <div class="row g-0">
-                                                <div class="col-md d-flex">
-                                                    <div class="form-group p-4 border-0">
-                                                        <label for="#">Enter Keyword</label>
-                                                        <div class="form-field">
-                                                            <div class="icon"><span class="fa fa-search"></span></div>
-                                                            <input type="text" class="form-control" placeholder="Enter Keyword">
-                                                        </div>
-                                                    </div>
-                                                </div>
+
                                                 <div class="col-md d-flex">
                                                     <div class="form-group p-4">
                                                         <label for="#">Property Type</label>
                                                         <div class="form-field">
                                                             <div class="select-wrap">
                                                                 <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                                                <select name id class="form-control">
-                                                                    <option value>Residential</option>
-                                                                    <option value>Commercial</option>
-                                                                    <option value>Land</option>
-                                                                    <option value>Industrial</option>
+
+                                                                @php
+                                                                    $categories = \App\Models\Category::all();
+                                                                @endphp
+
+                                                                <select name="property_type" id class="form-control">
+                                                                    @foreach($categories as $category)
+                                                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                                                    @endforeach
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -82,7 +76,16 @@
                                                         <label for="#">Location</label>
                                                         <div class="form-field">
                                                             <div class="icon"><span class="ion-ios-pin"></span></div>
-                                                            <input type="text" class="form-control" placeholder="Search Location">
+                                                            <input type="text" name="location" class="form-control" value="New York" placeholder="Search Location">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md d-flex">
+                                                    <div class="form-group p-4">
+                                                        <label for="#">Area(Sq.Ft.)</label>
+                                                        <div class="form-field">
+                                                            <div class="icon"><span class="ion-ios-map"></span></div>
+                                                            <input type="number" name="area" class="form-control"  value="100">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -92,21 +95,14 @@
                                                         <div class="form-field">
                                                             <div class="select-wrap">
                                                                 <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                                                <select name id class="form-control">
-                                                                    <option value>£100</option>
-                                                                    <option value>£10,000</option>
-                                                                    <option value>£50,000</option>
-                                                                    <option value>£100,000</option>
-                                                                    <option value>£200,000</option>
-                                                                    <option value>£300,000</option>
-                                                                    <option value>£400,000</option>
-                                                                    <option value>£500,000</option>
-                                                                    <option value>£600,000</option>
-                                                                    <option value>£700,000</option>
-                                                                    <option value>£800,000</option>
-                                                                    <option value>£900,000</option>
-                                                                    <option value>£1,000,000</option>
-                                                                    <option value>£2,000,000</option>
+                                                                <select name="price" class="form-control">
+                                                                    <option value="100">£100</option>
+                                                                    <option value="10000">£10,000</option>
+                                                                    <option value="50000">£50,000</option>
+                                                                    <option value="100000">£100,000</option>
+                                                                    <option value="200000">£200,000</option>
+                                                                    <option value="300000">£300,000</option>
+
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -115,7 +111,7 @@
                                                 <div class="col-md d-flex">
                                                     <div class="form-group d-flex w-100 border-0">
                                                         <div class="form-field w-100 align-items-center d-flex">
-                                                            <input type="submit" value="Search" class="align-self-stretch form-control btn btn-primary">
+                                                            <input type="submit" class="align-self-stretch form-control btn btn-primary">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -123,28 +119,25 @@
                                         </form>
                                     </div>
                                     <div class="tab-pane fade" id="v-pills-2" role="tabpanel" aria-labelledby="v-pills-performance-tab">
-                                        <form action="#" class="search-property-1">
+                                        <form action="{{route('searchProperties')}}" method="POST" class="search-property-1">
+                                            @csrf
                                             <div class="row g-0">
-                                                <div class="col-md d-flex">
-                                                    <div class="form-group p-4 border-0">
-                                                        <label for="#">Enter Keyword</label>
-                                                        <div class="form-field">
-                                                            <div class="icon"><span class="fa fa-search"></span></div>
-                                                            <input type="text" class="form-control" placeholder="Enter Keyword">
-                                                        </div>
-                                                    </div>
-                                                </div>
+
                                                 <div class="col-md d-flex">
                                                     <div class="form-group p-4">
                                                         <label for="#">Property Type</label>
                                                         <div class="form-field">
                                                             <div class="select-wrap">
                                                                 <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                                                <select name id class="form-control">
-                                                                    <option value>Residential</option>
-                                                                    <option value>Commercial</option>
-                                                                    <option value>Land</option>
-                                                                    <option value>Industrial</option>
+
+                                                                @php
+                                                                    $categories = \App\Models\Category::all();
+                                                                @endphp
+
+                                                                <select name="property_type" id class="form-control">
+                                                                    @foreach($categories as $category)
+                                                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                                                    @endforeach
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -155,7 +148,16 @@
                                                         <label for="#">Location</label>
                                                         <div class="form-field">
                                                             <div class="icon"><span class="ion-ios-pin"></span></div>
-                                                            <input type="text" class="form-control" placeholder="Search Location">
+                                                            <input type="text" name="location" class="form-control" value="New York" placeholder="Search Location">
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                <div class="col-md d-flex">
+                                                    <div class="form-group p-4">
+                                                        <label for="#">Area(Sq.Ft.)</label>
+                                                        <div class="form-field">
+                                                            <div class="icon"><span class="ion-ios-map"></span></div>
+                                                            <input type="number" name="area" class="form-control"  value="100">
                                                         </div>
                                                     </div>
                                                 </div>
@@ -165,21 +167,14 @@
                                                         <div class="form-field">
                                                             <div class="select-wrap">
                                                                 <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                                                <select name id class="form-control">
-                                                                    <option value>£100</option>
-                                                                    <option value>£10,000</option>
-                                                                    <option value>£50,000</option>
-                                                                    <option value>£100,000</option>
-                                                                    <option value>£200,000</option>
-                                                                    <option value>£300,000</option>
-                                                                    <option value>£400,000</option>
-                                                                    <option value>£500,000</option>
-                                                                    <option value>£600,000</option>
-                                                                    <option value>£700,000</option>
-                                                                    <option value>£800,000</option>
-                                                                    <option value>£900,000</option>
-                                                                    <option value>£1,000,000</option>
-                                                                    <option value>£2,000,000</option>
+                                                                <select name="price" class="form-control">
+                                                                    <option value="100">£100</option>
+                                                                    <option value="10000">£10,000</option>
+                                                                    <option value="50000">£50,000</option>
+                                                                    <option value="100000">£100,000</option>
+                                                                    <option value="200000">£200,000</option>
+                                                                    <option value="300000">£300,000</option>
+
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -188,12 +183,14 @@
                                                 <div class="col-md d-flex">
                                                     <div class="form-group d-flex w-100 border-0">
                                                         <div class="form-field w-100 align-items-center d-flex">
-                                                            <input type="submit" value="Search" class="align-self-stretch form-control btn btn-primary">
+                                                            <input type="submit" class="align-self-stretch form-control btn btn-primary">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </form>
+
+
                                     </div>
                                 </div>
                             </div>
@@ -233,94 +230,7 @@
 
                         @endforeach
                 </div>
-{{--                <div class="col-md-10">--}}
-{{--                    <div class="row">--}}
-{{--                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="500" data-aos-duration="1000">--}}
-{{--                            <ul class="places-list">--}}
-{{--                                <li>--}}
-{{--                                    <a href="#">--}}
-{{--                                        New York--}}
-{{--                                        <span>200 Properties</span>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#">--}}
-{{--                                        London--}}
-{{--                                        <span>100 Properties</span>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#">--}}
-{{--                                        Chicago--}}
-{{--                                        <span>120 Properties</span>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#">--}}
-{{--                                        Illinois--}}
-{{--                                        <span>300 Properties</span>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="600" data-aos-duration="1000">--}}
-{{--                            <ul class="places-list">--}}
-{{--                                <li>--}}
-{{--                                    <a href="#">--}}
-{{--                                        California--}}
-{{--                                        <span>100 Properties</span>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#">--}}
-{{--                                        Tennessee--}}
-{{--                                        <span>200 Properties</span>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#">--}}
-{{--                                        Texas--}}
-{{--                                        <span>200 Properties</span>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#">--}}
-{{--                                        North Carolina--}}
-{{--                                        <span>200 Properties</span>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
-{{--                        <div class="col-md-4" data-aos="fade-up" data-aos-delay="700" data-aos-duration="1000">--}}
-{{--                            <ul class="places-list">--}}
-{{--                                <li>--}}
-{{--                                    <a href="#">--}}
-{{--                                        Florida--}}
-{{--                                        <span>422 Properties</span>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#">--}}
-{{--                                        Charlotte--}}
-{{--                                        <span>200 Properties</span>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#">--}}
-{{--                                        Orlando--}}
-{{--                                        <span>200 Properties</span>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                                <li>--}}
-{{--                                    <a href="#">--}}
-{{--                                        Atlanta--}}
-{{--                                        <span>200 Properties</span>--}}
-{{--                                    </a>--}}
-{{--                                </li>--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
+
             </div>
         </div>
     </section>
@@ -337,7 +247,7 @@
                     <div class="col-md-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                     <div class="property-wrap">
                         @php
-                            $image = \App\Models\Media::where('model_type', 'App\Models\Property')->where('model_id', $property->id)->first();
+                            $image = $property->medias->first();
                         @endphp
                         <a href="#" class="img img-property" style="background-image: url({{asset('storage/'. $image?->path)}});">
                             <p class="price"><span class="orig-price">£{{$property->price}}</span></p>
@@ -351,7 +261,7 @@
                                 <span class="text-right">2 weeks ago</span>
                             </div>
                             <h3><a href="{{route('propertyDetails', ['property' => $property])}}">{{$property->title}}</a></h3>
-                            <span class="location"><i class="ion-ios-pin"></i> New York <span class="sale">Sale</span></span>
+                            <span class="location"><i class="ion-ios-pin"></i> {{$property->location}}<span class="sale">{{$property->type}}</span></span>
                             <ul class="property_list mt-3 mb-0">
                                 @if($property->rooms)
                                     <li><span class="flaticon-bed"></span>{{$property->rooms}}</li>
@@ -367,75 +277,6 @@
                     </div>
                 </div>
                 @endforeach
-{{--                <div class="col-md-3" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">--}}
-{{--                    <div class="property-wrap">--}}
-{{--                        <a href="#" class="img img-property" style="background-image: url({{asset('assets1/images/work-2.jpg')}});">--}}
-{{--                            <p class="price"><span class="old-price">800,000</span><span class="orig-price">£3,050<small> / mo</small></span></p>--}}
-{{--                        </a>--}}
-{{--                        <div class="text">--}}
-{{--                            <div class="list-team d-flex align-items-center mb-4">--}}
-{{--                                <div class="d-flex align-items-center">--}}
-{{--                                    <div class="img" style="background-image: url({{asset('assets1/images/person_1.jpg')}});"></div>--}}
-{{--                                    <h3 class="ml-2">John Dorf</h3>--}}
-{{--                                </div>--}}
-{{--                                <span class="text-right">2 weeks ago</span>--}}
-{{--                            </div>--}}
-{{--                            <h3><a href="#">Sunny Loft Property</a></h3>--}}
-{{--                            <span class="location"><i class="ion-ios-pin"></i> New York <span class="rent">Rent</span></span>--}}
-{{--                            <ul class="property_list mt-3 mb-0">--}}
-{{--                                <li><span class="flaticon-bed"></span>3</li>--}}
-{{--                                <li><span class="flaticon-bathtub"></span>2</li>--}}
-{{--                                <li><span class="flaticon-blueprint"></span>1,878 sqft</li>--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-md-3" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">--}}
-{{--                    <div class="property-wrap">--}}
-{{--                        <a href="#" class="img img-property" style="background-image: url({{asset('assets1/images/work-3.jpg')}});">--}}
-{{--                            <p class="price"><span class="orig-price">£300</span></p>--}}
-{{--                        </a>--}}
-{{--                        <div class="text">--}}
-{{--                            <div class="list-team d-flex align-items-center mb-4">--}}
-{{--                                <div class="d-flex align-items-center">--}}
-{{--                                    <div class="img" style="background-image: url({{asset('assets1/images/person_1.jpg')}});"></div>--}}
-{{--                                    <h3 class="ml-2">John Dorf</h3>--}}
-{{--                                </div>--}}
-{{--                                <span class="text-right">2 weeks ago</span>--}}
-{{--                            </div>--}}
-{{--                            <h3><a href="#">Sunny Loft Property</a></h3>--}}
-{{--                            <span class="location"><i class="ion-ios-pin"></i> New York <span class="sale">Sale</span></span>--}}
-{{--                            <ul class="property_list mt-3 mb-0">--}}
-{{--                                <li><span class="flaticon-bed"></span>3</li>--}}
-{{--                                <li><span class="flaticon-bathtub"></span>2</li>--}}
-{{--                                <li><span class="flaticon-blueprint"></span>1,878 sqft</li>--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--                <div class="col-md-3" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">--}}
-{{--                    <div class="property-wrap">--}}
-{{--                        <a href="#" class="img img-property" style="background-image: url({{asset('assets1/images/work-4.jpg')}});">--}}
-{{--                            <p class="price"><span class="orig-price">£300<small> / mo</small></span></p>--}}
-{{--                        </a>--}}
-{{--                        <div class="text">--}}
-{{--                            <div class="list-team d-flex align-items-center mb-4">--}}
-{{--                                <div class="d-flex align-items-center">--}}
-{{--                                    <div class="img" style="background-image: url({{asset('assets1/images/person_1.jpg')}});"></div>--}}
-{{--                                    <h3 class="ml-2">John Dorf</h3>--}}
-{{--                                </div>--}}
-{{--                                <span class="text-right">2 weeks ago</span>--}}
-{{--                            </div>--}}
-{{--                            <h3><a href="#">Sunny Loft Property</a></h3>--}}
-{{--                            <span class="location"><i class="ion-ios-pin"></i> New York <span class="rent">Rent</span></span>--}}
-{{--                            <ul class="property_list mt-3 mb-0">--}}
-{{--                                <li><span class="flaticon-bed"></span>3</li>--}}
-{{--                                <li><span class="flaticon-bathtub"></span>2</li>--}}
-{{--                                <li><span class="flaticon-blueprint"></span>1,878 sqft</li>--}}
-{{--                            </ul>--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
             </div>
         </div>
     </section>
@@ -450,56 +291,6 @@
                         <a href="https://vimeo.com/115041822" class="video-icon glightbox d-flex align-items-center justify-content-center">
                             <span class="ion-ios-play"></span>
                         </a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-    <section class="ftco-section ftco-about-section">
-        <div class="container-xl">
-            <div class="row g-xl-5">
-                <div class="col-md-4 d-flex align-items-stretch" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-                    <div class="img w-100" style="background-image: url({{asset('assets1/images/about.jpg')}});"></div>
-                </div>
-                <div class="col-md-8 heading-section" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                    <span class="subheading">About Us</span>
-                    <h2 class="mb-4">Karanjee</h2>
-                    <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there live the blind texts. Separated they live in Bookmarksgrove right at the coast of the Semantics, a large language ocean.</p>
-                    <div class="row py-5">
-                        <div class="col-md-6 col-lg-3">
-                            <div class="counter-wrap" data-aos="fade-up" data-aos-duration="1000">
-                                <div class="text">
-                                    <span class="d-block number gradient-text"><span id="count1" class="counter" data-count="50">0</span></span>
-                                    <p>Years of Experienced</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="counter-wrap" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-                                <div class="text">
-                                    <span class="d-block number gradient-text"><span id="count2" class="counter" data-count="210">0</span>K+</span>
-                                    <p>Total Properties</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="counter-wrap" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                                <div class="text">
-                                    <span class="d-block number gradient-text"><span id="count2" class="counter" data-count="450">0</span></span>
-                                    <p>Qualified Realtors</p>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-6 col-lg-3">
-                            <div class="counter-wrap" data-aos="fade-up" data-aos-delay="300" data-aos-duration="1000">
-                                <div class="text">
-                                    <span class="d-block number gradient-text"><span id="count2" class="counter" data-count="100">0</span></span>
-                                    <p>Total Branches</p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="img img-2" style="background-image: url({{asset('assets1/images/about-1.jpg')}});" data-aos="fade-up" data-aos-delay="400" data-aos-duration="1000">
                     </div>
                 </div>
             </div>

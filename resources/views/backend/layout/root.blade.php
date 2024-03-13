@@ -46,10 +46,17 @@
                         </a>
                     </div>
 
+{{--                    <div class="mdc-list-item mdc-drawer-item">--}}
+{{--                        <a class="mdc-drawer-link" href="{{route('slider.index')}}">--}}
+{{--                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">image</i>--}}
+{{--                            Slider--}}
+{{--                        </a>--}}
+{{--                    </div>--}}
+
                     <div class="mdc-list-item mdc-drawer-item">
-                        <a class="mdc-drawer-link" href="{{route('slider.index')}}">
+                        <a class="mdc-drawer-link" href="{{route('homeSlider.index')}}">
                             <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">image</i>
-                            Slider
+                            Home Slider
                         </a>
                     </div>
 
@@ -178,18 +185,7 @@
     @yield('content')
 
 
-            <!-- partial:partials/_footer.html -->
-            <footer>
-                <div class="mdc-layout-grid">
-                    <div class="mdc-layout-grid__inner">
-                        <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
-                            <span class="text-center text-sm-left d-block d-sm-inline-block tx-14">Copyright © <a href="https://himsoftsolution.com/" target="_blank">Him Soft Solution </a></span>
-                        </div>
 
-                    </div>
-                </div>
-            </footer>
-            <!-- partial -->
         </div>
 
     </div>

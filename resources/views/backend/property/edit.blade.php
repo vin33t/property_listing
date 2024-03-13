@@ -20,8 +20,13 @@
                     <div class="mdc-layout-grid__inner">
                         <div class="mdc-layout-grid__cell--span-12">
                             <div class="mdc-card">
+<<<<<<< HEAD
                                 <h6 class="card-title">Create Category</h6>
                                 <form action="{{route('property.update', ['property' => $property])}}" method="post" enctype="multipart/form-data">
+=======
+                                <h6 class="card-title">Edit Property</h6>
+                                <form action="{{route('property.update', ['property' => $property])}}" method="post">
+>>>>>>> b8005bf62be8f298adcfff9355735aea97964445
                                     @csrf
                                     <div class="template-demo">
                                         <div class="mdc-layout-grid__inner">
