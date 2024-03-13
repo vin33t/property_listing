@@ -13,6 +13,11 @@ use Illuminate\Http\Request;
 
 class HomeController extends Controller
 {
+    public function dashboard(){
+        $properties = Property::all();
+        return view('backend.dashboard');
+    }
+
     public function index(Request $request){
 
         $slides = homeSlider::all();

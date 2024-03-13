@@ -18,14 +18,14 @@
             <div class="row justify-content-center">
                 <div class="col-md-8 heading-section text-center mb-5" data-aos="fade-up" data-aos-duration="1000">
                     <span class="subheading">Galleries</span>
-                    <h2 class="mb-4">Galleries</h2>
+                    <h2>Galleries</h2>
                 </div>
             </div>
             <div class="container-xl-fluid">
                 <div class="row g-0">
                     <div class="flex flex-wrap gap-2 p-4">
                         @foreach($galleryCategories as $category)
-                            <a href="{{route('galleries' , ['id' => $category])}}" class="btn btn-primary rounded custom-color" style="background-color: blue!important;">{{$category->name}}</a>
+                            <a href="{{route('galleries' , ['id' => $category])}}" class="btn btn-primary rounded custom-color">{{$category->name}}</a>
                         @endforeach
                     </div>
                     @foreach($galleries as $gallery)
@@ -35,7 +35,7 @@
                         {{--            @dd($gallery->path);--}}
 
                         <div class="col-md-2" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-                            <a href="{{asset('storage/'. $image->path)}}" class="gallery-wrap img d-flex align-items-center justify-content-center glightbox" style="background-image: url({{asset('storage/'. $image->path)}});">
+                            <a href="{{asset('storage/'. $image->path)}}" target="_blank" class=" img d-flex align-items-center justify-content-center" style="background-image: url({{asset('storage/'. $image->path)}});">
                                 <div class="icon d-flex align-items-center justify-content-center" style="padding: 100px 0px"><span class="fa fa-search"></span></div>
                             </a>
                         </div>

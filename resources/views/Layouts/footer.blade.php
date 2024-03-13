@@ -8,7 +8,7 @@
 {{--            @dd($gallery->path);--}}
 
             <div class="col-md-2" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-                <a href="{{asset('storage/'. $gallery->path)}}" class="gallery-wrap img d-flex align-items-center justify-content-center glightbox" style="background-image: url({{asset('storage/'. $gallery->path)}});">
+                <a href="{{asset('storage/'. $gallery->path)}}" target="_blank" class="gallery-wrap img d-flex align-items-center justify-content-center " style="background-image: url({{asset('storage/'. $gallery->path)}});">
                     <div class="icon d-flex align-items-center justify-content-center"><span class="fa fa-search"></span></div>
                 </a>
             </div>
@@ -55,6 +55,7 @@
                     <ul class="list-unstyled">
                         <li><a href="{{route('home')}}"><span class="fa fa-chevron-right mr-2"></span>Home</a></li>
                         <li><a href="{{route('about')}}"><span class="fa fa-chevron-right mr-2"></span>About</a></li>
+                        <li><a href="{{route('galleries')}}"><span class="fa fa-chevron-right mr-2"></span>Gallery</a></li>
                         <li><a href="{{route('contact')}}"><span class="fa fa-chevron-right mr-2"></span>Contact Us</a></li>
                     </ul>
                 </div>

@@ -19,10 +19,10 @@
                                     <thead>
                                     <tr>
                                         <th class="text-left">S No.</th>
-                                        <th>Title</th>
-                                        <th>Image</th>
-                                        <th>Category</th>
-                                        <th>Action</th>
+                                        <th class="text-left">Title</th>
+                                        <th class="text-left">Image</th>
+                                        <th class="text-left">Category</th>
+                                        <th class="text-left">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -30,8 +30,8 @@
                                     @foreach($galleries as $gallery)
                                     <tr>
                                         <td class="text-left">{{$loop->iteration}}</td>
-                                        <td>{{$gallery->title}}</td>
-                                        <td>
+                                        <td class="text-left">{{$gallery->title}}</td>
+                                        <td class="text-left">
                                             @php
                                                 $images = \App\Models\Media::where('model_type', 'App\Models\Gallery')->where('model_id', $gallery->id)->get();
                                             @endphp
@@ -41,8 +41,8 @@
                                                 </div>
                                             @endforeach
                                         </td>
-                                        <td>{{$gallery->galleryCategory->name}}</td>
-                                        <td>
+                                        <td class="text-left">{{$gallery->galleryCategory->name}}</td>
+                                        <td class="text-left">
                                             <a href="{{route('gallery.edit', ['gallery' => $gallery])}}" class="mdc-button text-button--info">
                                             Edit
                                             </a>
