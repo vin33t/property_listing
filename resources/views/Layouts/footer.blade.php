@@ -42,6 +42,12 @@
                                      </ul>
                                  </div>
                              </div>
+                             <div class="col-12">
+                                 <ul class="ftco-footer-social list-unstyled mt-2">
+                                     <li><a href="https://www.instagram.com/karanjeeproperties?igshid=ZWQyN2ExYTkwZQ%3D%3D"><span class="fa fa-instagram"></span></a></li>
+                                     <li><a href="https://api.whatsapp.com/message/5Q2RYDDS2NSCI1?autoload=1&amp;app_absent=0"><span class="fa fa-whatsapp"></span></a></li>
+                                 </ul>
+                             </div>
                          </div>
                          <div class="col-md-6 col-12 col-lg-6">
                               <div class="row">
@@ -65,12 +71,7 @@
                                            </ul>
                                        </div>
                                    </div>
-                                  <div class="col-12">
-                                      <ul class="ftco-footer-social list-unstyled mt-2">
-                                          <li><a href="https://www.instagram.com/karanjeeproperties?igshid=ZWQyN2ExYTkwZQ%3D%3D"><span class="fa fa-instagram"></span></a></li>
-                                          <li><a href="https://api.whatsapp.com/message/5Q2RYDDS2NSCI1?autoload=1&amp;app_absent=0"><span class="fa fa-whatsapp"></span></a></li>
-                                      </ul>
-                                  </div>
+
                               </div>
 
                          </div>
