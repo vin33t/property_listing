@@ -1874,7 +1874,7 @@ textarea.form-control {
     .ftco-search .nav-pills p {
       margin-bottom: 0; }
     .ftco-search .nav-pills .nav-link {
-      padding: 10px 30px !important;
+      padding: 10px 30px ;
       border-radius: 0 !important;
       margin-bottom: 0;
       color: #fff;
