@@ -64,6 +64,7 @@ class HomeController extends Controller
         return view('propertyDetails', compact('property'));
     }
 
+
     public function galleries($id = null){
 
         if($id){
@@ -74,5 +75,9 @@ class HomeController extends Controller
         }
         $galleryCategories = GalleryCategory::all();
         return view('gallery', compact('galleries', 'galleryCategories'));
+    }
+
+    public function appraisal(){
+        return view('freeAppraisal');
     }
 }

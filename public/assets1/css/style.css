@@ -2614,7 +2614,7 @@ textarea.form-control {
     text-decoration: none; }
   .ftco-footer .ftco-footer-widget h2, .ftco-footer .ftco-footer-widget .h2 {
     color: #fff;
-    margin-bottom: 40px;
+    margin-bottom: 10px;
     font-size: 20px;
     font-weight: 700;
     font-family: "Nunito Sans", Arial, sans-serif; }
@@ -2642,7 +2642,6 @@ textarea.form-control {
       .ftco-footer .block-23 ul li, .ftco-footer .block-23 ul li > a {
         display: table;
         line-height: 1.5;
-        margin-bottom: 15px;
         font-size: 15px; }
       .ftco-footer .block-23 ul li span {
         color: rgba(255, 255, 255, 0.7);

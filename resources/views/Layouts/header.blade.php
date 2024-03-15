@@ -48,7 +48,17 @@
 {{--                <li class="nav-item"><a class="nav-link" href="{{route('blog')}}">Blog</a></li>--}}
                 <li class="nav-item"><a class="nav-link" href="{{route('contact')}}">Contact</a></li>
             </ul>
-            <p class="mb-0"><a href="#" class="btn btn-primary rounded">Submit A Property</a></p>
+            <p class="mb-0"><span class="btn btn-primary rounded"
+                 onclick="
+                      appraisal_form = document.getElementById('appraisal_form');
+                        appraisal_form.style.display = 'flex';
+                 "
+
+
+                >FREE APPRAISAL</span></p>
+
         </div>
     </div>
 </nav>
+
+

@@ -30,6 +30,7 @@ Route::get('/blogDetails', [HomeController::class, 'blogDetails'])->name('blogDe
 Route::get('/propertyDetails/{property}', [HomeController::class, 'propertyDetails'])->name('propertyDetails');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/galleries/{id?}', [HomeController::class, 'galleries'])->name('galleries');
+Route::get('/free-appraisal', [HomeController::class, 'appraisal'])->name('appraisal');
 
 
 
