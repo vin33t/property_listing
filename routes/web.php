@@ -50,6 +50,9 @@ Route::get('logout', [\App\Http\Controllers\AuthController::class, 'logout'])->n
 Route::middleware(['auth'])->group(function(){
 
     Route::get('dashboard', [HomeController::class, 'dashboard'])->name('dashboard');
+    Route::get('about-us', function(){
+        return view('backend.about');
+    })->name('backend.about');
     Route::prefix('category')->name('category.')->group(function(){
         Route::get('/', [CategoryController::class, 'index'])->name('index');
         Route::get('create', [CategoryController::class, 'create'])->name('create');

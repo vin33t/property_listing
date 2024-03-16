@@ -19,7 +19,7 @@ class Property extends Model
         return $this->belongsTo(User::class, 'user_id');
     }
 
-    public function medias(){
+    public function media(){
         return $this->hasMany(Media::class, 'model_id');
     }
 }

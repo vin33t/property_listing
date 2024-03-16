@@ -39,10 +39,10 @@
                                             <td class="text-left">{{$property->area}}</td>
                                             <td class="text-left">
                                                 @php
-                                                    $image = $property->medias->first();
+                                                    $image = $property->media->first();
                                                 @endphp
                                                     <div>
-                                                        <img src="{{asset('storage/'. $image?->path)}}" alt="" style="width: 100px;">
+                                                        <img src="{{asset('storage'. $image?->path)}}" alt="" style="width: 100px;">
                                                     </div>
                                             </td>
                                             <td class="text-left">

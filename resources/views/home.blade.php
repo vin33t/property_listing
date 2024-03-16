@@ -248,7 +248,7 @@
                     <div class="col-md-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                     <div class="property-wrap">
                         @php
-                            $image = $property->medias->first();
+                            $image = $property->media->first();
                         @endphp
                         <a href="#" class="img img-property" style="background-image: url({{asset('storage/'. $image?->path)}});">
                             <p class="price"><span class="orig-price">£{{$property->price}}</span></p>

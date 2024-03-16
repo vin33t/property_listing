@@ -8,6 +8,7 @@ use App\Models\Media;
 use App\Models\Property;
 use App\Models\User;
 use Illuminate\Http\Request;
+use Masmerise\Toaster\Toaster;
 
 class PropertyController extends Controller
 {

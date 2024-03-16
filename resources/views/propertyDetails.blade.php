@@ -2,7 +2,7 @@
 
 @section('content')
     @php
-          $media = $property->medias->first();
+          $media = $property->media->first();
     @endphp
     <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('storage/'. $media?->path)}});">
         <div class="overlay"></div>
@@ -47,19 +47,28 @@
                         <div class="col-md-3 col-lg-2">
                             <div class="counter-wrap" data-aos="fade-up" data-aos-duration="1000">
                                 <div >
-                                    <p>{{$property->area}} <span style="font-size: 12px">Area(Sq.Ft.)</span></p>
+
+                                    @if($property->is_area_visible )
+                                        <p>{{$property->area}} <span style="font-size: 12px">Area(Sq.Ft.)</span></p>
+
+                                    @endif
                                 </div>
                             </div>
                         </div>
-                        @if($property->bathrooms != null)
-                            <div class="col-md-3 col-lg-2">
-                                <div class="counter-wrap" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
-                                    <div >
-                                        <p> {{$property->bathrooms}} <span style="font-size: 12px">Bathrooms</span> </p>
+
+                        @if($property->is_bathrooms_visible )
+                            @if($property->bathrooms != null)
+                                <div class="col-md-3 col-lg-2">
+                                    <div class="counter-wrap" data-aos="fade-up" data-aos-delay="200" data-aos-duration="1000">
+                                        <div >
+                                            <p> {{$property->bathrooms}} <span style="font-size: 12px">Bathrooms</span> </p>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
+                            @endif
                         @endif
+
+                        @if($property->is_rooms_visible )
 
                         @if($property->rooms != null)
                             <div class="col-md-3 col-lg-2">
@@ -70,10 +79,14 @@
                                 </div>
                             </div>
                         @endif
+                            @endif
                     </div>
 
 
+                    @if($property->is_price_visible)
+
                     <h2 style="color: #dc3545"><span style="color: black; font-size: 25px;">From: </span> £ {{$property->price}}</h2>
+                    @endif
                     <div class="ftco-search d-flex justify-content-center" style="margin-top: 20px; padding-top: 20px; background-color: whitesmoke">
                         <div class="row" style="width: 100%">
                             <div class="col-md-12 nav-link-wrap d-flex">
@@ -99,7 +112,7 @@
                                     </div>
                                     <div class="tab-pane fade" id="propertyFloorPlan" role="tabpanel"
                                          aria-labelledby="v-pills-performance-tab">
-                                        <img src="{{asset('assets/images/plan.jpg')}}" style="width: 100%; height: 400px" alt="">
+                                        <img src="{{asset('storage/'. $property->floor_plan)}}" style="width: 100%; height: 400px" alt="">
                                     </div>
                                     <div class="tab-pane fade" id="propertyEpc" role="tabpanel"
                                          aria-labelledby="v-pills-performance-tab">
@@ -109,6 +122,7 @@
                                          aria-labelledby="v-pills-performance-tab">
                                         <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.0791450791344!2d-0.3827416728392599!3d51.51176397181439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876733fde904111%3A0x923946cb37f96f2e!2sSouthall!5e0!3m2!1sen!2sin!4v1710521340056!5m2!1sen!2sin"  style="width: 100%; height: 400px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
                                     </div>
+
                                 </div>
                             </div>
                         </div>
