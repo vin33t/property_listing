@@ -234,7 +234,7 @@
             </div>
 
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2-desktop">
                 <div class="mdc-form-field">
                     <div class="mdc-checkbox">
                         <input wire:model="is_category_visible" name="is_negotiable" type="checkbox" class="mdc-checkbox__native-control" id="checkbox-1"/>
@@ -252,7 +252,7 @@
 
 
 {{--            Visibility checkboxes--}}
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2-desktop">
                 <div class="mdc-form-field">
                     <div class="mdc-checkbox">
                         <input wire:model="is_price_visible" name="is_negotiable" type="checkbox" class="mdc-checkbox__native-control" id="checkbox-2"/>
@@ -267,7 +267,7 @@
                 </div>
             </div>
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2-desktop">
                 <div class="mdc-form-field">
                     <div class="mdc-checkbox">
                         <input wire:model="is_location_visible" name="is_negotiable" type="checkbox" class="mdc-checkbox__native-control" id="checkbox-3"/>
@@ -282,7 +282,7 @@
                 </div>
             </div>
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2-desktop">
                 <div class="mdc-form-field">
                     <div class="mdc-checkbox">
                         <input wire:model="is_area_visible" name="is_negotiable" type="checkbox" class="mdc-checkbox__native-control" id="checkbox-4"/>
@@ -297,7 +297,7 @@
                 </div>
             </div>
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2-desktop">
                 <div class="mdc-form-field">
                     <div class="mdc-checkbox">
                         <input wire:model="is_rooms_visible" name="is_negotiable" type="checkbox" class="mdc-checkbox__native-control" id="checkbox-5"/>
@@ -312,7 +312,7 @@
                 </div>
             </div>
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2-desktop">
                 <div class="mdc-form-field">
                     <div class="mdc-checkbox">
                         <input wire:model="is_bathrooms_visible" name="is_negotiable" type="checkbox" class="mdc-checkbox__native-control" id="checkbox-6"/>
@@ -327,7 +327,7 @@
                 </div>
             </div>
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2-desktop">
                 <div class="mdc-form-field">
                     <div class="mdc-checkbox">
                         <input wire:model="is_year_visible" name="is_negotiable" type="checkbox" class="mdc-checkbox__native-control" id="checkbox-7"/>
@@ -342,7 +342,7 @@
                 </div>
             </div>
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2-desktop">
                 <div class="mdc-form-field">
                     <div class="mdc-checkbox">
                         <input wire:model="is_type_visible" name="is_negotiable" type="checkbox" class="mdc-checkbox__native-control" id="checkbox-8"/>
