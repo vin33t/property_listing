@@ -31,6 +31,10 @@
         </div>
     </div>
 </div>
+
+
+
+
 <nav class="navbar navbar-expand-lg  ftco-navbar-light">
     <div class="container-xl">
         <a class="navbar-brand align-items-center" href="{{route('home')}}">
@@ -55,7 +59,7 @@
                  "
 
 
-                >FREE APPRAISAL</span></p>
+                >FREE VALUATION</span></p>
 
         </div>
     </div>

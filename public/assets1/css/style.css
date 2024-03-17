@@ -270,6 +270,29 @@ iframe {
   .container {
     max-width: 960px; } }
 
+@media (max-width: 992px) {
+    .hero-wrap {
+        height: 400px !important;
+    }
+
+    .hero-wrap .slider-text {
+        height: 400px !important;
+
+    }
+}
+@media (max-width: 578px) {
+    .hero-wrap {
+        height: 300px !important;
+    }
+
+    .hero-wrap .slider-text {
+        height: 300px !important;
+
+    }
+}
+
+
+
 @media (min-width: 1200px) {
   .container, .container-xl {
     max-width: 1140px; } }
@@ -1524,7 +1547,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5,
   font-weight: 400; }
 
 .top-wrap {
-  background: #06112a; }
+  background: #06112a;
+}
 
 .topper {
   font-size: 15px;
@@ -1590,11 +1614,14 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5,
       .ftco-navbar-light .navbar-brand {
         color: #fff; } }
   @media (max-width: 991.98px) {
+      .top-wrap {
+          display: none ;
+      }
     .ftco-navbar-light .navbar-nav {
       padding-top: 20px;
       padding-bottom: 20px; } }
   @media (max-width: 767.98px) {
-    .ftco-navbar-light .navbar-nav {
+      .ftco-navbar-light .navbar-nav {
       padding-top: 20px;
       padding-bottom: 20px;
       margin-right: 0; } }
@@ -1753,6 +1780,8 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5,
         background: #030513;
         opacity: .6; }
         @media (max-width: 575.98px) {
+            .hero-wrap .slider-text .bread {
+                font-size: 40px; }
           .slider-hero .work .img:after {
             width: 100%; } }
     .slider-hero .work .text {
@@ -2527,7 +2556,12 @@ textarea.form-control {
   width: 100%; }
   @media (max-width: 575.98px) {
     .ftco-section {
-      padding: 6em 0; } }
+      padding: 1em 0; }
+      .services
+      {
+          padding: 20px;
+      }
+  }
 
 .ftco-no-pt {
   padding-top: 0 !important; }
@@ -2550,7 +2584,21 @@ textarea.form-control {
     opacity: .9;
     background: #dc3545;
     z-index: -1; }
+
+  .mobile_category_list
+    {
+        display: none;
+    }
   @media (max-width: 767.98px) {
+      .desktop_category_list
+      {
+          display: none;
+      }
+        .mobile_category_list
+        {
+            display: block;
+        }
+
     .ftco-intro {
       background-position: center center !important; } }
   .ftco-intro h1, .ftco-intro .h1 {

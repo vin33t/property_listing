@@ -85,6 +85,7 @@ class PropertyForm extends Component
 
     public function submit()
     {
+
         $validatedData = $this->validate([
             'title' => 'required|string',
             'user_id' => 'required|exists:users,id',
@@ -94,6 +95,7 @@ class PropertyForm extends Component
             'area' => 'required|numeric',
             'rooms' => 'required|integer',
             'bathrooms' => 'required|integer',
+            'floor_plan' => 'required|image|max:2048', // Adjust max file size as needed
             'year' => 'required|string',
             'type' => 'required|string',
             'is_featured' => 'required|boolean',
@@ -108,8 +110,6 @@ class PropertyForm extends Component
             'is_bathrooms_visible' => 'required|boolean',
             'is_year_visible' => 'required|boolean',
             'is_type_visible' => 'required|boolean',
-
-
         ]);
 
         if ($this->property) {

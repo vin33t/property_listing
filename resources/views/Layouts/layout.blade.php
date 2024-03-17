@@ -132,9 +132,9 @@
                                                             <div class="form-group">
                                                                 <select class="form-control" name="valuation_for" id="valuation_for" style="padding: 5px; border-radius: 0px">
                                                                     <option value="">Valuation For</option>
-                                                                    <option value="Option 1">Option 1</option>
-                                                                    <option value="Option 2">Option 2</option>
-                                                                    <option value="Option 3">Option 3</option>
+                                                                    <option value="Option 1">Commercial</option>
+                                                                    <option value="Option 2">Residential</option>
+                                                                    <option value="Option 3">Rental</option>
                                                                 </select>
                                                             </div>
                                                         </div>
@@ -225,7 +225,6 @@
     </script>
     <script defer src="https://static.cloudflareinsights.com/beacon.min.js/v84a3a4012de94ce1a686ba8c167c359c1696973893317" integrity="sha512-euoFGowhlaLqXsPWQ48qSkBSCFs3DPRyiwVu3FjR96cMPx+Fr+gpWRhIafcHwqwCqWS42RZhIudOvEI+Ckf6MA==" data-cf-beacon='{"rayId":"85eff2b8b8fe9e38","b":1,"version":"2024.2.4","token":"cd0b4b3a733644fc843ef0b185f98241"}' crossorigin="anonymous"></script>
             <script src="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/js/swiffy-slider.min.js" crossorigin="anonymous" defer></script>
-            <x-toaster-hub />
             @livewireScripts
 </body>
 </html>

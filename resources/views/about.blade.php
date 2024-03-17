@@ -48,26 +48,6 @@
             </div>
         </div>
     </section>
-    <section class="ftco-intro ftco-no-pt ftco-no-pb img" style="background-image: url({{asset('assets1/images/bg_4.jpg')}});">
-        <div class="overlay"></div>
-        <div class="container-xl py-5">
-            <div class="row justify-content-center">
-                <div class="col-lg-10 col-xl-8">
-                    <div class="row">
-                        <div class="col-md-8 d-flex align-items-center">
-                            <div>
-                                <h1 class="mb-0">Find Best Place For Leaving</h1>
-                                <p>Find Best Place For Leaving</p>
-                            </div>
-                        </div>
-                        <div class="col-md-4 d-flex align-items-center">
-                            <p class="mb-0"><a href="#" class="btn btn-black py-3 px-4">Get in touch</a></p>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
     <section class="ftco-section testimony-section bg-light">
         <div class="container-xl">
             <div class="row justify-content-center pb-4">

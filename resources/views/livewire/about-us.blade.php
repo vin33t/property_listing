@@ -26,7 +26,8 @@
             <div class="mdc-text-field mdc-text-field--outlined">
                 <textarea wire:model="about" id="editor" name="content" class="mdc-text-field__input" rows="10"></textarea>
                 <div class="mdc-notched-outline">
-                    <div class="mdc-notched-outline__leading"></div>
+                    <div class="mdc-notched-outline__leading">
+                    </div>
                     <div class="mdc-notched-outline__notch">
                         <label for="about" class="mdc-floating-label">About</label>
                     </div>
