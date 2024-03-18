@@ -191,8 +191,8 @@
                                     @endphp
                                     <li>
                                         <div class=" text-center d-flex align-items-stretch" data-aos="fade-up"
-                                             data-aos-delay="100" data-aos-duration="1000">
-                                            <a href="{{route('properties', ['id' => $category])}}" class="services">
+                                             data-aos-delay="100" data-aos-duration="1000" style="height: 100%;">
+                                            <a href="{{route('properties', ['id' => $category])}}" class="services" >
                                                 @if($media==Null)
                                                     <img src="{{asset('assets1/images/noImg.jpg')}}"
                                                          style="height: 100px; width: 100px; border-radius: 50%" alt="">
