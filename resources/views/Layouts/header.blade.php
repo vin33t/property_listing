@@ -5,7 +5,7 @@
                 <div class="icon d-flex justify-content-center align-items-center"><span class="fa fa-map"></span>
                 </div>
                 <div class="text pl-3 pl-md-3">
-                    <p class="con"><span>Free Call</span> <span>0208 574 6816</span></p>
+                    <p class="con"><span>Free Call</span> <span>07513141890</span></p>
                     <p class="con">Call Us Now 24/7 Customer Support</p>
                 </div>
             </div>

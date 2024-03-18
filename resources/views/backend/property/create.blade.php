@@ -23,6 +23,7 @@
 
                             <h6 class="card-title">Create Property</h6>
                             <livewire:property-form />
+
                         </div>
                     </div>
                 </div>

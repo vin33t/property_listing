@@ -3019,10 +3019,10 @@ textarea.form-control {
   text-transform: uppercase;
   font-size: 12px;
   font-weight: 600; }
-
 .contactForm .form-control {
   border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+  /*border-bottom: 1px solid rgba(0, 0, 0, 0.1);*/
+  border-bottom: 1px solid black;
   padding: 0; }
 
 .block-21 .blog-img {
@@ -3095,6 +3095,19 @@ textarea.form-control {
       border-color: #dc3545 !important; }
   .comment-form-wrap textarea.form-control {
     height: inherit !important; }
+
+textarea:focus, input:focus{
+    outline: none !important;
+}
+
+input::placeholder {
+    color: black !important;
+}
+
+textarea::placeholder {
+    color: black !important;
+}
+
 
 .comment-list {
   padding: 0;

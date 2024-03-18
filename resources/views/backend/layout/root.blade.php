@@ -19,7 +19,15 @@
     <!-- End plugin css for this page -->
     <!-- Layout styles -->
     <link rel="stylesheet" href="{{asset('assets/css/demo/style.css')}}">
-{{--    <!-- End layout styles -->--}}
+    <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
+    <style>
+        #map { /* Define the size of the map */
+            height: 400px;
+        }
+    </style>
+
+
+    {{--    <!-- End layout styles -->--}}
 {{--    <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" />--}}
 </head>
 <body>

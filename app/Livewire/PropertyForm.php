@@ -12,7 +12,7 @@ class PropertyForm extends Component
 {
     use WithFileUploads;
 
-    public $property;
+    public $property = null;
     public $title;
     public $user_id;
     public $category_id;
@@ -85,39 +85,63 @@ class PropertyForm extends Component
 
     public function submit()
     {
+//
+//        $validatedData = $this->validate([
+//            'title' => 'required|string',
+//            'user_id' => 'required|exists:users,id',
+//            'category_id' => 'required|exists:categories,id',
+//            'price' => 'required|numeric',
+//            'location' => 'required|string',
+//            'area' => 'required|numeric',
+//            'rooms' => 'required|integer',
+//            'bathrooms' => 'required|integer',
+//            'floor_plan' => 'required|file', // Adjust max file size as needed
+//            'year' => 'required|string',
+//            'type' => 'required|string',
+//            'is_featured' => 'required|in:0,1',
+//            'media.*' => 'file|max:2048', // Adjust max file size as needed
+//            'description' => 'required|string',
+//            'latitude' => 'required|string',
+//            'longitude' => 'required|string',
+//            'is_price_visible' => 'boolean',
+//            'is_location_visible' => 'boolean',
+//            'is_area_visible' => 'boolean',
+//            'is_rooms_visible' => 'boolean',
+//            'is_bathrooms_visible' => 'boolean',
+//            'is_year_visible' => 'boolean',
+//            'is_type_visible' => 'boolean',
+//        ]);
 
-        $validatedData = $this->validate([
-            'title' => 'required|string',
-            'user_id' => 'required|exists:users,id',
-            'category_id' => 'required|exists:categories,id',
-            'price' => 'required|numeric',
-            'location' => 'required|string',
-            'area' => 'required|numeric',
-            'rooms' => 'required|integer',
-            'bathrooms' => 'required|integer',
-            'floor_plan' => 'required|image|max:2048', // Adjust max file size as needed
-            'year' => 'required|string',
-            'type' => 'required|string',
-            'is_featured' => 'required|boolean',
-            'media.*' => 'image|max:2048', // Adjust max file size as needed
-            'description' => 'required|string',
-            'latitude' => 'required|string',
-            'longitude' => 'required|string',
-            'is_price_visible' => 'required|boolean',
-            'is_location_visible' => 'required|boolean',
-            'is_area_visible' => 'required|boolean',
-            'is_rooms_visible' => 'required|boolean',
-            'is_bathrooms_visible' => 'required|boolean',
-            'is_year_visible' => 'required|boolean',
-            'is_type_visible' => 'required|boolean',
-        ]);
-
-        if ($this->property) {
-            $this->property->update($validatedData);
+//        dd($validatedData);
+        $data = [
+            'title' => $this->title,
+            'user_id' => $this->user_id,
+            'category_id' => $this->category_id,
+            'price' => $this->price,
+            'location' => $this->location,
+            'area' => $this->area,
+            'rooms' => $this->rooms,
+            'bathrooms' => $this->bathrooms,
+            'year' => $this->year,
+            'type' => $this->type,
+            'is_featured' => $this->is_featured,
+            'description' => $this->description,
+            'is_price_visible' => $this->is_price_visible,
+            'is_location_visible' => $this->is_location_visible,
+            'is_area_visible' => $this->is_area_visible,
+            'is_rooms_visible' => $this->is_rooms_visible,
+            'is_bathrooms_visible' => $this->is_bathrooms_visible,
+            'is_year_visible' => $this->is_year_visible,
+            'is_type_visible' => $this->is_type_visible,
+            'latitude' => $this->latitude,
+            'longitude' => $this->longitude,
+        ];
+        if ($this->property != null) {
+            $this->property->update($data);
         } else {
 
             $floor_plan = $this->floor_plan->store('public/');
-            $property = Property::create($validatedData + ['floor_plan' => str_replace('public/', '', $floor_plan)]);
+            $property = Property::create($data + ['floor_plan' => str_replace('public/', '', $floor_plan)]);
 
             foreach ($this->media as $image) {
                 $path = $image->store('public/');

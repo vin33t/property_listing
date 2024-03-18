@@ -65,67 +65,67 @@
                                     <div class="row g-0">
                                         <div class="col-lg-12">
                                             <div class="contact-wrap w-100 p-md-5 p-4">
-                                                <p class="mb-4">Please use to form below to send an enquiry and request a valuation</p>
+                                                <p class="mb-4" style="color: black">Please use to form below to send an enquiry and request a valuation</p>
                                                 <form id="contactForm" name="contactForm" class="contactForm">
                                                     <div class="row">
                                                         <div class="col-md-12">
                                                             <div class="form-group">
-                                                                <select class="form-control" name="title" id="title" style="padding: 5px; border-radius: 0px">
-                                                                    <option value="">Select</option>
-                                                                    <option value="Mr">Mr</option>
-                                                                    <option value="Mrs">Mrs</option>
-                                                                    <option value="Miss">Miss</option>
-                                                                    <option value="Dr">Dr</option>
+                                                                <select class="form-control" name="title" id="title" style="padding: 5px; border-radius: 0px;">
+                                                                    <option value="" >Select</option>
+                                                                    <option value="Mr" >Mr</option>
+                                                                    <option value="Mrs" >Mrs</option>
+                                                                    <option value="Miss" >Miss</option>
+                                                                    <option value="Dr" >Dr</option>
                                                                 </select>
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-md-12 col-lg-6">
+                                                        <div class="col-md-12 col-lg-6" style="margin-top: 10px">
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control" name="first_name" id="first_name"
-                                                                       placeholder="First Name">
+                                                                <input type="text" name="first_name" id="first_name"
+                                                                       placeholder="First Name" style="color: black; border:0px; border-bottom: 1px solid black; padding: 5px 0px; font-size: 13px; width: 100%;">
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 col-lg-6">
+                                                        <div class="col-md-12 col-lg-6" style="margin-top: 10px">
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control" name="last_name" id="last_name"
-                                                                       placeholder="Last Name">
+                                                                <input type="text" name="last_name" id="last_name"
+                                                                       placeholder="Last Name"  style="color: black; border:0px; border-bottom: 1px solid black; padding: 5px 0px; font-size: 13px; width: 100%;">
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12">
+                                                        <div class="col-md-12" style="margin-top: 10px">
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control" name="address_line_1" id="address_line_1"
-                                                                       placeholder="Address Line 1">
+                                                                <input type="text"  name="address_line_1" id="address_line_1"
+                                                                       placeholder="Address Line 1"  style="color: black; border:0px; border-bottom: 1px solid black; padding: 5px 0px; font-size: 13px; width: 100%;">
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 col-lg-4">
+                                                        <div class="col-md-12 col-lg-4" style="margin-top: 10px">
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control" name="address_line_2" id="address_line_2"
-                                                                       placeholder="Address Line 2">
+                                                                <input type="text"  name="address_line_2" id="address_line_2"
+                                                                       placeholder="Address Line 2"  style="color: black; border:0px; border-bottom: 1px solid black; padding: 5px 0px; font-size: 13px; width: 100%;">
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 col-lg-4">
+                                                        <div class="col-md-12 col-lg-4" style="margin-top: 10px">
                                                             <div class="form-group">
-                                                                <input type="text" class="form-control" name="city" id="city"
-                                                                       placeholder="City">
+                                                                <input type="text"  name="city" id="city"
+                                                                       placeholder="City" style="color: black; border:0px; border-bottom: 1px solid black; padding: 5px 0px; font-size: 13px; width: 100%;">
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 col-lg-4">
+                                                        <div class="col-md-12 col-lg-4" style="margin-top: 10px">
                                                             <div class="form-group">
-                                                                <input type="number" class="form-control" name="post_code" id="post_code"
-                                                                       placeholder="Post Code">
+                                                                <input type="number"  name="post_code" id="post_code"
+                                                                       placeholder="Post Code" style="color: black; border:0px; border-bottom: 1px solid black; padding: 5px 0px; font-size: 13px; width: 100%;">
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 col-lg-6">
+                                                        <div class="col-md-12 col-lg-6" style="margin-top: 10px">
                                                             <div class="form-group">
-                                                                <input type="email" class="form-control" name="email" id="email"
-                                                                       placeholder="Email Address">
+                                                                <input type="email"  name="email" id="email"
+                                                                       placeholder="Email Address" style="color: black; border:0px; border-bottom: 1px solid black; padding: 5px 0px; font-size: 13px; width: 100%;">
                                                             </div>
                                                         </div>
-                                                        <div class="col-md-12 col-lg-6">
+                                                        <div class="col-md-12 col-lg-6" style="margin-top: 10px">
                                                             <div class="form-group">
-                                                                <input type="number" class="form-control" name="phone" id="phone"
-                                                                       placeholder="Phone">
+                                                                <input type="number" name="phone" id="phone"
+                                                                       placeholder="Phone" style="color: black; border:0px; border-bottom: 1px solid black; padding: 5px 0px; font-size: 13px; width: 100%;">
                                                             </div>
                                                         </div>
                                                         <div class="col-md-12">
@@ -159,26 +159,26 @@
                                                             </div>
                                                         </div>
 
-                                                        <div class="col-md-12">
+                                                        <div class="col-md-12" style="margin-top: 10px">
                                                             <div class="form-group">
-                                                <textarea name="comments" class="form-control" id="comments" cols="30"
-                                                          rows="4" placeholder="Request/ Comments"></textarea>
+                                                <textarea name="comments"  id="comments" cols="30"
+                                                          rows="4" placeholder="Request/ Comments" style="color: black; border:0px; border-bottom: 1px solid black; padding: 5px 0px; font-size: 13px; width: 100%;"></textarea>
                                                             </div>
                                                         </div>
 
                                                         <div class="col-md-12" style="margin-top: 10px">
-                                                            <p >I give consent to be contacted for the followings:</p>
+                                                            <p  style="color: black">I give consent to be contacted for the followings:</p>
                                                             <div class="form-group">
                                                                 <input type="checkbox" class="form-check-input" name="property_alert" id="property_alert" value="1">
-                                                                <label for="property_alert">Property Alert</label>
+                                                                <label for="property_alert" style="color: black">Property Alert</label>
                                                             </div>
                                                             <div class="form-group">
                                                                 <input type="checkbox" class="form-check-input" name="general_news" id="general_news" value="1">
-                                                                <label for="general_news">General News</label>
+                                                                <label for="general_news" style="color: black">General News</label>
                                                             </div>
                                                             <div class="form-group">
                                                                 <input type="checkbox" class="form-check-input" name="marketing_offers" id="marketing_offers" value="1">
-                                                                <label for="marketing_offers">Marketing and offers</label>
+                                                                <label for="marketing_offers" style="color: black">Marketing and offers</label>
                                                             </div>
 
                                                         </div>
@@ -211,8 +211,7 @@
     <script src="{{asset('assets1/js/tiny-slider.js')}}"></script>
     <script src="{{asset('assets1/js/glightbox.min.js')}}"></script>
     <script src="{{asset('assets1/js/aos.js')}}"></script>
-    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBVWaKrjvy3MaE7SQ74_uJiULgl1JY0H2s&sensor=false"></script>
-    <script src="{{asset('assets1/js/google-map.js')}}"></script>
+
     <script src="{{asset('assets1/js/main.js')}}"></script>
 
     <script async src="https://www.googletagmanager.com/gtag/js?id=UA-23581568-13"></script>

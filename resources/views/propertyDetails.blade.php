@@ -119,8 +119,19 @@
                                         <p>No Data</p>
                                     </div>
                                     <div class="tab-pane fade" id="propertyMap" role="tabpanel"
-                                         aria-labelledby="v-pills-performance-tab">
-                                        <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d2483.0791450791344!2d-0.3827416728392599!3d51.51176397181439!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x4876733fde904111%3A0x923946cb37f96f2e!2sSouthall!5e0!3m2!1sen!2sin!4v1710521340056!5m2!1sen!2sin"  style="width: 100%; height: 400px" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                                         aria-labelledby="v-pills-performance-tab" >
+                                        <div style="width: 100%; height: max-content; display: flex; justify-content: center">
+                                            <iframe
+                                                width="600"
+                                                height="450"
+                                                style="border:0"
+                                                loading="lazy"
+                                                allowfullscreen
+                                                referrerpolicy="no-referrer-when-downgrade"
+                                                src="https://www.google.com/maps/embed/v1/place?key=AIzaSyA1MwEdKCKMwP-jLQGNBDnmcJyNte9-gnA
+    &q={{ $property->latitude }},{{ $property->longitude }}">
+                                            </iframe>
+                                        </div>
                                     </div>
 
                                 </div>
@@ -132,7 +143,7 @@
                     <div class="contact-wrap w-100 p-md-5 p-4" style="background-color: whitesmoke">
                       <div style="display: flex; flex-direction: column">
                           <img src="{{asset('assets1/images/logo.jpg')}}" style="width: 50px; height: auto" alt="">
-                          <a href="{{route('properties')}}" style="margin-top: 20px">Vies All Properties</a>
+                          <a href="{{route('properties')}}" style="margin-top: 20px">View All Properties</a>
                       </div>
                         <div class="row mb-4">
                             <div class="col-12" style="margin-top: 20px">
@@ -156,7 +167,9 @@
                             <div class="col-12" style="margin-top: 20px">
                                 <div class="dbox w-100 d-flex align-items-start">
                                     <div class="text">
-                                        <p><span>Phone:</span>0208 574 6816 </p>
+                                        <p><span>Call us</span></p>
+                                        <p style="text-decoration: underline"><a href="tel: 07513141890 " style="color: #dc3545">Directly</a></p><br>
+                                        <p>07513141890</p>
 
                                     </div>
                                 </div>

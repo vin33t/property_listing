@@ -134,7 +134,7 @@
 
             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                 <div class="mdc-text-field mdc-text-field--outlined">
-                    <input wire:model="latitude" id="year" name="year" type="text" class="mdc-text-field__input">
+                    <input wire:model="latitude" id="latitude" name="year" type="text" class="mdc-text-field__input">
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
@@ -148,7 +148,7 @@
 
             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                 <div class="mdc-text-field mdc-text-field--outlined">
-                    <input wire:model="longitude" id="year" name="year" type="text" class="mdc-text-field__input">
+                    <input wire:model="longitude" id="longitude" name="year" type="text" class="mdc-text-field__input">
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
@@ -371,4 +371,63 @@
             </div>
         </div>
     </div>
-</form>
+
+
+        <div id="map"></div>
+        <div id="coordinates"></div>
+
+
+    </form>
+
+
+    <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
+    <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
+    <script>
+        var marker;
+
+        // Initialize and add the map
+        function initMap() {
+            // Create the map
+            var map = L.map('map').setView([51.505, -0.09], 13); // Initial center coordinates and zoom level
+
+            // Add a tile layer (base map) to the map
+            L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                attribution: '&copy; <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors'
+            }).addTo(map);
+
+            // Add a marker at the initial center of the map
+            marker = L.marker([51.505, -0.09], { draggable: true }).addTo(map);
+
+            // Display coordinates of the marker
+            marker.on('dragend', function (e) {
+                document.getElementById('coordinates').innerHTML = 'Latitude: ' + e.target.getLatLng().lat.toFixed(6) + '<br>Longitude: ' + e.target.getLatLng().lng.toFixed(6);
+                document.getElementById('latitude').value = latlng.lat.toFixed(6);
+                document.getElementById('longitude').value = latlng.lng.toFixed(6);
+            });
+
+            // Add a search box
+            var searchControl = L.Control.geocoder({
+                defaultMarkGeocode: false
+            }).on('markgeocode', function(e) {
+                var latlng = e.geocode.center;
+                map.setView(latlng, 13); // Set the map view to the searched location with zoom level 13
+                marker.setLatLng(latlng); // Move the marker to the searched location
+                document.getElementById('coordinates').innerHTML = 'Latitude: ' + latlng.lat.toFixed(6) + '<br>Longitude: ' + latlng.lng.toFixed(6);
+
+                // update value of latitude and longitude
+                document.getElementById('latitude').value = latlng.lat.toFixed(6);
+                document.getElementById('longitude').value = latlng.lng.toFixed(6);
+
+            }).addTo(map);
+        }
+
+
+        // Call the initMap function when the document is ready
+        document.addEventListener("DOMContentLoaded", function(event) {
+            initMap();
+        });
+    </script>
+
+
+
+    {{--    AIzaSyA1MwEdKCKMwP-jLQGNBDnmcJyNte9-gnA--}}

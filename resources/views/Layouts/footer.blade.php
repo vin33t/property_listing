@@ -106,7 +106,7 @@
         <div class="container-xl">
             <div class="row">
                 <div class="col-md-12 text-center">
-                    <p class="mb-0" style="color: rgba(255,255,255,.5); font-size: 13px;">Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved | Made with <i class="fa fa-heart" aria-hidden="true" style="color: #dc3545"></i> by <a href="https://himsoftsolution.com" target="_blank" rel="nofollow noopener">Him Soft Solution</a>
+                    <p class="mb-0" style="color: rgba(255,255,255,.5); font-size: 13px;">Copyright &copy;<script data-cfasync="false" src="/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script><script>document.write(new Date().getFullYear());</script> All rights reserved |
                 </div>
             </div>
         </div>

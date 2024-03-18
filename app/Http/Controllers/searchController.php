@@ -12,12 +12,10 @@ class searchController extends Controller
         $location = $request->location;
         $price = $request->price;
         $area = $request->area;
-
        $properties = Property::Where('category_id', $category)
            ->Where('location', 'like', '%'.$location.'%')
            ->Where('area', 'like', '%'.$area.'%')
            ->Where('price', '<=', $price)
-
            ->get();
        return view('properties', compact('properties'));
 

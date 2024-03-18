@@ -13,7 +13,9 @@
             </div>
         </div>
     </section>
-    <section class="ftco-section ftco-no-pb ftco-no-pt bg-light">
+
+
+    <section class="ftco-section ftco-no-pb ftco-no-pt">
         <div class="container">
             <div class="row">
                 <div class="col-md-12">
@@ -22,26 +24,28 @@
                             <div class="col-md-12 nav-link-wrap d-flex justify-content-center">
                                 <div class="nav nav-pills text-center" id="v-pills-tab" role="tablist"
                                      aria-orientation="vertical">
-                                    <a class="nav-link active" id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1"
+                                    {{--                                    tab links here--}}
+                                    <a class="nav-link " id="v-pills-1-tab" data-toggle="pill" href="#v-pills-1"
                                        role="tab" aria-controls="v-pills-1" aria-selected="true">Buy Properties</a>
-                                    <a class="nav-link" id="v-pills-2-tab" data-toggle="pill" href="#v-pills-2" role="tab"
-                                       aria-controls="v-pills-2" aria-selected="false">Rent Properties</a>
                                 </div>
                             </div>
                             <div class="col-md-12 tab-wrap">
                                 <div class="tab-content" id="v-pills-tabContent">
+
+                                    {{--tab content here--}}
                                     <div class="tab-pane fade show active" id="v-pills-1" role="tabpanel"
                                          aria-labelledby="v-pills-nextgen-tab">
-                                        <form action="{{route('searchProperties')}}" method="POST" class="search-property-1">
+                                        <form action="{{route('searchProperties')}}" method="POST"
+                                              class="search-property-1">
                                             @csrf
                                             <div class="row g-0">
-
                                                 <div class="col-md d-flex">
-                                                    <div class="form-group p-4">
+                                                    <div class="form-group px-4 py-3">
                                                         <label for="#">Property Type</label>
                                                         <div class="form-field">
                                                             <div class="select-wrap">
-                                                                <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                                                                <div class="icon"><span
+                                                                        class="fa fa-chevron-down"></span></div>
 
                                                                 @php
                                                                     $categories = \App\Models\Category::all();
@@ -49,7 +53,8 @@
 
                                                                 <select name="property_type" id class="form-control">
                                                                     @foreach($categories as $category)
-                                                                        <option value="{{$category->id}}">{{$category->name}}</option>
+                                                                        <option
+                                                                            value="{{$category->id}}">{{$category->name}}</option>
                                                                     @endforeach
                                                                 </select>
                                                             </div>
@@ -57,29 +62,44 @@
                                                     </div>
                                                 </div>
                                                 <div class="col-md d-flex">
-                                                    <div class="form-group p-4">
+                                                    <div class="form-group px-4 py-3">
                                                         <label for="#">Location</label>
                                                         <div class="form-field">
                                                             <div class="icon"><span class="ion-ios-pin"></span></div>
-                                                            <input type="text" name="location" class="form-control" value="New York" placeholder="Search Location">
+                                                            @php
+                                                                $properties = \App\Models\Property::all();
+
+                                                            @endphp
+
+                                                            <select  name="location" id class="form-control">
+                                                                @foreach($properties as $property)
+                                                                    <option
+                                                                        value="{{$property->location}}">{{$property->location}}</option>
+                                                                @endforeach
+                                                            </select>
+
+
+
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md d-flex">
-                                                    <div class="form-group p-4">
+                                                    <div class="form-group px-4 py-3">
                                                         <label for="#">Area(Sq.Ft.)</label>
                                                         <div class="form-field">
                                                             <div class="icon"><span class="ion-ios-map"></span></div>
-                                                            <input type="number" name="area" class="form-control"  value="100">
+                                                            <input type="number" name="area" class="form-control"
+                                                                   value="100">
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <div class="col-md d-flex">
-                                                    <div class="form-group p-4">
+                                                    <div class="form-group px-4 py-3">
                                                         <label for="#">Price Limit</label>
                                                         <div class="form-field">
                                                             <div class="select-wrap">
-                                                                <div class="icon"><span class="fa fa-chevron-down"></span></div>
+                                                                <div class="icon"><span
+                                                                        class="fa fa-chevron-down"></span></div>
                                                                 <select name="price" class="form-control">
                                                                     <option value="100">£100</option>
                                                                     <option value="10000">£10,000</option>
@@ -96,87 +116,13 @@
                                                 <div class="col-md d-flex">
                                                     <div class="form-group d-flex w-100 border-0">
                                                         <div class="form-field w-100 align-items-center d-flex">
-                                                            <input type="submit" class="align-self-stretch form-control btn btn-primary">
+                                                            <input type="submit"
+                                                                   class="align-self-stretch form-control btn btn-primary">
                                                         </div>
                                                     </div>
                                                 </div>
                                             </div>
                                         </form>
-
-                                    </div>
-                                    <div class="tab-pane fade" id="v-pills-2" role="tabpanel"
-                                         aria-labelledby="v-pills-performance-tab">
-                                        <form action="{{route('searchProperties')}}" method="POST" class="search-property-1">
-                                            @csrf
-                                            <div class="row g-0">
-
-                                                <div class="col-md d-flex">
-                                                    <div class="form-group p-4">
-                                                        <label for="#">Property Type</label>
-                                                        <div class="form-field">
-                                                            <div class="select-wrap">
-                                                                <div class="icon"><span class="fa fa-chevron-down"></span></div>
-
-                                                                @php
-                                                                    $categories = \App\Models\Category::all();
-                                                                @endphp
-
-                                                                <select name="property_type" id class="form-control">
-                                                                    @foreach($categories as $category)
-                                                                        <option value="{{$category->id}}">{{$category->name}}</option>
-                                                                    @endforeach
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md d-flex">
-                                                    <div class="form-group p-4">
-                                                        <label for="#">Location</label>
-                                                        <div class="form-field">
-                                                            <div class="icon"><span class="ion-ios-pin"></span></div>
-                                                            <input type="text" name="location" class="form-control" value="New York" placeholder="Search Location">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md d-flex">
-                                                    <div class="form-group p-4">
-                                                        <label for="#">Area(Sq.Ft.)</label>
-                                                        <div class="form-field">
-                                                            <div class="icon"><span class="ion-ios-map"></span></div>
-                                                            <input type="number" name="area" class="form-control"  value="100">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md d-flex">
-                                                    <div class="form-group p-4">
-                                                        <label for="#">Price Limit</label>
-                                                        <div class="form-field">
-                                                            <div class="select-wrap">
-                                                                <div class="icon"><span class="fa fa-chevron-down"></span></div>
-                                                                <select name="price" class="form-control">
-                                                                    <option value="100">£100</option>
-                                                                    <option value="10000">£10,000</option>
-                                                                    <option value="50000">£50,000</option>
-                                                                    <option value="100000">£100,000</option>
-                                                                    <option value="200000">£200,000</option>
-                                                                    <option value="300000">£300,000</option>
-
-                                                                </select>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <div class="col-md d-flex">
-                                                    <div class="form-group d-flex w-100 border-0">
-                                                        <div class="form-field w-100 align-items-center d-flex">
-                                                            <input type="submit" class="align-self-stretch form-control btn btn-primary">
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                            </div>
-                                        </form>
-
                                     </div>
                                 </div>
                             </div>
@@ -186,6 +132,18 @@
             </div>
         </div>
     </section>
+
+
+    @if($errors->any())
+        <div class="alert alert-danger">
+            <ul>
+                @foreach($errors->all() as $error)
+                    <li>{{$error}}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
+
     <section class="ftco-section bg-light">
         <div class="container-xl">
             <div class="row">

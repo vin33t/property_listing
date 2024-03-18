@@ -27,6 +27,8 @@
             {{--            </x-banner_slide>--}}
         </div>
     </section>
+
+
     <section class="ftco-section ftco-no-pb ftco-no-pt">
         <div class="container">
             <div class="row">
@@ -41,7 +43,6 @@
                                        role="tab" aria-controls="v-pills-1" aria-selected="true">Buy Properties</a>
                                 </div>
                             </div>
-
                             <div class="col-md-12 tab-wrap">
                                 <div class="tab-content" id="v-pills-tabContent">
 
@@ -79,8 +80,20 @@
                                                         <label for="#">Location</label>
                                                         <div class="form-field">
                                                             <div class="icon"><span class="ion-ios-pin"></span></div>
-                                                            <input type="text" name="location" class="form-control"
-                                                                   value="New York" placeholder="Search Location">
+                                                            @php
+                                                            $properties = \App\Models\Property::all();
+
+                                                            @endphp
+
+                                                            <select  name="location" id class="form-control">
+                                                                @foreach($properties as $property)
+                                                                    <option
+                                                                        value="{{$property->location}}">{{$property->location}}</option>
+                                                                @endforeach
+                                                            </select>
+
+
+
                                                         </div>
                                                     </div>
                                                 </div>
@@ -133,6 +146,8 @@
             </div>
         </div>
     </section>
+
+
     <section class="ftco-section">
         <div class="container-xl">
             <div class="row justify-content-center">
@@ -143,39 +158,39 @@
             </div>
             <div class="row justify-content-center">
                 <div class="col-md-10">
-                    <div class="row g-1 mb-1 desktop_category_list">
-                        @foreach($categories as $category)
-                            @php
-                                $media = \App\Models\Media::where('model_type', 'App\Models\Category')->where('model_id', $category->id)->first();
-                            @endphp
-                            <div class="col-md-4 text-center d-flex align-items-stretch" data-aos="fade-up"
-                                 data-aos-delay="100" data-aos-duration="1000">
-                                <a href="{{route('properties', ['id' => $category])}}" class="services">
-                                    @if($media==Null)
-                                        <img src="{{asset('assets1/images/noImg.jpg')}}"
-                                             style="height: 100px; width: 100px; border-radius: 50%" alt="">
-                                    @else
-                                        <img src="{{asset('storage/'. $media->path)}}"
-                                             style="height: 100px; width: 100px; border-radius: 50%" alt="">
-                                    @endif
-                                    <div class="text">
-                                        <h2>{{$category->name}}</h2>
-                                    </div>
-                                </a>
-                            </div>
+{{--                    <div class="row g-1 mb-1 desktop_category_list">--}}
+{{--                        @foreach($categories as $category)--}}
+{{--                            @php--}}
+{{--                                $media = \App\Models\Media::where('model_type', 'App\Models\Category')->where('model_id', $category->id)->first();--}}
+{{--                            @endphp--}}
+{{--                            <div class="col-md-4 text-center d-flex align-items-stretch" data-aos="fade-up"--}}
+{{--                                 data-aos-delay="100" data-aos-duration="1000">--}}
+{{--                                <a href="{{route('properties', ['id' => $category])}}" class="services">--}}
+{{--                                    @if($media==Null)--}}
+{{--                                        <img src="{{asset('assets1/images/noImg.jpg')}}"--}}
+{{--                                             style="height: 100px; width: 100px; border-radius: 50%" alt="">--}}
+{{--                                    @else--}}
+{{--                                        <img src="{{asset('storage/'. $media->path)}}"--}}
+{{--                                             style="height: 100px; width: 100px; border-radius: 50%" alt="">--}}
+{{--                                    @endif--}}
+{{--                                    <div class="text">--}}
+{{--                                        <h2>{{$category->name}}</h2>--}}
+{{--                                    </div>--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
 
-                        @endforeach
-                    </div>
+{{--                        @endforeach--}}
+{{--                    </div>--}}
 
-                    <div class="row g-1 mb-1 mobile_category_list">
-                        <div class="swiffy-slider">
+                    <div class="row g-1 mb-1 ">
+                        <div class="swiffy-slider slider-item-show4">
                             <ul class="slider-container">
                                 @foreach($categories as $category)
                                     @php
                                         $media = \App\Models\Media::where('model_type', 'App\Models\Category')->where('model_id', $category->id)->first();
                                     @endphp
                                     <li>
-                                        <div class="col-md-4 text-center d-flex align-items-stretch" data-aos="fade-up"
+                                        <div class=" text-center d-flex align-items-stretch" data-aos="fade-up"
                                              data-aos-delay="100" data-aos-duration="1000">
                                             <a href="{{route('properties', ['id' => $category])}}" class="services">
                                                 @if($media==Null)
@@ -222,7 +237,7 @@
                             @php
                                 $image = $property->media->first();
                             @endphp
-                            <a href="#" class="img img-property"
+                            <a href="{{route('propertyDetails', ['property' => $property])}}" class="img img-property"
                                style="background-image: url({{asset('storage/'. $image?->path)}});">
                                 <p class="price"><span class="orig-price">£{{$property->price}}</span></p>
                             </a>
