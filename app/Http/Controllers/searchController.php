@@ -8,6 +8,8 @@ use Illuminate\Http\Request;
 class searchController extends Controller
 {
    public function index (Request $request){
+
+
         $category = $request->property_type;
         $location = $request->location;
         $price = $request->price;
@@ -17,6 +19,7 @@ class searchController extends Controller
            ->Where('area', 'like', '%'.$area.'%')
            ->Where('price', '<=', $price)
            ->get();
+
        return view('properties', compact('properties'));
 
 

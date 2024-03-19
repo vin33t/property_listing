@@ -67,12 +67,12 @@
                                                         <div class="form-field">
                                                             <div class="icon"><span class="ion-ios-pin"></span></div>
                                                             @php
-                                                                $properties = \App\Models\Property::all();
+                                                                $propertiess = \App\Models\Property::all();
 
                                                             @endphp
 
                                                             <select  name="location" id class="form-control">
-                                                                @foreach($properties as $property)
+                                                                @foreach($propertiess as $property)
                                                                     <option
                                                                         value="{{$property->location}}">{{$property->location}}</option>
                                                                 @endforeach
