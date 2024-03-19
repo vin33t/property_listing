@@ -33,6 +33,8 @@ class PropertyForm extends Component
     public $is_bathrooms_visible = false;
     public $is_year_visible = false;
     public $is_type_visible = false;
+    // epc
+    public $epc;
 
     // latitude and longitude
     public $latitude;
@@ -42,7 +44,7 @@ class PropertyForm extends Component
 
 
 
-    public function mount(Property $property = null)
+    public function mount($property = null)
     {
         $this->property = $property;
 
@@ -85,73 +87,59 @@ class PropertyForm extends Component
 
     public function submit()
     {
-//
-//        $validatedData = $this->validate([
-//            'title' => 'required|string',
-//            'user_id' => 'required|exists:users,id',
-//            'category_id' => 'required|exists:categories,id',
-//            'price' => 'required|numeric',
-//            'location' => 'required|string',
-//            'area' => 'required|numeric',
-//            'rooms' => 'required|integer',
-//            'bathrooms' => 'required|integer',
-//            'floor_plan' => 'required|file', // Adjust max file size as needed
-//            'year' => 'required|string',
-//            'type' => 'required|string',
-//            'is_featured' => 'required|in:0,1',
-//            'media.*' => 'file|max:2048', // Adjust max file size as needed
-//            'description' => 'required|string',
-//            'latitude' => 'required|string',
-//            'longitude' => 'required|string',
-//            'is_price_visible' => 'boolean',
-//            'is_location_visible' => 'boolean',
-//            'is_area_visible' => 'boolean',
-//            'is_rooms_visible' => 'boolean',
-//            'is_bathrooms_visible' => 'boolean',
-//            'is_year_visible' => 'boolean',
-//            'is_type_visible' => 'boolean',
-//        ]);
 
-//        dd($validatedData);
-        $data = [
-            'title' => $this->title,
-            'user_id' => $this->user_id,
-            'category_id' => $this->category_id,
-            'price' => $this->price,
-            'location' => $this->location,
-            'area' => $this->area,
-            'rooms' => $this->rooms,
-            'bathrooms' => $this->bathrooms,
-            'year' => $this->year,
-            'type' => $this->type,
-            'is_featured' => $this->is_featured,
-            'description' => $this->description,
-            'is_price_visible' => $this->is_price_visible,
-            'is_location_visible' => $this->is_location_visible,
-            'is_area_visible' => $this->is_area_visible,
-            'is_rooms_visible' => $this->is_rooms_visible,
-            'is_bathrooms_visible' => $this->is_bathrooms_visible,
-            'is_year_visible' => $this->is_year_visible,
-            'is_type_visible' => $this->is_type_visible,
-            'latitude' => $this->latitude,
-            'longitude' => $this->longitude,
-        ];
-        if ($this->property != null) {
-            $this->property->update($data);
-        } else {
+        $validatedData = $this->validate([
+            'title' => 'required|string',
+            'user_id' => 'required|exists:users,id',
+            'category_id' => 'required|exists:categories,id',
+            'price' => 'required|numeric',
+            'location' => 'required|string',
+            'area' => 'required|numeric',
+            'rooms' => 'required|integer',
+            'bathrooms' => 'required|integer',
+//            'floor_plan' => 'file', // Adjust max file size as needed
+            'year' => 'required|string',
+            'type' => 'required|string',
+            'is_featured' => 'required|in:0,1',
+            'media.*' => 'file', // Adjust max file size as needed
+            'description' => 'required|string',
+            'latitude' => 'required|string',
+            'longitude' => 'required|string',
+            'is_price_visible' => 'boolean',
+            'is_location_visible' => 'boolean',
+            'is_area_visible' => 'boolean',
+            'is_rooms_visible' => 'boolean',
+            'is_bathrooms_visible' => 'boolean',
+            'is_year_visible' => 'boolean',
+            'is_type_visible' => 'boolean',
+//            'epc'=>'file'
+        ]);
 
+        if($this->epc){
+            $epc = $this->epc->store('public/');
+        }
+        if($this->floor_plan){
             $floor_plan = $this->floor_plan->store('public/');
-            $property = Property::create($data + ['floor_plan' => str_replace('public/', '', $floor_plan)]);
-
-            foreach ($this->media as $image) {
-                $path = $image->store('public/');
-                $property->media()->create([
-                    'path' => str_replace('public/', '', $path),
+        }
+        $data = $validatedData;
+        if ($this->property) {
+            $this->property->update($data + ['floor_plan' => str_replace('public/', '', $floor_plan), 'epc' => str_replace('public/', '', $epc)]);
+            foreach ($this->media as $file) {
+                $this->property->media()->create([
                     'model_type' => 'App\Models\Property',
-
+                    'path' => str_replace('public/', '', $file->store('public/'))
+                ]);
+            }
+        } else {
+            $property = Property::create($data + ['floor_plan' => str_replace('public/', '', $floor_plan), 'epc' => str_replace('public/', '', $epc)]);
+            foreach ($this->media as $file) {
+                $property->media()->create([
+                    'model_type' => 'App\Models\Property',
+                    'path' => str_replace('public/', '', $file->store('public/'))
                 ]);
             }
         }
+
         session()->flash('success', 'Property created successfully.');
 
         return redirect()->to('property/');

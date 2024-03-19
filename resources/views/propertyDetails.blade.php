@@ -116,7 +116,7 @@
                                     </div>
                                     <div class="tab-pane fade" id="propertyEpc" role="tabpanel"
                                          aria-labelledby="v-pills-performance-tab">
-                                        <p>No Data</p>
+                                        <img src="{{asset('storage/'. $property->epc)}}" style="width: 100%; height: 400px" alt="">
                                     </div>
                                     <div class="tab-pane fade" id="propertyMap" role="tabpanel"
                                          aria-labelledby="v-pills-performance-tab" >

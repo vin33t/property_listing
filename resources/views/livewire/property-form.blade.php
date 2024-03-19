@@ -1,3 +1,5 @@
+<div>
+
     <form wire:submit.prevent="submit" enctype="multipart/form-data">
     <div class="template-demo">
         <div class="mdc-layout-grid__inner">
@@ -17,6 +19,7 @@
             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <select wire:model="user_id" name="user_id" id="user_id" class="mdc-text-field__input mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">-- Select Agent --</option>
                         @foreach($users as $user)
                             <option value="{{$user->id}}">{{$user->name}}</option>
                         @endforeach
@@ -24,7 +27,6 @@
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
-                            <label for="user_id" class="mdc-floating-label">Agent</label>
                         </div>
                         <div class="mdc-notched-outline__trailing"></div>
                     </div>
@@ -35,6 +37,7 @@
             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <select wire:model="category_id" name="category_id" id="category_id" class="mdc-text-field__input mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                            <option value="">-- Select Category --</option>
                         @foreach($categories as $category)
                             <option value="{{$category->id}}">{{$category->name}}</option>
                         @endforeach
@@ -42,7 +45,6 @@
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
-                            <label for="category_id" class="mdc-floating-label">Category</label>
                         </div>
                         <div class="mdc-notched-outline__trailing"></div>
                     </div>
@@ -78,6 +80,34 @@
                     </div>
                 </div>
             </div>
+
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                <div class="mdc-text-field mdc-text-field--outlined">
+                    <input wire:model="latitude" id="latitude" name="year" type="text" class="mdc-text-field__input">
+                    <div class="mdc-notched-outline">
+                        <div class="mdc-notched-outline__leading"></div>
+                        <div class="mdc-notched-outline__notch">
+                            <label for="year" class="mdc-floating-label">Latitude</label>
+                        </div>
+                        <div class="mdc-notched-outline__trailing"></div>
+                    </div>
+                </div>
+            </div>
+
+
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                <div class="mdc-text-field mdc-text-field--outlined">
+                    <input wire:model="longitude" id="longitude" name="year" type="text" class="mdc-text-field__input">
+                    <div class="mdc-notched-outline">
+                        <div class="mdc-notched-outline__leading"></div>
+                        <div class="mdc-notched-outline__notch">
+                            <label for="year" class="mdc-floating-label">Longitude</label>
+                        </div>
+                        <div class="mdc-notched-outline__trailing"></div>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                 <div class="mdc-text-field mdc-text-field--outlined">
@@ -131,38 +161,10 @@
                 </div>
             </div>
 
-
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
-                <div class="mdc-text-field mdc-text-field--outlined">
-                    <input wire:model="latitude" id="latitude" name="year" type="text" class="mdc-text-field__input">
-                    <div class="mdc-notched-outline">
-                        <div class="mdc-notched-outline__leading"></div>
-                        <div class="mdc-notched-outline__notch">
-                            <label for="year" class="mdc-floating-label">Latitude</label>
-                        </div>
-                        <div class="mdc-notched-outline__trailing"></div>
-                    </div>
-                </div>
-            </div>
-
-
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
-                <div class="mdc-text-field mdc-text-field--outlined">
-                    <input wire:model="longitude" id="longitude" name="year" type="text" class="mdc-text-field__input">
-                    <div class="mdc-notched-outline">
-                        <div class="mdc-notched-outline__leading"></div>
-                        <div class="mdc-notched-outline__notch">
-                            <label for="year" class="mdc-floating-label">Longitude</label>
-                        </div>
-                        <div class="mdc-notched-outline__trailing"></div>
-                    </div>
-                </div>
-            </div>
-
-
             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <select wire:model="type" name="type" id="type" class="mdc-text-field__input">
+                        <option value="">-- Select Type --</option>
                         <option value="sale">Sale</option>
                         <option value="rent">Rent</option>
                         <option value="leasehold">Leasehold</option>
@@ -170,7 +172,6 @@
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
-                            <label for="text-field-hero-input" class="mdc-floating-label">Type</label>
                         </div>
                         <div class="mdc-notched-outline__trailing"></div>
                     </div>
@@ -180,13 +181,28 @@
             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <select wire:model="is_featured" name="is_featured" id="is_featured" class="mdc-text-field__input">
+                        <option value="">-- Select Featured --</option>
                         <option value="1">Yes</option>
                         <option value="0">No</option>
                     </select>
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
-                            <label for="text-field-hero-input" class="mdc-floating-label">Featured</label>
+                        </div>
+                        <div class="mdc-notched-outline__trailing"></div>
+                    </div>
+                </div>
+            </div>
+
+
+
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+                <div class="mdc-text-field mdc-text-field--outlined">
+                    <textarea wire:model="description" name="description" class="mdc-text-field__input" rows="10"></textarea>
+                    <div class="mdc-notched-outline">
+                        <div class="mdc-notched-outline__leading"></div>
+                        <div class="mdc-notched-outline__notch">
+                            <label for="text-field-hero-input" class="mdc-floating-label">Description</label>
                         </div>
                         <div class="mdc-notched-outline__trailing"></div>
                     </div>
@@ -222,11 +238,11 @@
 
             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                 <div class="mdc-text-field mdc-text-field--outlined">
-                    <textarea wire:model="description" name="description" class="mdc-text-field__input" rows="10"></textarea>
+                    <input type="file" wire:model="epc" name="floor_plan" class="mdc-text-field__input" id="text-field-hero-input">
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
-                            <label for="text-field-hero-input" class="mdc-floating-label">Description</label>
+                            <label for="text-field-hero-input" class="">EPC</label>
                         </div>
                         <div class="mdc-notched-outline__trailing"></div>
                     </div>
@@ -357,6 +373,8 @@
                 </div>
             </div>
 
+
+
 {{--            Visibility Checkboxes --}}
 
 
@@ -373,13 +391,15 @@
     </div>
 
 
-        <div id="map"></div>
-        <div id="coordinates"></div>
+
 
 
     </form>
 
+    <div id="map"></div>
+    <div id="coordinates"></div>
 
+</div>
     <script src="https://unpkg.com/leaflet/dist/leaflet.js"></script>
     <script src="https://unpkg.com/leaflet-control-geocoder/dist/Control.Geocoder.js"></script>
     <script>
