@@ -3,20 +3,23 @@
     <form wire:submit.prevent="submit" enctype="multipart/form-data">
     <div class="template-demo">
         <div class="mdc-layout-grid__inner">
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <label for="text-field-hero-input" class="">Title</label>
+
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <input name="title" type="text" class="mdc-text-field__input" wire:model="title">
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
-                            <label for="text-field-hero-input" class="mdc-floating-label">Title</label>
                         </div>
                         <div class="mdc-notched-outline__trailing"></div>
                     </div>
                 </div>
             </div>
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <label for="text-field-hero-input" class="">Agent</label>
+
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <select wire:model="user_id" name="user_id" id="user_id" class="mdc-text-field__input mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                             <option value="">-- Select Agent --</option>
@@ -34,7 +37,9 @@
             </div>
 
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <label for="text-field-hero-input" class="">Select Category</label>
+
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <select wire:model="category_id" name="category_id" id="category_id" class="mdc-text-field__input mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500">
                             <option value="">-- Select Category --</option>
@@ -53,13 +58,14 @@
 
 
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <label for="text-field-hero-input" class="">Price</label>
+
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <input wire:model="price" name="price" type="text" class="mdc-text-field__input">
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
-                            <label for="text-field-hero-input" class="mdc-floating-label">Price</label>
                         </div>
                         <div class="mdc-notched-outline__trailing"></div>
                     </div>
@@ -68,26 +74,29 @@
 
 
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <label for="text-field-hero-input" class="">Location</label>
+
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <input wire:model="location" name="location" type="text" class="mdc-text-field__input">
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
-                            <label for="text-field-hero-input" class="mdc-floating-label">Location</label>
                         </div>
                         <div class="mdc-notched-outline__trailing"></div>
                     </div>
                 </div>
             </div>
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <label for="text-field-hero-input" class="">Latitude</label>
+
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <input wire:model="latitude" id="latitude" name="year" type="text" class="mdc-text-field__input">
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
-                            <label for="year" class="mdc-floating-label">Latitude</label>
+
                         </div>
                         <div class="mdc-notched-outline__trailing"></div>
                     </div>
@@ -95,13 +104,14 @@
             </div>
 
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <label for="text-field-hero-input" class="">Longitude</label>
+
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <input wire:model="longitude" id="longitude" name="year" type="text" class="mdc-text-field__input">
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
-                            <label for="year" class="mdc-floating-label">Longitude</label>
                         </div>
                         <div class="mdc-notched-outline__trailing"></div>
                     </div>
@@ -109,59 +119,65 @@
             </div>
 
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <label for="text-field-hero-input" class="">Area</label>
+
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <input wire:model="area" name="area" type="number" class="mdc-text-field__input">
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
-                            <label for="text-field-hero-input" class="mdc-floating-label">Area</label>
                         </div>
                         <div class="mdc-notched-outline__trailing"></div>
                     </div>
                 </div>
             </div>
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <label for="text-field-hero-input" class="">Rooms</label>
+
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <input wire:model="rooms" name="rooms" type="number" class="mdc-text-field__input">
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
-                            <label for="text-field-hero-input" class="mdc-floating-label">Rooms</label>
                         </div>
                         <div class="mdc-notched-outline__trailing"></div>
                     </div>
                 </div>
             </div>
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <label for="text-field-hero-input" class="">Bathrooms</label>
+
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <input wire:model="bathrooms" name="bathrooms" type="number" class="mdc-text-field__input">
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
-                            <label for="text-field-hero-input" class="mdc-floating-label">Bathrooms</label>
                         </div>
                         <div class="mdc-notched-outline__trailing"></div>
                     </div>
                 </div>
             </div>
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <label for="text-field-hero-input" class="">Year</label>
+
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <input wire:model="year" id="year" name="year" type="text" class="mdc-text-field__input">
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
-                            <label for="year" class="mdc-floating-label">Year</label>
                         </div>
                         <div class="mdc-notched-outline__trailing"></div>
                     </div>
                 </div>
             </div>
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <label for="text-field-hero-input" class="">Type</label>
+
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <select wire:model="type" name="type" id="type" class="mdc-text-field__input">
                         <option value="">-- Select Type --</option>
@@ -178,7 +194,9 @@
                 </div>
             </div>
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <label for="text-field-hero-input" class="">Is Featured</label>
+
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <select wire:model="is_featured" name="is_featured" id="is_featured" class="mdc-text-field__input">
                         <option value="">-- Select Featured --</option>
@@ -196,26 +214,29 @@
 
 
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <label for="text-field-hero-input" class="">Description</label>
+
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <textarea wire:model="description" name="description" class="mdc-text-field__input" rows="10"></textarea>
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
-                            <label for="text-field-hero-input" class="mdc-floating-label">Description</label>
                         </div>
                         <div class="mdc-notched-outline__trailing"></div>
                     </div>
                 </div>
             </div>
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <label for="text-field-hero-input" class="">Images</label>
+
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <input type="file" wire:model="media" multiple name="media[]" class="mdc-text-field__input" id="text-field-hero-input">
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
-                            <label for="text-field-hero-input" class="mdc-floating-label">Images</label>
+
                         </div>
                         <div class="mdc-notched-outline__trailing"></div>
                     </div>
@@ -223,26 +244,28 @@
             </div>
 
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <label for="text-field-hero-input" class="">Floor Plan</label>
+
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <input type="file" wire:model="floor_plan" name="floor_plan" class="mdc-text-field__input" id="text-field-hero-input">
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
-                            <label for="text-field-hero-input" class="">Floor Plan</label>
                         </div>
                         <div class="mdc-notched-outline__trailing"></div>
                     </div>
                 </div>
             </div>
 
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <label for="text-field-hero-input" class="">EPC</label>
+
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <input type="file" wire:model="epc" name="floor_plan" class="mdc-text-field__input" id="text-field-hero-input">
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
-                            <label for="text-field-hero-input" class="">EPC</label>
                         </div>
                         <div class="mdc-notched-outline__trailing"></div>
                     </div>
