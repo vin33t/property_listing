@@ -7,7 +7,7 @@
             <div class="mdc-layout-grid__inner">
                 <div class="mdc-layout-grid__cell--span-12">
                     <div class="mdc-card">
-                        <h6 class="card-title">About Us</h6>
+                        <h6 class="card-title" style="font-size: 20px">About Us</h6>
                         <livewire:about-us />
                     </div>
                 </div>

@@ -216,9 +216,9 @@
 
             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
                 <label for="text-field-hero-input" class="">Description</label>
-
                 <div class="mdc-text-field mdc-text-field--outlined">
                     <textarea wire:model="description" name="description" class="mdc-text-field__input" rows="10"></textarea>
+
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
@@ -287,9 +287,6 @@
                     <label for="checkbox-1">Category</label>
                 </div>
             </div>
-
-
-
 {{--            Visibility checkboxes--}}
             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-2-desktop">
                 <div class="mdc-form-field">

@@ -19,7 +19,7 @@ class AboutUs extends Component
     public function mount()
     {
         $this->about = \option('about', '');
-        $this->heading = \option('heading', '');
+        $this->heading = \option('aboutt_heading', '');
         $this->leftSideImage = \option('about_leftSideImage', '');
         $this->bottomImage = \option('about_bottomImage', '');
         $this->videoUrl = \option('about_videoUrl', '');
