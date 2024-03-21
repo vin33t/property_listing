@@ -1791,11 +1791,6 @@ h1, .h1, h2, .h2, h3, .h3, h4, .h4, h5, .h5,
                 height: 50vh;
                 min-height: 400px;
             }
-            .ftco-no-pt {
-                padding-top: 50px !important; }
-
-
-
             .hero-wrap .slider-text .bread {
                 font-size: 40px; }
           .slider-hero .work .img:after {
@@ -3226,8 +3221,6 @@ textarea::placeholder {
     font-style: italic; }
 
 @media (max-width: 575.98px) {
-
-
     .ftco-no-pt {
         padding-top: 90px !important;
     }
