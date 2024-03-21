@@ -2570,8 +2570,7 @@ textarea.form-control {
   position: relative;
   width: 100%; }
   @media (max-width: 575.98px) {
-    .ftco-section {
-      padding: 1em 0; }
+
       .services
       {
           padding: 20px;
@@ -3230,7 +3229,7 @@ textarea::placeholder {
 
 
     .ftco-no-pt {
-        padding-top: 50px !important;
+        padding-top: 90px !important;
     }
     .property-wrap .img {
         height: 170px;
