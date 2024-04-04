@@ -17,7 +17,7 @@ return new class extends Migration
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->string('title');
             $table->text('description')->nullable();
-            $table->decimal('price', 10, 2)->default('POA');
+            $table->text('price')->nullable();
             $table->string('location');
             $table->integer('area');
             $table->integer('rooms')->nullable();

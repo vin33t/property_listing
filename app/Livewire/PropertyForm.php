@@ -92,7 +92,7 @@ class PropertyForm extends Component
             'title' => 'required|string',
             'user_id' => 'required|exists:users,id',
             'category_id' => 'required|exists:categories,id',
-            'price' => 'required|numeric',
+            'price' => 'required',
             'location' => 'required|string',
             'area' => 'required|numeric',
             'rooms' => 'required|integer',

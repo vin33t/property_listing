@@ -1,6 +1,7 @@
 @extends('backend.layout.root')
 @section('content')
 
+
     <!-- partial -->
     <div class="page-wrapper mdc-toolbar-fixed-adjust">
         <main class="content-wrapper">
@@ -10,7 +11,8 @@
                     <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
                         <div class="mdc-card p-0">
                             <div class="flex w-full justify-between p-4">
-                            <span class="card-title card-padding pb-0">Properties</span>
+
+                                <span class="card-title card-padding pb-0">Properties</span>
                                 <a href="{{route('property.create')}}" class="mdc-button mdc-button--outlined outlined-button--success">
                                     Add
                                 </a>
