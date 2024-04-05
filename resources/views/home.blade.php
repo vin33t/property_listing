@@ -67,7 +67,7 @@
 
                                                                 <select name="property_type" id class="form-control">
                                                                     @foreach($categories as $category)
-                                                                        <option
+                                                                        <option style="color: black"
                                                                             value="{{$category->id}}">{{$category->name}}</option>
                                                                     @endforeach
                                                                 </select>
@@ -87,7 +87,7 @@
 
                                                             <select  name="location" id class="form-control">
                                                                 @foreach($properties as $property)
-                                                                    <option
+                                                                    <option style="color: black"
                                                                         value="{{$property->location}}">{{$property->location}}</option>
                                                                 @endforeach
                                                             </select>
@@ -115,12 +115,12 @@
                                                                 <div class="icon"><span
                                                                         class="fa fa-chevron-down"></span></div>
                                                                 <select name="price" class="form-control">
-                                                                    <option value="100">£100</option>
-                                                                    <option value="10000">£10,000</option>
-                                                                    <option value="50000">£50,000</option>
-                                                                    <option value="100000">£100,000</option>
-                                                                    <option value="200000">£200,000</option>
-                                                                    <option value="300000">£300,000</option>
+                                                                    <option style="color: black" value="100">£100</option>
+                                                                    <option style="color: black" value="10000">£10,000</option>
+                                                                    <option style="color: black" value="50000">£50,000</option>
+                                                                    <option style="color: black" value="100000">£100,000</option>
+                                                                    <option style="color: black" value="200000">£200,000</option>
+                                                                    <option style="color: black" value="300000">£300,000</option>
 
                                                                 </select>
                                                             </div>
@@ -281,7 +281,7 @@
                 <div class="col-md-6 vid-height d-flex align-items-center justify-content-center text-center">
                     <div class="video-wrap" data-aos="fade-up">
                         <h3>Modern House Video</h3>
-                        <p>Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
+                        <p style="color: whitesmoke"> Far far away, behind the word mountains, far from the countries Vokalia and Consonantia, there
                             live the blind texts.</p>
                         <a href="{{option('about_videoUrl')}}" target="_blank" class="video-icon d-flex align-items-center justify-content-center">
                             <span class="ion-ios-play"></span>

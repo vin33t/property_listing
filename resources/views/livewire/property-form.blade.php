@@ -232,7 +232,7 @@
                 <label for="text-field-hero-input" class="">Images</label>
 
                 <div class="mdc-text-field mdc-text-field--outlined">
-                    <input type="file" wire:model="media" multiple name="media[]" class="mdc-text-field__input" id="text-field-hero-input">
+                    <input type="file" wire:model="media" multiple name="media[]" class="mdc-text-field__input" id="text-field-hero-input" required>
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
@@ -248,7 +248,7 @@
                 <label for="text-field-hero-input" class="">Floor Plan</label>
 
                 <div class="mdc-text-field mdc-text-field--outlined">
-                    <input type="file" wire:model="floor_plan" name="floor_plan" class="mdc-text-field__input" id="text-field-hero-input">
+                    <input type="file" wire:model="floor_plan" name="floor_plan" class="mdc-text-field__input" id="text-field-hero-input" required>
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
@@ -262,7 +262,7 @@
                 <label for="text-field-hero-input" class="">EPC</label>
 
                 <div class="mdc-text-field mdc-text-field--outlined">
-                    <input type="file" wire:model="epc" name="floor_plan" class="mdc-text-field__input" id="text-field-hero-input">
+                    <input type="file" wire:model="epc" name="floor_plan" class="mdc-text-field__input" id="text-field-hero-input" required>
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>
                         <div class="mdc-notched-outline__notch">
