@@ -1,5 +1,9 @@
 <?php
 
+use App\Http\Controllers\AccountsController;
+use App\Http\Controllers\ApplicantController;
+use App\Http\Controllers\AppointmentController;
+use App\Http\Controllers\LandlordController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\CategoryController;
 use App\Http\Controllers\GalleryCategoryController;
@@ -122,6 +126,35 @@ Route::middleware(['auth'])->group(function(){
 
 
     Route::post('search-properties', [\App\Http\Controllers\searchController::class, 'index'])->name('searchProperties');
+
+
+
+    Route::prefix('appointment')->name('appointment.')->group(function(){
+        Route::get('/', [AppointmentController::class, 'index'])->name('index');
+        Route::get('create', [AppointmentController::class, 'create'])->name('create');
+        Route::post('store', [AppointmentController::class, 'store'])->name('store');
+    });
+
+    Route::prefix('landlords')->name('landlords.')->group(function(){
+        Route::get('/', [LandlordController::class, 'index'])->name('index');
+        Route::get('create', [LandlordController::class, 'create'])->name('create');
+        Route::post('store', [LandlordController::class, 'store'])->name('store');
+    });
+
+    Route::prefix('applicants')->name('applicants.')->group(function(){
+        Route::get('/', [ApplicantController::class, 'index'])->name('index');
+        Route::get('create', [ApplicantController::class, 'create'])->name('create');
+        Route::post('store', [ApplicantController::class, 'store'])->name('store');
+    });
+
+    Route::prefix('accounts')->name('accounts.')->group(function(){
+        Route::get('/', [AccountsController::class, 'index'])->name('index');
+        Route::get('create', [AccountsController::class, 'create'])->name('create');
+        Route::post('store', [AccountsController::class, 'store'])->name('store');
+    });
+
+
+
 
 
 

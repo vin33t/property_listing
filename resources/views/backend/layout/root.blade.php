@@ -82,11 +82,51 @@
                     </div>
 
                     <div class="mdc-list-item mdc-drawer-item">
-                        <a class="mdc-drawer-link" href="{{route('property.index')}}">
+                        <a class="mdc-drawer-link" href="{{route('appointment.index')}}">
+                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">image</i>
+                            Appointment
+                        </a>
+                    </div>
+
+                    <div class="mdc-list-item mdc-drawer-item">
+                        <a class="mdc-drawer-link" href="{{route('landlords.index')}}">
                             <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">grid_on</i>
+                            Landlords
+                        </a>
+                    </div>
+
+                    <div class="mdc-list-item mdc-drawer-item">
+                        <a class="mdc-drawer-link" href="{{route('property.index')}}">
+                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">home</i>
                             Property
                         </a>
                     </div>
+
+
+
+
+                    <div class="mdc-list-item mdc-drawer-item">
+                        <a class="mdc-drawer-link" href="{{route('applicants.index')}}">
+                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">grid_on</i>
+                            Applicants
+                        </a>
+                    </div>
+
+                    <div class="mdc-list-item mdc-drawer-item">
+                        <a class="mdc-drawer-link" href="{{route('accounts.index')}}">
+                            <i class="material-icons mdc-list-item__start-detail mdc-drawer-item-icon" aria-hidden="true">grid_on</i>
+                            Accounts
+                        </a>
+                    </div>
+
+
+
+
+
+
+
+
+
 
                     <div class="mdc-list-item mdc-drawer-item">
                         <a class="mdc-drawer-link" href="{{route('termAndCondition.index')}}">
