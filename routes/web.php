@@ -131,8 +131,9 @@ Route::middleware(['auth'])->group(function(){
 
     Route::prefix('appointment')->name('appointment.')->group(function(){
         Route::get('/', [AppointmentController::class, 'index'])->name('index');
-        Route::get('create', [AppointmentController::class, 'create'])->name('create');
+        Route::get('form/{appointment?}', [AppointmentController::class, 'form'])->name('form');
         Route::post('store', [AppointmentController::class, 'store'])->name('store');
+        Route::delete('destroy/{appointment}', [AppointmentController::class, 'destroy'])->name('destroy');
     });
 
     Route::prefix('landlords')->name('landlords.')->group(function(){

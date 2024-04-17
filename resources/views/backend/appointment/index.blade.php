@@ -10,7 +10,7 @@
                         <div class="mdc-card p-0">
                             <div class="flex w-full justify-between p-4">
                                 <span class="card-title card-padding pb-0">Appointments</span>
-                                <a href="{{route('appointment.create')}}" class="mdc-button mdc-button--outlined outlined-button--success">
+                                <a href="{{route('appointment.form')}}" class="mdc-button mdc-button--outlined outlined-button--success">
                                     Add
                                 </a>
                             </div>
@@ -23,7 +23,9 @@
                                     <thead>
                                     <tr>
                                         <th class="text-left">S No.</th>
-                                        <th class="text-left">Name</th>
+                                        <th class="text-left">Client Name</th>
+                                        <th class="text-left">Property</th>
+                                        <th class="text-left">Appointment Date</th>
                                         <th class="text-left">Description</th>
                                         {{--                                        <th class="text-left">Image</th>--}}
                                         <th class="text-left">Action</th>
@@ -31,31 +33,26 @@
                                     </thead>
                                     <tbody>
 
-                                    @foreach($categories as $category)
-                                        <tr>
-                                            <td class="text-left">{{$loop->iteration}}</td>
-                                            <td class="text-left">{{$category->name}}</td>
-                                            <td class="text-left">{{$category->description}}</td>
-                                            {{--                                        <td class="text-left">--}}
-                                            {{--                                            @php--}}
-                                            {{--                                                $images = \App\Models\Media::where('model_type', 'App\Models\Category')->where('model_id', $category->id)->get();--}}
-                                            {{--                                            @endphp--}}
-                                            {{--                                            @foreach($images as $image)--}}
-                                            {{--                                                <div>--}}
-                                            {{--                                                    <img src="{{asset('storage/'. $image->path)}}" alt="" style="width: 100px;">--}}
-                                            {{--                                                </div>--}}
-                                            {{--                                            @endforeach--}}
-                                            {{--                                        </td>--}}
-                                            <td class="text-left">
-                                                <a href="{{route('category.edit', ['category' => $category])}}" class="mdc-button text-button--info">
-                                                    Edit
-                                                </a>
-
-                                                <a href="{{route('category.destroy', ['category' => $category])}}"  class="mdc-button text-button--secondary">
-                                                    Delete
-                                                </a>
-                                            </td>
-                                        </tr>
+                                    @foreach($appointments as $appointment)
+                                       <tr>
+                                             <td class="text-left">{{$loop->iteration}}</td>
+                                             <td class="text-left">{{$appointment->client_name}}</td>
+                                             <td class="text-left">{{$appointment->property->title}}</td>
+                                             <td class="text-left">{{ \Carbon\Carbon::parse($appointment->appointment_date)->format('D d M, Y') }}</td>
+                                             <td class="text-left">{{$appointment->remark}}</td>
+                                             <td class="text-left">
+                                                  <a href="{{route('appointment.form',$appointment->id)}}" class="mdc-button mdc-button--raised filled-button--info">
+                                                      Edit
+                                                    </a>
+                                                    <form action="{{route('appointment.destroy',$appointment->id)}}" method="post" class="inline">
+                                                        @csrf
+                                                        @method('delete')
+                                                        <button type="submit" class="mdc-button mdc-button--raised filled-button--danger">
+                                                            Delete
+                                                        </button>
+                                                    </form>
+                                                </td>
+                                       </tr>
                                     @endforeach
                                     </tbody>
                                 </table>
