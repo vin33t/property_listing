@@ -144,8 +144,8 @@ Route::middleware(['auth'])->group(function(){
 
     Route::prefix('applicants')->name('applicants.')->group(function(){
         Route::get('/', [ApplicantController::class, 'index'])->name('index');
-        Route::get('create', [ApplicantController::class, 'create'])->name('create');
-        Route::post('store', [ApplicantController::class, 'store'])->name('store');
+        Route::get('form/{application?}', [ApplicantController::class, 'form'])->name('form');
+        Route::delete('destroy/{application}', [ApplicantController::class, 'destroy'])->name('destroy');
     });
 
     Route::prefix('accounts')->name('accounts.')->group(function(){

@@ -10,7 +10,7 @@
                         <div class="mdc-card p-0">
                             <div class="flex w-full justify-between p-4">
                                 <span class="card-title card-padding pb-0">Applicants</span>
-                                <a href="{{route('applicants.create')}}" class="mdc-button mdc-button--outlined outlined-button--success">
+                                <a href="{{route('applicants.form')}}" class="mdc-button mdc-button--outlined outlined-button--success">
                                     Add
                                 </a>
                             </div>
@@ -24,43 +24,38 @@
                                     <tr>
                                         <th class="text-left">S No.</th>
                                         <th class="text-left">Name</th>
-                                        <th class="text-left">Description</th>
-                                        {{--                                        <th class="text-left">Image</th>--}}
+                                        <th class="text-left">Looking For</th>
+                                        <th class="text-left">Budget</th>
+                                        <th class="text-left">Area</th>
+                                        <th class="text-left">Notes</th>
                                         <th class="text-left">Action</th>
                                     </tr>
                                     </thead>
                                     <tbody>
-
-                                    @foreach($categories as $category)
+                                    @foreach($applications as $key => $applicant)
                                         <tr>
-                                            <td class="text-left">{{$loop->iteration}}</td>
-                                            <td class="text-left">{{$category->name}}</td>
-                                            <td class="text-left">{{$category->description}}</td>
-                                            {{--                                        <td class="text-left">--}}
-                                            {{--                                            @php--}}
-                                            {{--                                                $images = \App\Models\Media::where('model_type', 'App\Models\Category')->where('model_id', $category->id)->get();--}}
-                                            {{--                                            @endphp--}}
-                                            {{--                                            @foreach($images as $image)--}}
-                                            {{--                                                <div>--}}
-                                            {{--                                                    <img src="{{asset('storage/'. $image->path)}}" alt="" style="width: 100px;">--}}
-                                            {{--                                                </div>--}}
-                                            {{--                                            @endforeach--}}
-                                            {{--                                        </td>--}}
+                                            <td class="text-left">{{++$key}}</td>
+                                            <td class="text-left">{{$applicant->name}}</td>
+                                            <td class="text-left">{{$applicant->looking_for}}</td>
+                                            <td class="text-left">{{$applicant->budget}}</td>
+                                            <td class="text-left">{{$applicant->area}}</td>
+                                            <td class="text-left">{{$applicant->notes}}</td>
                                             <td class="text-left">
-                                                <a href="{{route('category.edit', ['category' => $category])}}" class="mdc-button text-button--info">
+                                                <a href="{{route('applicants.form', $applicant)}}" class="mdc-button mdc-button--raised filled-button--info">
                                                     Edit
                                                 </a>
-
-                                                <a href="{{route('category.destroy', ['category' => $category])}}"  class="mdc-button text-button--secondary">
-                                                    Delete
-                                                </a>
+                                                <form action="{{route('applicants.destroy', $applicant)}}" method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit" class="mdc-button mdc-button--raised filled-button--danger">
+                                                        Delete
+                                                    </button>
+                                                </form>
                                             </td>
-                                        </tr>
-                                    @endforeach
+                                        @endforeach
                                     </tbody>
                                 </table>
                             </div>
-                            {{--                             list of landlords ends here--}}
 
 
                         </div>
@@ -68,9 +63,6 @@
                 </div>
             </div>
         </main>
-        <!-- partial:../../partials/_footer.html -->
-
-        <!-- partial -->
     </div>
 
 
