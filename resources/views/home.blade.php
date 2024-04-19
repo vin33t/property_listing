@@ -230,7 +230,7 @@
                     <h2 class="mb-4">Featured Properties</h2>
                 </div>
             </div>
-            <div class="row">
+            <div class="row" style="row-gap: 30px">
                 @foreach($properties as $property)
                     <div class="col-md-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
                         <div class="property-wrap">
@@ -241,7 +241,7 @@
                                style="background-image: url({{asset('storage/'. $image?->path)}});">
                                 <p class="price"><span class="orig-price">£{{$property->price}}</span></p>
                             </a>
-                            <div class="text">
+                            <div class="text" style="min-height: 280px">
                                 <div class="list-team d-flex align-items-center mb-4">
                                     <div class="d-flex align-items-center">
                                         <div class="img"
