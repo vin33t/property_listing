@@ -138,7 +138,7 @@ Route::middleware(['auth'])->group(function(){
     Route::prefix('landlords')->name('landlords.')->group(function(){
         Route::get('/', [LandlordController::class, 'index'])->name('index');
         Route::get('form/{landlord?}', [LandlordController::class, 'form'])->name('form');
-        Route::delete('destroy/{appointment}', [LandlordController::class, 'destroy'])->name('destroy');
+        Route::delete('destroy/{landlord}', [LandlordController::class, 'destroy'])->name('destroy');
 
     });
 
