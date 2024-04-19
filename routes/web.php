@@ -132,14 +132,14 @@ Route::middleware(['auth'])->group(function(){
     Route::prefix('appointment')->name('appointment.')->group(function(){
         Route::get('/', [AppointmentController::class, 'index'])->name('index');
         Route::get('form/{appointment?}', [AppointmentController::class, 'form'])->name('form');
-        Route::post('store', [AppointmentController::class, 'store'])->name('store');
         Route::delete('destroy/{appointment}', [AppointmentController::class, 'destroy'])->name('destroy');
     });
 
     Route::prefix('landlords')->name('landlords.')->group(function(){
         Route::get('/', [LandlordController::class, 'index'])->name('index');
-        Route::get('create', [LandlordController::class, 'create'])->name('create');
-        Route::post('store', [LandlordController::class, 'store'])->name('store');
+        Route::get('form/{landlord?}', [LandlordController::class, 'form'])->name('form');
+        Route::delete('destroy/{appointment}', [LandlordController::class, 'destroy'])->name('destroy');
+
     });
 
     Route::prefix('applicants')->name('applicants.')->group(function(){
