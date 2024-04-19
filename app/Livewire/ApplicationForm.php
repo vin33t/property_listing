@@ -23,7 +23,7 @@ class ApplicationForm extends Component
         'budget' => 'required|integer',
         'looking_for' => 'required',
         'area' => 'required',
-        'attachments' => 'file|nullable|max:1024',
+        'attachments.*' => 'file|max:1024',
         'notes' => 'nullable',
     ];
 

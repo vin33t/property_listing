@@ -25,7 +25,7 @@
             height: 400px;
         }
     </style>
-
+    <x-toaster-hub />
 
     {{--    <!-- End layout styles -->--}}
 {{--    <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" />--}}

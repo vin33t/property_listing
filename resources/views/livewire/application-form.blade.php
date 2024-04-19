@@ -1,4 +1,14 @@
 <div>
+    @if($errors->any())
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <strong class="font-bold">Oops!</strong>
+            <ul class="mt-1">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form wire:submit.prevent="submit" method="post" enctype="multipart/form-data" >
         @csrf
         <div class="template-demo">
@@ -24,7 +34,7 @@
                     <label for="text-field-hero-input" class="">Budget</label>
 
                     <div class="mdc-text-field mdc-text-field--outlined">
-                        <input wire:model="budget" name="budget" type="text" class="mdc-text-field__input">
+                        <input wire:model="budget" name="budget" type="number" class="mdc-text-field__input">
                         <div class="mdc-notched-outline">
                             <div class="mdc-notched-outline__leading"></div>
                             <div class="mdc-notched-outline__notch">
@@ -80,7 +90,7 @@
                     <label for="text-field-hero-input" class="">Area</label>
 
                     <div class="mdc-text-field mdc-text-field--outlined">
-                        <input wire:model="area" name="area" type="text" class="mdc-text-field__input">
+                        <input wire:model="area" name="area" type="number" class="mdc-text-field__input">
                         <div class="mdc-notched-outline">
                             <div class="mdc-notched-outline__leading"></div>
                             <div class="mdc-notched-outline__notch">

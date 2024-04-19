@@ -1,5 +1,14 @@
 <div>
-
+    @if($errors->any())
+        <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded relative" role="alert">
+            <strong class="font-bold">Oops!</strong>
+            <ul class="mt-1">
+                @foreach ($errors->all() as $error)
+                    <li>{{ $error }}</li>
+                @endforeach
+            </ul>
+        </div>
+    @endif
     <form wire:submit.prevent="submit" enctype="multipart/form-data">
     <div class="template-demo">
         <div class="mdc-layout-grid__inner">

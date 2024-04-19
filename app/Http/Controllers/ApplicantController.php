@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Application;
 use App\Models\Category;
+use Masmerise\Toaster\Toaster;
 
 class ApplicantController extends Controller
 {
