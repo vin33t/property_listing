@@ -12,6 +12,28 @@
     <form wire:submit.prevent="submit" enctype="multipart/form-data">
     <div class="template-demo">
         <div class="mdc-layout-grid__inner">
+
+
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <label for="text-field-hero-input" class="">Landlord</label>
+
+                <div class="mdc-text-field mdc-text-field--outlined">
+                    <select wire:model="landlord_id" name="landlord_id" id="landlord_id" class="mdc-text-field__input mt-1 p-2 w-full border border-gray-300 rounded-md focus:outline-none focus:ring-blue-500 focus:border-blue-500">
+                        <option value="">-- Select Landlord --</option>
+                        @foreach($landlords as $landlord)
+                            <option value="{{$landlord->id}}">{{$landlord->name}}</option>
+                        @endforeach
+
+                    </select>
+                    <div class="mdc-notched-outline">
+                        <div class="mdc-notched-outline__leading"></div>
+                        <div class="mdc-notched-outline__notch">
+                        </div>
+                        <div class="mdc-notched-outline__trailing"></div>
+                    </div>
+                </div>
+            </div>
+
             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
                 <label for="text-field-hero-input" class="">Title</label>
 
@@ -25,6 +47,22 @@
                     </div>
                 </div>
             </div>
+
+
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <label for="text-field-hero-input" class="">Available From </label>
+
+                <div class="mdc-text-field mdc-text-field--outlined">
+                    <input name="available_from" type="text" class="mdc-text-field__input" wire:model="available_from">
+                    <div class="mdc-notched-outline">
+                        <div class="mdc-notched-outline__leading"></div>
+                        <div class="mdc-notched-outline__notch">
+                        </div>
+                        <div class="mdc-notched-outline__trailing"></div>
+                    </div>
+                </div>
+            </div>
+
 
             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
                 <label for="text-field-hero-input" class="">Agent</label>
@@ -193,6 +231,14 @@
                         <option value="sale">Sale</option>
                         <option value="rent">Rent</option>
                         <option value="leasehold">Leasehold</option>
+                        <option value="A1">A1</option>
+                        <option value="A3">A3</option>
+                        <option value="A5">A5</option>
+                        <option value="D1">D1</option>
+                        <option value="B1">B1</option>
+                        <option value="Studio">Studio</option>
+                        <option value="Flat">Flat</option>
+                        <option value="Maissonete">Maissonete</option>
                     </select>
                     <div class="mdc-notched-outline">
                         <div class="mdc-notched-outline__leading"></div>

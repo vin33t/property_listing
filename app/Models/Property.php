@@ -22,4 +22,12 @@ class Property extends Model
     public function media(){
         return $this->hasMany(Media::class, 'model_id');
     }
+
+    public function landlord(){
+        return $this->belongsTo(Landlord::class, 'landlord_id');
+    }
+
+    public function accounts(){
+        return $this->hasMany(Account::class, 'property_id');
+    }
 }

@@ -2,6 +2,7 @@
 
 namespace App\Livewire;
 
+use App\Models\Landlord;
 use Livewire\Component;
 use App\Models\User;
 use App\Models\Category;
@@ -14,6 +15,8 @@ class PropertyForm extends Component
 
     public $property = null;
     public $title;
+    public $landlord_id;
+    public $available_from;
     public $user_id;
     public $category_id;
     public $price;
@@ -49,6 +52,8 @@ class PropertyForm extends Component
         $this->property = $property;
 
         if ($property) {
+            $this->landlord_id = $property->landlord_id;
+            $this->available_from = $property->available_from;
             $this->title = $property->title;
             $this->user_id = $property->user_id;
             $this->category_id = $property->category_id;
@@ -81,14 +86,17 @@ class PropertyForm extends Component
     {
         $users = User::all();
         $categories = Category::all();
+        $landlords = Landlord::all();
 
-        return view('livewire.property-form', compact('users', 'categories'));
+        return view('livewire.property-form', compact('users', 'categories'))->with('landlords', $landlords);
     }
 
     public function submit()
     {
 
         $validatedData = $this->validate([
+            'landlord_id' => 'required|exists:landlords,id',
+            'available_from' => 'required',
             'title' => 'required|string',
             'user_id' => 'required|exists:users,id',
             'category_id' => 'required|exists:categories,id',

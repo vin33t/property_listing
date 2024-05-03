@@ -24,11 +24,14 @@
                                     <tr>
                                         <th class="text-left">S No.</th>
                                         <th class="text-left">Client Name</th>
+                                        <th class="text-left">Email</th>
                                         <th class="text-left">Property</th>
                                         <th class="text-left">Appointment Date</th>
                                         <th class="text-left">Description</th>
                                         {{--                                        <th class="text-left">Image</th>--}}
                                         <th class="text-left">Action</th>
+                                        <th class="text-left">Mail</th>
+                                        <th class="text-left">Feedback</th>
                                     </tr>
                                     </thead>
                                     <tbody>
@@ -37,10 +40,11 @@
                                        <tr>
                                              <td class="text-left">{{$loop->iteration}}</td>
                                              <td class="text-left">{{$appointment->client_name}}</td>
+                                             <td class="text-left">{{$appointment->client_email}}</td>
                                              <td class="text-left">{{$appointment->property->title}}</td>
                                              <td class="text-left">{{ \Carbon\Carbon::parse($appointment->appointment_date)->format('D d M, Y') }}</td>
                                              <td class="text-left">{{$appointment->remark}}</td>
-                                             <td class="text-left">
+                                             <td class="text-left" style="display: flex; gap: 5px">
                                                   <a href="{{route('appointment.form',$appointment->id)}}" class="mdc-button mdc-button--raised filled-button--info">
                                                       Edit
                                                     </a>
@@ -52,6 +56,26 @@
                                                         </button>
                                                     </form>
                                                 </td>
+
+                                           <td class="text-left" >
+                                               @if($appointment->client_email)
+                                                   <form action="{{ route('notification.notify',['appointment','meeting_alert',$appointment->id]) }}" method="POST">
+                                                       @csrf
+                                                   <button type="submit" class="mdc-button mdc-button--raised filled-button--danger">
+                                                       Meeting Alert
+                                                       </button>
+                                                  @endif
+                                                   </form>
+
+                                                   <form action="{{ route('notification.notify',['appointment','feedback_alert',$appointment->id]) }}" method="POST">
+                                                       @csrf
+                                                   <button type="submit" class="mdc-button mdc-button--raised filled-button--info">
+Feedback
+                                                       </button>
+                                                   </form>
+                                           </td>
+                                           <td class="text-left">NA</td>
+
                                        </tr>
                                     @endforeach
                                     </tbody>

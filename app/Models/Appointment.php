@@ -9,6 +9,7 @@ class Appointment extends Model
     protected $fillable = [
         'property_id',
         'client_name',
+        'client_email',
         'location',
         'with_whom',
         'remark',

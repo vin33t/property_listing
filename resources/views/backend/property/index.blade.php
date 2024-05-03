@@ -23,6 +23,8 @@
                                     <tr>
                                         <th class="text-left">S No.</th>
                                         <th class="text-left">Title</th>
+                                        <th class="text-left">Landlord</th>
+                                        <th class="text-left">Available From </th>
                                         <th class="text-left">Price</th>
                                         <th class="text-left">Location</th>
                                         <th class="text-left">Area</th>
@@ -36,6 +38,8 @@
                                         <tr>
                                             <td class="text-left">{{$loop->iteration}}</td>
                                             <td class="text-left">{{$property->title}}</td>
+                                            <td class="text-left">{{$property->landlord->name?? 'NA'}}</td>
+                                            <td class="text-left">{{$property->available_from}}</td>
                                             <td class="text-left">{{$property->price}}</td>
                                             <td class="text-left">{{$property->location}}</td>
                                             <td class="text-left">{{$property->area}}</td>

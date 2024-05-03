@@ -31,7 +31,7 @@ Route::get('/properties/{id?}', [HomeController::class, 'properties'])->name('pr
 Route::get('/agents', [HomeController::class, 'agents'])->name('agents');
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/blogDetails', [HomeController::class, 'blogDetails'])->name('blogDetails');
-Route::get('/propertyDetails/{property}', [HomeController::class, 'propertyDetails'])->name('propertyDetails');
+Route::get('/property-details/{property}', [HomeController::class, 'propertyDetails'])->name('propertyDetails');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/galleries/{id?}', [HomeController::class, 'galleries'])->name('galleries');
 Route::get('/free-appraisal', [HomeController::class, 'appraisal'])->name('appraisal');
@@ -127,6 +127,7 @@ Route::middleware(['auth'])->group(function(){
 
     Route::post('search-properties', [\App\Http\Controllers\searchController::class, 'index'])->name('searchProperties');
 
+    Route::post('/notify/{model}/{type}/{id}', [\App\Http\Controllers\NotificationController::class, 'notify'])->name('notification.notify');
 
 
     Route::prefix('appointment')->name('appointment.')->group(function(){
@@ -148,10 +149,13 @@ Route::middleware(['auth'])->group(function(){
         Route::delete('destroy/{application}', [ApplicantController::class, 'destroy'])->name('destroy');
     });
 
+
+
     Route::prefix('accounts')->name('accounts.')->group(function(){
         Route::get('/', [AccountsController::class, 'index'])->name('index');
-        Route::get('create', [AccountsController::class, 'create'])->name('create');
-        Route::post('store', [AccountsController::class, 'store'])->name('store');
+        Route::get('form/{account?}', [AccountsController::class, 'form'])->name('form');
+        Route::delete('destroy/{account}', [AccountsController::class, 'destroy'])->name('destroy');
+
     });
 
 

@@ -29,12 +29,11 @@
                     </div>
                 </div>
 
-
                 <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
-                    <label for="text-field-hero-input" class="">Budget</label>
+                    <label for="text-field-hero-input" class="">Email</label>
 
                     <div class="mdc-text-field mdc-text-field--outlined">
-                        <input wire:model="budget" name="budget" type="number" class="mdc-text-field__input">
+                        <input wire:model="email" name="email" type="email" class="mdc-text-field__input">
                         <div class="mdc-notched-outline">
                             <div class="mdc-notched-outline__leading"></div>
                             <div class="mdc-notched-outline__notch">
@@ -46,37 +45,10 @@
 
 
                 <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
-                    <label for="text-field-hero-input" class="">Looking For
-                    </label>
+                    <label for="text-field-hero-input" class="">Budget</label>
 
                     <div class="mdc-text-field mdc-text-field--outlined">
-                        <select wire:model="looking_for" name="is_featured" id="is_featured" class="mdc-text-field__input">
-                            <option value="">-- Select
-                                --</option>
-                            <option value="House">House</option>
-                            <option value="Commercial">Commercial</option>
-                            <option value="HMO">HMO</option>
-                            <option value="Off Licence">Off Licence</option>
-                            <option value="Pound Plus">Pound Plus</option>
-                            <option value="Empty">Empty</option>
-                            <option value="Studio">Studio</option>
-                            <option value="1 Bedroom">1 Bedroom</option>
-                            <option value="2 Bedroom">2 Bedroom</option>
-                            <option value="3 Bedroom">3 Bedroom</option>
-                            <option value="4 Bedroom">4 Bedroom</option>
-                            <option value="5 Bedroom">5 Bedroom</option>
-                            <option value="6 Bedroom">6 Bedroom</option>
-                            <option value="Flat">Flat</option>
-                            <option value="Maissonete">Maissonete</option>
-                            <option value="Warehouse">Warehouse</option>
-                            <option value="Restaurant">Restaurant</option>
-                            <option value="A1">A1</option>
-                            <option value="A3">A3</option>
-                            <option value="A5">A5</option>
-                            <option value="Land">Land</option>
-                            <option value="D1">D1</option>
-                            <option value="B1">B1</option>
-                        </select>
+                        <input wire:model="budget" name="budget" type="number" class="mdc-text-field__input">
                         <div class="mdc-notched-outline">
                             <div class="mdc-notched-outline__leading"></div>
                             <div class="mdc-notched-outline__notch">
@@ -101,6 +73,44 @@
                 </div>
 
 
+                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                    <label for="text-field-hero-input" class="">Looking For
+                    </label>
+                    <div >
+                        <div style="display: flex; flex-wrap: wrap; column-gap: 20px">
+                            @foreach($categories as $category)
+                                <div>
+                                    <input type="checkbox" id="cat-{{ $category->id }}" wire:model="category" value="{{ $category->name }}">
+                                    <label for="cat-{{ $category->id }}">{{ $category->name }}</label>
+                                </div>
+                            @endforeach
+                        </div>
+
+                        <div style="display: flex; flex-wrap: wrap; column-gap: 20px">
+                            @for($option = 1; $option <= 5; $option++)
+                                <div>
+                                    <input type="checkbox" id="opt-{{ $option }}" wire:model="bedrooms" value="{{ $option }}">
+                                    <label for="opt-{{ $option }}">{{ $option }} Bedroom</label>
+                                </div>
+                            @endfor
+                        </div>
+
+
+                        <div style="display: flex; flex-wrap: wrap; column-gap: 20px">
+                            @foreach($types as $ty)
+                                <div>
+                                    <input type="checkbox" id="typ-{{ $ty }}" wire:model="type" value="{{ $ty }}">
+                                    <label for="typ-{{ $ty }}">{{ $ty }}</label>
+                                </div>
+                            @endforeach
+                        </div>
+
+                    </div>
+
+
+
+
+                </div>
 
                 <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
                     <label for="text-field-hero-input" class="">Attachments</label>

@@ -10,6 +10,9 @@
                         <div class="mdc-card p-0">
                             <div class="flex w-full justify-between p-4">
                                 <span class="card-title card-padding pb-0">Accounts</span>
+                                <a href="{{route('accounts.form')}}" class="mdc-button mdc-button--outlined outlined-button--success">
+                                    Add
+                                </a>
                             </div>
 
 
@@ -20,40 +23,60 @@
                                     <thead>
                                     <tr>
                                         <th class="text-left">S No.</th>
-                                        <th class="text-left">Name</th>
-                                        <th class="text-left">Description</th>
+                                        <th class="text-left">Property Name</th>
+                                        <th class="text-left">Client Name</th>
+                                        <th class="text-left">Type</th>
+                                        <th class="text-left">Price</th>
+                                        <th class="text-left">Commission</th>
+                                        <th class="text-left">Transaction Date</th>
                                         {{--                                        <th class="text-left">Image</th>--}}
                                         <th class="text-left">Action</th>
+                                        <th class="text-left">Mail</th>
                                     </tr>
                                     </thead>
                                     <tbody>
 
-                                    @foreach($categories as $category)
+                                    @forelse($accounts as $account)
                                         <tr>
-                                            <td class="text-left">{{$loop->iteration}}</td>
-                                            <td class="text-left">{{$category->name}}</td>
-                                            <td class="text-left">{{$category->description}}</td>
-                                            {{--                                        <td class="text-left">--}}
-                                            {{--                                            @php--}}
-                                            {{--                                                $images = \App\Models\Media::where('model_type', 'App\Models\Category')->where('model_id', $category->id)->get();--}}
-                                            {{--                                            @endphp--}}
-                                            {{--                                            @foreach($images as $image)--}}
-                                            {{--                                                <div>--}}
-                                            {{--                                                    <img src="{{asset('storage/'. $image->path)}}" alt="" style="width: 100px;">--}}
-                                            {{--                                                </div>--}}
-                                            {{--                                            @endforeach--}}
-                                            {{--                                        </td>--}}
+                                            <td class="text-left">{{$loop->index + 1}}</td>
+                                            <td class="text-left">{{$account->property->title}}</td>
+                                            <td class="text-left">{{$account->client_name}}</td>
+                                            <td class="text-left">{{ ucfirst($account->type) }}</td>
+                                            <td class="text-left">{{$account->price}}</td>
+                                            <td class="text-left">{{$account->commission}}</td>
+                                            <td class="text-left">{{ $account->transaction_date->format('D d F, Y') }}</td>
                                             <td class="text-left">
-                                                <a href="{{route('category.edit', ['category' => $category])}}" class="mdc-button text-button--info">
+                                                <a href="{{ route('accounts.form',$account) }}" class="mdc-button mdc-button--raised filled-button--info">
                                                     Edit
                                                 </a>
 
-                                                <a href="{{route('category.destroy', ['category' => $category])}}"  class="mdc-button text-button--secondary">
-                                                    Delete
+
+
+                                                <form action="{{route('accounts.destroy', $account)}}"
+                                                      method="post">
+                                                    @csrf
+                                                    @method('delete')
+                                                    <button type="submit"
+                                                            class="mdc-button mdc-button--raised filled-button--danger">
+                                                        Delete
+                                                    </button>
+                                                </form>
+                                            </td>
+                                            <td class="text-left">
+                                                <a href=""  class="mdc-button text-button--secondary">
+                                                    Rent Reminder
+                                                </a>
+                                                <a href="" class="mdc-button text-button--info">
+                                                    Rent Receipt
                                                 </a>
                                             </td>
+
+                                    @empty
+                                        <tr>
+                                            <td colspan="9" class="text-center">No Accounts Found</td>
                                         </tr>
-                                    @endforeach
+                                    @endforelse
+
                                     </tbody>
                                 </table>
                             </div>

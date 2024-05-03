@@ -11,6 +11,7 @@ return new class extends Migration {
             $table->id();
             $table->foreignId('property_id');
             $table->longText('client_name');
+            $table->longText('client_email');
             $table->longText('location')->nullable();
             $table->string('with_whom');
             $table->longText('remark')->nullable();

@@ -19,4 +19,9 @@ class Landlord extends Model
     protected $casts = [
         'attachments' => 'array',
     ];
+
+    public function properties()
+    {
+        return $this->hasMany(Property::class);
+    }
 }

@@ -13,6 +13,8 @@ return new class extends Migration
     {
         Schema::create('properties', function (Blueprint $table) {
             $table->id();
+            $table->foreignId('landlord_id')->constrained('landlords')->onDelete('cascade');
+            $table->string('available_from');
             $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->foreignId('category_id')->constrained('categories')->cascadeOnDelete();
             $table->string('title');
@@ -22,7 +24,7 @@ return new class extends Migration
             $table->integer('area');
             $table->integer('rooms')->nullable();
             $table->integer('bathrooms')->nullable();
-            $table->enum('type', ['sale', 'rent', 'leasehold']);
+            $table->enum('type', ['sale', 'rent', 'leasehold','A1', 'A3', 'A5', 'D1', 'B1', 'Studio', 'Flat', 'Maissonete']);
             $table->boolean('is_featured');
             $table->timestamps();
         });

@@ -3,6 +3,7 @@
 namespace App\Livewire;
 
 use App\Models\Application;
+use App\Models\Category;
 use Livewire\Component;
 use Livewire\WithFileUploads;
 
@@ -11,17 +12,38 @@ class ApplicationForm extends Component
     use WithFileUploads;
 
     public $name;
+    public $email;
     public $budget;
-    public $looking_for;
     public $area;
     public $attachments;
     public $notes;
     public $application;
+    public $type = [];
+    public $bedrooms = [];
+    public $category = [];
 
-    protected $rules=[
+
+    public $types = [
+        'sale',
+        'rent',
+        'leasehold',
+        'A1',
+        'A3',
+        'A5',
+        'D1',
+        'B1',
+        'Studio',
+        'Flat',
+        'Maissonete',
+
+    ];
+
+    protected $rules = [
         'name' => 'required',
+        'email' => 'required|email',
         'budget' => 'required|integer',
-        'looking_for' => 'required',
+        'type' => 'required|array',
+        'bedrooms' => 'required|array',
         'area' => 'required',
         'attachments.*' => 'file|max:1024',
         'notes' => 'nullable',
@@ -31,24 +53,32 @@ class ApplicationForm extends Component
     {
         if ($this->application) {
             $this->name = $this->application->name;
+            $this->email = $this->application->email;
             $this->budget = $this->application->budget;
-            $this->looking_for = $this->application->looking_for;
+            $this->bedrooms = $this->application->looking_for['bedrooms'];
+            $this->type = $this->application->looking_for['property_type'];
+            $this->category = $this->application->looking_for['category'];
             $this->area = $this->application->area;
             $this->notes = $this->application->notes;
         }
-        return view('livewire.application-form')->with('application', $this->application);
+        return view('livewire.application-form')->with('application', $this->application)->with('categories', Category::all());
     }
 
     public function submit()
     {
         $validatedData = $this->validate();
+        $looking_for = [
+            'property_type' => $this->type,
+            'bedrooms' => $this->bedrooms,
+            'category' => $this->category
+        ];
         if ($this->application) {
-            $this->application->update($validatedData);
+            $this->application->update($validatedData + ['looking_for' => $looking_for]);
         } else {
-            if ($this->attachments){
+            if ($this->attachments) {
                 $validatedData['attachments'] = $this->attachments->store('attachments');
             }
-            $this->application = Application::create($validatedData);
+            $this->application = Application::create($validatedData + ['looking_for' => $looking_for]);
         }
         session()->flash('message', 'Application created successfully.');
 

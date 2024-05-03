@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\PropertyRequest;
 use App\Models\Category;
+use App\Models\Landlord;
 use App\Models\Media;
 use App\Models\Property;
 use App\Models\User;

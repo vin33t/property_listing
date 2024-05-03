@@ -14,6 +14,7 @@ class AppointmentForm extends Component
 
     public $property_id;
     public $client_name;
+    public $client_email;
     public $location;
     public $with_whom;
     public $remark;
@@ -24,6 +25,7 @@ class AppointmentForm extends Component
     protected $rules = [
         'property_id' => 'required|exists:properties,id',
         'client_name' => 'required',
+        'client_email' => 'required',
         'location' => 'nullable',
         'with_whom' => 'required',
         'remark' => 'nullable',
@@ -37,6 +39,7 @@ class AppointmentForm extends Component
         if ($this->appointment) {
             $this->property_id = $this->appointment->property_id;
             $this->client_name = $this->appointment->client_name;
+            $this->client_email = $this->appointment->client_email;
             $this->location = $this->appointment->location;
             $this->with_whom = $this->appointment->with_whom;
             $this->remark = $this->appointment->remark;
