@@ -10,20 +10,12 @@ class Appointment extends Model
         'property_id',
         'client_name',
         'client_email',
-        'location',
-        'with_whom',
         'remark',
-        'appointment_date',
-        'appointment_time',
     ];
 
-    protected $casts = [
-        'appointment_date' => 'date',
-        'appointment_time' => 'timestamp',
-    ];
 
-    protected function property()
+    public function meetings()
     {
-        return $this->belongsTo(Property::class);
+        return $this->hasMany(Meeting::class);
     }
 }

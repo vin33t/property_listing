@@ -9,13 +9,66 @@
             </ul>
         </div>
     @endif
-    <form wire:submit.prevent="submit" method="post" enctype="multipart/form-data" >
+    <form wire:submit.prevent="submit" method="post" enctype="multipart/form-data">
         @csrf
         <div class="template-demo">
             <div class="mdc-layout-grid__inner">
 
 
-                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12-desktop">
+                    <h6 class="card-title">Client Details</h6>
+                </div>
+
+
+
+                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12-desktop flex flex-col">
+
+                    <div class="mdc-text-field mdc-text-field--outlined align-items-center gap-12" >
+
+                        <div>
+                            <label for="client_selection" class="">Old Client</label>
+                            <input type="radio" name="client_selection"  wire:model="new_client" value="0" class="mdc-radio-field__input">
+                        </div>
+                        <div>
+                            <label for="client_selection" class="">New Client</label>
+                            <input type="radio" name="client_selection"  wire:model="new_client" value="1" class="mdc-radio-field__input">
+                        </div>
+
+
+
+
+                    </div>
+                </div>
+
+                @if($new_client === 0)
+                <div class=" mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop"
+                     style="display: flex; flex-direction: column;">
+                    <label for="text-field-hero-input" class="">Clients
+                    </label>
+
+                    <div class="mdc-text-field mdc-text-field--outlined">
+                        <select wire:model="property_id" name="is_featured" id="is_featured"
+                                class="mdc-text-field__input">
+                            <option value="">-- Select
+                                --
+                            </option>
+                            @foreach($clients as $client)
+                                <option value="{{$client->client_name}}">{{$client->client_name}}
+                                    - {{ $client->client_email }}</option>
+                            @endforeach
+
+                        </select>
+                        <div class="mdc-notched-outline">
+                            <div class="mdc-notched-outline__leading"></div>
+                            <div class="mdc-notched-outline__notch">
+                            </div>
+                            <div class="mdc-notched-outline__trailing"></div>
+                        </div>
+                    </div>
+                </div>
+                @else
+                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop"
+                     style="display: flex; flex-direction: column">
                     <label for="text-field-hero-input" class="">Client Name</label>
 
                     <div class="mdc-text-field mdc-text-field--outlined">
@@ -28,8 +81,8 @@
                         </div>
                     </div>
                 </div>
-
-                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop"
+                     style="display: flex; flex-direction: column">
                     <label for="text-field-hero-input" class="">Email</label>
 
                     <div class="mdc-text-field mdc-text-field--outlined">
@@ -42,9 +95,37 @@
                         </div>
                     </div>
                 </div>
+                @endif
 
 
-                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12-desktop">
+                    <h6 class="card-title"> Meeting Details</h6>
+
+                </div>
+                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop"
+                     style="display: flex; flex-direction: column">
                     <label for="text-field-hero-input" class="">Location</label>
 
                     <div class="mdc-text-field mdc-text-field--outlined">
@@ -59,14 +140,17 @@
                 </div>
 
 
-                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
+                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop"
+                     style="display: flex; flex-direction: column">
                     <label for="text-field-hero-input" class="">Property
                     </label>
 
                     <div class="mdc-text-field mdc-text-field--outlined">
-                        <select wire:model="property_id" name="is_featured" id="is_featured" class="mdc-text-field__input">
+                        <select wire:model="property_id" name="is_featured" id="is_featured"
+                                class="mdc-text-field__input">
                             <option value="">-- Select
-                                --</option>
+                                --
+                            </option>
                             @foreach($properties as $property)
                                 <option value="{{$property->id}}">{{$property->title}}</option>
                             @endforeach
@@ -81,8 +165,9 @@
                     </div>
                 </div>
 
-                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
-                    <label for="text-field-hero-input" class="">  With Whom
+                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop"
+                     style="display: flex; flex-direction: column">
+                    <label for="text-field-hero-input" class=""> With Whom
                     </label>
 
                     <div class="mdc-text-field mdc-text-field--outlined">
@@ -97,12 +182,14 @@
                 </div>
 
 
-                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
-                    <label for="text-field-hero-input" class="">  Appointment Date
+                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop"
+                     style="display: flex; flex-direction: column">
+                    <label for="text-field-hero-input" class=""> Appointment Date and Time
                     </label>
 
                     <div class="mdc-text-field mdc-text-field--outlined">
-                        <input wire:model="appointment_date" name="withWhom" type="date" class="mdc-text-field__input">
+                        <input wire:model="appointment_date_time" name="withWhom" type="datetime-local"
+                               class="mdc-text-field__input">
                         <div class="mdc-notched-outline">
                             <div class="mdc-notched-outline__leading"></div>
                             <div class="mdc-notched-outline__notch">
@@ -113,29 +200,14 @@
                 </div>
 
 
-                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
-                    <label for="text-field-hero-input" class="">  Appointment Time
+                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop"
+                     style="display: flex; flex-direction: column">
+                    <label for="text-field-hero-input" class=""> Remarks
                     </label>
 
                     <div class="mdc-text-field mdc-text-field--outlined">
-                        <input wire:model="appointment_time" name="withWhom" type="time" class="mdc-text-field__input">
-                        <div class="mdc-notched-outline">
-                            <div class="mdc-notched-outline__leading"></div>
-                            <div class="mdc-notched-outline__notch">
-                            </div>
-                            <div class="mdc-notched-outline__trailing"></div>
-                        </div>
-                    </div>
-                </div>
-
-
-
-                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
-                    <label for="text-field-hero-input" class="">  Remarks
-                    </label>
-
-                    <div class="mdc-text-field mdc-text-field--outlined">
-                        <input wire:model="remark" name="withWhom" type="text" placeholder="Remarks" class="mdc-text-field__input">
+                        <input wire:model="remark" name="withWhom" type="text" placeholder="Remarks"
+                               class="mdc-text-field__input">
                         <div class="mdc-notched-outline">
                             <div class="mdc-notched-outline__leading"></div>
                             <div class="mdc-notched-outline__notch">
@@ -148,7 +220,8 @@
 
                 <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                     <div class="mdc-text-field mdc-text-field--outlined">
-                        <button type="submit" class="mdc-button mdc-button--outlined outlined-button--success">{{ $appointment ? 'Update' : 'Create' }}</button>
+                        <button type="submit"
+                                class="mdc-button mdc-button--outlined outlined-button--success">{{ $appointment ? 'Update' : 'Create' }}</button>
                     </div>
                 </div>
             </div>

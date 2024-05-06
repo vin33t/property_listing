@@ -25,6 +25,7 @@
             height: 400px;
         }
     </style>
+    @vite('resources/css/app.css')
 
     {{--    <!-- End layout styles -->--}}
 {{--    <link rel="shortcut icon" href="{{asset('assets/images/favicon.png')}}" />--}}

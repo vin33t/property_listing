@@ -20,7 +20,7 @@ class Landlord extends Model
         'attachments' => 'array',
     ];
 
-    public function properties()
+    public function properties(): \Illuminate\Database\Eloquent\Relations\HasMany
     {
         return $this->hasMany(Property::class);
     }

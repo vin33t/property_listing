@@ -9,14 +9,8 @@ return new class extends Migration {
     {
         Schema::create('appointments', function (Blueprint $table) {
             $table->id();
-            $table->foreignId('property_id');
             $table->longText('client_name');
             $table->longText('client_email');
-            $table->longText('location')->nullable();
-            $table->string('with_whom');
-            $table->longText('remark')->nullable();
-            $table->date('appointment_date');
-            $table->text('appointment_time')->nullable();
             $table->timestamps();
         });
     }
