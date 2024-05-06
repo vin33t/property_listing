@@ -10,7 +10,7 @@ return new class extends Migration {
         Schema::create('accounts', function (Blueprint $table) {
             $table->id();
             $table->foreignId('property_id')->constrained('properties');
-            $table->enum('type',['rent','sale']);
+            $table->enum('type',['rent','buy']);
             $table->string('price');
             $table->string('commission');
             $table->string('client_name');

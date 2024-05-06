@@ -13,7 +13,7 @@ class NotificationController extends Controller
 {
     public function notify($model, $type, $id, Request $request)
     {
-        $data = "App\\Models\\" . $model;
+        $data = "App\\Models\\" . ucfirst($model);
         $data = $data::find($id);
         if($model === 'appointment')
         {
