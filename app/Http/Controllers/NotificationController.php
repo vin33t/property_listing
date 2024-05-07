@@ -6,6 +6,7 @@ use App\Mail\FeedbackMail;
 use App\Mail\MeetingAlertMail;
 use App\Mail\PropertyAlertMail;
 use App\Mail\RentReminderMail;
+use App\Models\Meeting;
 use Illuminate\Http\Request;
 
 
@@ -18,10 +19,24 @@ class NotificationController extends Controller
         if($model === 'appointment')
         {
             if ($type === 'meeting_alert'){
-                \Mail::to($data->client_email)->send(new MeetingAlertMail($data));
+                $data = [
+                    'client_name' => $data->client_name,
+                    'client_email' => $data->client_email,
+                    'meeting' => Meeting::findOrFail($request->meeting_id)
+                ];
+                \Mail::to($data['client_email'])->send(new MeetingAlertMail($data));
             }
+
+
             if ($type === 'feedback_alert'){
-                \Mail::to($data->client_email)->send(new FeedbackMail());
+
+
+                $data = [
+                    'client_email' => $data->client_email,
+                    'meeting' => Meeting::findOrFail($request->meeting_id)
+                ];
+
+                \Mail::to($data['client_email'])->send(new FeedbackMail($data));
             }
         } elseif ($model === 'rent') {
             if ($type === 'rent_reminder'){

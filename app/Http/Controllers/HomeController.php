@@ -6,6 +6,7 @@ use App\Models\Category;
 use App\Models\Gallery;
 use App\Models\GalleryCategory;
 use App\Models\homeSlider;
+use App\Models\Meeting;
 use App\Models\Property;
 use App\Models\User;
 use App\Models\Slider;
@@ -79,5 +80,8 @@ class HomeController extends Controller
 
     public function appraisal(){
         return view('freeAppraisal');
+    }
+    public function feedback(Meeting $meeting){
+        return view('feedbackForm')->with('meeting', $meeting);
     }
 }

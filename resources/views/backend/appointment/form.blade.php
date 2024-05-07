@@ -18,8 +18,12 @@
                 <div class="mdc-layout-grid__inner">
                     <div class="mdc-layout-grid__cell--span-12">
                         <div class="mdc-card">
-                            <h6 class="card-title">Create Appointment</h6>
-<livewire:appointment-form :appointment="$appointment"/>
+                            @if(!$appointment)
+                                <h6 class="card-title">Create Appointment</h6>
+                            @else
+                                <h6 class="card-title">Edit Appointment</h6>
+                            @endif
+                            <livewire:appointment-form :appointment="$appointment" :type="$type" :meeting="$meeting"/>
                         </div>
                     </div>
                 </div>

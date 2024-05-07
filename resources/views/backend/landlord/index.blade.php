@@ -15,7 +15,7 @@
                                 </a>
                             </div>
 
-                          <div class="w-full overflow-auto px-16">
+                          <div class="w-full overflow-x-auto overflow-y-hidden px-16">
                               <livewire:landlord-table/>
                           </div>
                             {{--                            list of landlords here--}}

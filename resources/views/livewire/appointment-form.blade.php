@@ -20,107 +20,82 @@
                 </div>
 
 
+                @if(!$appointment)
+                    <div
+                        class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12-desktop flex flex-col">
 
-                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12-desktop flex flex-col">
-
-                    <div class="mdc-text-field mdc-text-field--outlined align-items-center gap-12" >
-
-                        <div>
-                            <label for="client_selection" class="">Old Client</label>
-                            <input type="radio" name="client_selection"  wire:model="new_client" value="0" class="mdc-radio-field__input">
-                        </div>
-                        <div>
-                            <label for="client_selection" class="">New Client</label>
-                            <input type="radio" name="client_selection"  wire:model="new_client" value="1" class="mdc-radio-field__input">
-                        </div>
-
-
-
-
-                    </div>
-                </div>
-
-                @if($new_client === 0)
-                <div class=" mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop"
-                     style="display: flex; flex-direction: column;">
-                    <label for="text-field-hero-input" class="">Clients
-                    </label>
-
-                    <div class="mdc-text-field mdc-text-field--outlined">
-                        <select wire:model="property_id" name="is_featured" id="is_featured"
-                                class="mdc-text-field__input">
-                            <option value="">-- Select
-                                --
-                            </option>
-                            @foreach($clients as $client)
-                                <option value="{{$client->client_name}}">{{$client->client_name}}
-                                    - {{ $client->client_email }}</option>
-                            @endforeach
-
-                        </select>
-                        <div class="mdc-notched-outline">
-                            <div class="mdc-notched-outline__leading"></div>
-                            <div class="mdc-notched-outline__notch">
+                        <div class="mdc-text-field mdc-text-field--outlined align-items-center gap-12">
+                            <div>
+                                <label for="client_selection" class="">Old Client</label>
+                                <input type="radio" name="client_selection" wire:click="newClient" checked value="0"
+                                       class="mdc-radio-field__input">
                             </div>
-                            <div class="mdc-notched-outline__trailing"></div>
+                            <div>
+                                <label for="client_selection" class="">New Client</label>
+                                <input type="radio" name="client_selection" wire:click="newClient" value="1"
+                                       class="mdc-radio-field__input">
+                            </div>
                         </div>
                     </div>
-                </div>
+                @endif
+
+                @if($new_client == 0)
+                    <div class=" mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop"
+                         style="display: flex; flex-direction: column;">
+                        <label for="text-field-hero-input" class="">Clients
+                        </label>
+
+                        <div class="mdc-text-field mdc-text-field--outlined">
+                            <select wire:model="client_id" name="is_featured" id="is_featured"
+                                    class="mdc-text-field__input">
+                                <option value="">-- Select --</option>
+                                @foreach($clients as $client)
+                                    <option value="{{$client->client_name}}" {{ $appointment ?'selected' : '' }}>{{$client->client_name}}
+                                        - {{ $client->client_email }}</option>
+                                @endforeach
+
+                            </select>
+                            <div class="mdc-notched-outline">
+                                <div class="mdc-notched-outline__leading"></div>
+                                <div class="mdc-notched-outline__notch">
+                                </div>
+                                <div class="mdc-notched-outline__trailing"></div>
+                            </div>
+                        </div>
+                    </div>
                 @else
-                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop"
-                     style="display: flex; flex-direction: column">
-                    <label for="text-field-hero-input" class="">Client Name</label>
+                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop"
+                         style="display: flex; flex-direction: column">
+                        <label for="text-field-hero-input" class="">Client Name</label>
 
-                    <div class="mdc-text-field mdc-text-field--outlined">
-                        <input wire:model="client_name" name="clientName" type="text" class="mdc-text-field__input">
-                        <div class="mdc-notched-outline">
-                            <div class="mdc-notched-outline__leading"></div>
-                            <div class="mdc-notched-outline__notch">
+                        <div class="mdc-text-field mdc-text-field--outlined">
+                            <input wire:model="client_name" name="clientName" type="text" class="mdc-text-field__input">
+                            <div class="mdc-notched-outline">
+                                <div class="mdc-notched-outline__leading"></div>
+                                <div class="mdc-notched-outline__notch">
+                                </div>
+                                <div class="mdc-notched-outline__trailing"></div>
                             </div>
-                            <div class="mdc-notched-outline__trailing"></div>
                         </div>
                     </div>
-                </div>
-                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop"
-                     style="display: flex; flex-direction: column">
-                    <label for="text-field-hero-input" class="">Email</label>
+                    <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop"
+                         style="display: flex; flex-direction: column">
+                        <label for="text-field-hero-input" class="">Email</label>
 
-                    <div class="mdc-text-field mdc-text-field--outlined">
-                        <input wire:model="client_email" name="email" type="email" class="mdc-text-field__input">
-                        <div class="mdc-notched-outline">
-                            <div class="mdc-notched-outline__leading"></div>
-                            <div class="mdc-notched-outline__notch">
+                        <div class="mdc-text-field mdc-text-field--outlined">
+                            <input wire:model="client_email" name="email" type="email" class="mdc-text-field__input">
+                            <div class="mdc-notched-outline">
+                                <div class="mdc-notched-outline__leading"></div>
+                                <div class="mdc-notched-outline__notch">
+                                </div>
+                                <div class="mdc-notched-outline__trailing"></div>
                             </div>
-                            <div class="mdc-notched-outline__trailing"></div>
                         </div>
                     </div>
-                </div>
                 @endif
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12-desktop">
+                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12-desktop">
                     <h6 class="card-title"> Meeting Details</h6>
 
                 </div>

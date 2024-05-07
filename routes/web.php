@@ -33,6 +33,7 @@ Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/blogDetails', [HomeController::class, 'blogDetails'])->name('blogDetails');
 Route::get('/property-details/{property}', [HomeController::class, 'propertyDetails'])->name('propertyDetails');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
+Route::get('/feedback-form/{meeting:uuid}', [HomeController::class, 'feedback'])->name('feedbackForm');
 Route::get('/galleries/{id?}', [HomeController::class, 'galleries'])->name('galleries');
 Route::get('/free-appraisal', [HomeController::class, 'appraisal'])->name('appraisal');
 
@@ -132,8 +133,9 @@ Route::middleware(['auth'])->group(function(){
 
     Route::prefix('appointment')->name('appointment.')->group(function(){
         Route::get('/', [AppointmentController::class, 'index'])->name('index');
-        Route::get('form/{appointment?}', [AppointmentController::class, 'form'])->name('form');
+        Route::get('form/{appointment?}/{type?}/{meeting?}', [AppointmentController::class, 'form'])->name('form');
         Route::delete('destroy/{appointment}', [AppointmentController::class, 'destroy'])->name('destroy');
+        Route::post('feedback/{meeting:uuid}', [AppointmentController::class, 'feedback'])->name('feedback');
     });
 
     Route::prefix('landlords')->name('landlords.')->group(function(){

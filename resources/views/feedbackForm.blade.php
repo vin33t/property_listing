@@ -1,4 +1,3 @@
-
 <html>
 <head>
     <title>Feedback</title>
@@ -80,7 +79,7 @@
                 #207cca 0%,
                 #9f58a3 100%
             ); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
-            filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#207cca', endColorstr='#9f58a3',GradientType=1 ); /* IE6-9 */
+            filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#207cca', endColorstr='#9f58a3', GradientType=1); /* IE6-9 */
         }
 
     </style>
@@ -88,28 +87,35 @@
 
 <body>
 <div id="feedback-form">
-    <h2 class="header">Plz Share your valuable Feedback</h2>
-    <h4 class="header2">Meeting Details Given Below</h4>
+    @if(session('message'))
+        <div
+            style="position: absolute; right: 10px; top: 10px; padding: 10px 20px; border-radius: 5px; background-color: whitesmoke">
+            <div style="color: green; font-weight: bold">{{session('message')}}</div>
+        </div>
+    @endif
 
+
+    <h2 class="header">Share your valuable Feedback</h2>
+    Meeting with <b>{{$meeting->with_whom}}</b> on <b>{{$meeting->date->format('d F,Y')}}</b> at
+    <b>{{$meeting->date->format('H:i A')}},</b> for property
+    <b>
+        <a href="{{ route('propertyDetails',$meeting->property) }}" target="_blank">
+            {{ $meeting->property->title }}
+        </a>
+    </b>
+    .
+    <hr>
     <div>
-        <div>
-            <span><span style="font-weight: bold; color: black">Property:</span> {{$data['meeting']->property->title}}</span>
-        </div>
-        <div>
-            <span><span style="font-weight: bold; color: black">Time:</span> {{ \Carbon\Carbon::parse($data['meeting']->date)->format('D d M, Y H:i A') }}</span>
-        </div>
-        <div>
-            <span><span style="font-weight: bold; color: black">Description:</span> {{$data['meeting']->description}}</span>
-        </div>
-        <div>
-            <span><span style="font-weight: bold; color: black">With:</span>: {{$data['meeting']->with_whom}}</span>
-        </div>
-
-
-    <div>
-        <div>
-            <a href="{{route('feedbackForm',$data['meeting'])}}">Submit</a>
-        </div>
+        @if($meeting->feedback)
+            <h3>Feedback Already Submitted</h3>
+            <p>{{$meeting->feedback}}</p>
+        @else
+            <form action="{{route('appointment.feedback',$meeting)}}" method="POST">
+                @csrf
+                <textarea type="text" name="feedback" placeholder="Feedback" rows="5"></textarea>
+                <button type="submit">Submit</button>
+            </form>
+        @endif
     </div>
 </div>
 

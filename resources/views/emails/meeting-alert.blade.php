@@ -53,7 +53,7 @@
                                                 Property Name</td>
                                             <td
                                                 style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
-                                                {{$data->property->title}}
+                                                {{$data['meeting']->property->title}}
                                             </td>
                                         </tr>
                                         <tr>
@@ -63,7 +63,7 @@
                                             <td
                                                 style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
 
-                                                {{$data->with_whom}}
+                                                {{$data['meeting']->with_whom}}
                                             </td>
                                         </tr>
                                         <tr>
@@ -73,7 +73,7 @@
                                             <td
                                                 style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056;">
 
-                                                {{ \Carbon\Carbon::parse($data->appointment_date)->format('D d M, Y')}}
+                                                {{ \Carbon\Carbon::parse($data['meeting']->date)->format('D d M, Y')}}
                                             </td>
                                         </tr>
                                         <tr>
@@ -82,7 +82,7 @@
                                                 Meeting Time:</td>
                                             <td
                                                 style="padding: 10px; border-bottom: 1px solid #ededed; color: #455056; ">
-                                                  {{ \Carbon\Carbon::parse($data->appointment_time)->format('h:i A')}}
+                                                  {{ \Carbon\Carbon::parse($data['meeting']->date)->format('h:i A')}}
                                             </td>
                                         </tr>
                                         <tr>
@@ -90,7 +90,7 @@
                                                 style="padding: 10px; border-right: 1px solid #ededed; width: 35%;font-weight:500; color:rgba(0,0,0,.64)">
                                                 Remark:</td>
                                             <td style="padding: 10px; color: #455056;">
-                                                {{$data->remark}}
+                                                {{$data['meeting']->remark}}
                                             </td>
                                         </tr>
                                         </tbody>

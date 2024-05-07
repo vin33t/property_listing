@@ -12,9 +12,10 @@ class FeedbackMail extends Mailable
 {
     use Queueable, SerializesModels;
 
-
-    public function __construct()
+    public $data;
+    public function __construct( $data)
     {
+        $this->data = $data;
     }
 
 
