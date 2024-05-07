@@ -1,5 +1,14 @@
 @extends('backend.layout.root')
 @section('content')
+
+    <style>
+        .placeholder-pg-primary-400 {
+            padding-left: 30px !important;
+            border: 1px solid whitesmoke !important;
+        }
+
+    </style>
+
     <!-- partial -->
     <div class="page-wrapper mdc-toolbar-fixed-adjust">
         <main class="content-wrapper">
@@ -16,6 +25,8 @@
                             </div>
 
                           <div class="w-full overflow-x-auto overflow-y-hidden px-16">
+
+
                               <livewire:landlord-table/>
                           </div>
                             {{--                            list of landlords here--}}
