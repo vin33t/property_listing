@@ -57,7 +57,6 @@ final class LandlordTable extends PowerGridComponent
             ->add('mobile')
             ->add('commission_agreed')
             ->add('notes')
-            ->add('attachments')
             ->add('properties', function (Landlord $landlord) {
                 $properties = $landlord->properties->map(function ($property) {
                     return  '<span class="font-bold">' . $property->title .  '</span> - <span class="normal italic">'.  ($property->accounts->count() ? '<span class="font-bold text-red-700">'. ucfirst($property->accounts->first()->type). 'ed On ' .  $property->accounts->first()->transaction_date->format('d-m-Y'). '</span>':' <span class="normal font-semibold text-green-600">Available</span>'.   '</span>');
@@ -91,10 +90,6 @@ final class LandlordTable extends PowerGridComponent
                 ->searchable(),
 
             Column::make('Notes', 'notes')
-                ->sortable()
-                ->searchable(),
-
-            Column::make('Attachments', 'attachments')
                 ->sortable()
                 ->searchable(),
 
