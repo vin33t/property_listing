@@ -11,8 +11,8 @@
                             <div class="flex w-full justify-between p-4">
                                 <span class="card-title pb-0">Applicants</span>
                                 <a href="{{route('applicants.form')}}"
-                                   class="mdc-button mdc-button--outlined outlined-button--success">
-                                    Add
+                                   class="mdc-button mdc-button--outlined outlined-button--success rounded-md">
+                                    Add New
                                 </a>
                             </div>
                             <div class="w-full overflow-x-auto overflow-y-hidden px-16">
