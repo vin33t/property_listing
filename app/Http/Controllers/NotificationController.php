@@ -42,14 +42,10 @@ class NotificationController extends Controller
             if ($type === 'rent_reminder'){
                 \Mail::to($data->tenant_email)->send(new RentReminderMail());
             }
-        } elseif($model === 'application') {
-
-
+        } elseif($model === 'applicant') {
             if ($type === 'applicant'){
-
                 $property = \App\Models\Property::find($request->property_id);
-                $application = \App\Models\Application::find($request->application_id);
-
+                $application = \App\Models\Applicant::find($request->application_id);
                 \Mail::to($application->email)->send(new PropertyAlertMail($property));
             }
         }

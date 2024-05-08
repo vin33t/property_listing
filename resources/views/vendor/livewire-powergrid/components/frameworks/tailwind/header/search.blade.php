@@ -12,7 +12,7 @@
             <input
                 wire:model.live.debounce.700ms="search"
                 type="text"
-                class="{{ data_get($theme, 'searchBox.inputClass') }}"
+                class="{{ data_get($theme, 'searchBox.inputClass') }} pl-24"
                 style="{{ data_get($theme, 'searchBox.inputClass') }}"
                 placeholder="{{ trans('livewire-powergrid::datatable.placeholders.search') }}"
             >

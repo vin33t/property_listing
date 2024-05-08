@@ -17,7 +17,6 @@ class LandlordForm extends Component
     public $mobile;
     public $commission_agreed;
     public $notes;
-    public $attachments;
 
     protected $rules = [
         'name' => 'required',
@@ -26,7 +25,6 @@ class LandlordForm extends Component
         'mobile' => 'required',
         'commission_agreed' => 'required',
         'notes' => 'required',
-        'attachments.*' => 'file|max:1024',
     ];
 
     public function render()
@@ -46,13 +44,6 @@ class LandlordForm extends Component
     {
         $validatedData = $this->validate();
 
-        $attachmentPaths = [];
-        if($this->attachments) {
-            foreach ($this->attachments as $attachment) {
-                $attachmentPaths[] = $attachment->store('attachments');
-            }
-            $this->attachments = $attachmentPaths;
-        }
         if ($this->landlord) {
             $this->landlord->update($validatedData);
         } else {

@@ -6,14 +6,26 @@
         "build": "vite build"
     },
     "devDependencies": {
+        "@alpinejs/focus": "^3.13.10",
+        "@popperjs/core": "^2.11.8",
+        "@tailwindcss/forms": "^0.5.7",
+        "alpinejs": "^3.13.10",
         "autoprefixer": "^10.4.19",
         "axios": "^1.6.4",
+        "filepond": "^4.31.1",
+        "flatpickr": "^4.6.13",
         "laravel-vite-plugin": "^1.0.0",
         "postcss": "^8.4.38",
+        "quill": "^2.0.1",
         "tailwindcss": "^3.4.3",
         "vite": "^5.0.0"
     },
     "dependencies": {
+        "@fortawesome/fontawesome-free": "^6.5.2",
+        "@fortawesome/fontawesome-svg-core": "^6.5.2",
+        "@fortawesome/free-brands-svg-icons": "^6.5.2",
+        "@fortawesome/free-regular-svg-icons": "^6.5.2",
+        "@fortawesome/free-solid-svg-icons": "^6.5.2",
         "choices.js": "^10.2.0"
     }
 }

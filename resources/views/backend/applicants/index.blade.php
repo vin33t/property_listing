@@ -9,95 +9,15 @@
                     <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
                         <div class="mdc-card p-0">
                             <div class="flex w-full justify-between p-4">
-                                <span class="card-title card-padding pb-0">Applicants</span>
+                                <span class="card-title pb-0">Applicants</span>
                                 <a href="{{route('applicants.form')}}"
                                    class="mdc-button mdc-button--outlined outlined-button--success">
                                     Add
                                 </a>
                             </div>
-                            <div class="table-responsive">
-                                <table class="table table-hoverable">
-                                    <thead>
-                                    <tr>
-                                        <th class="text-left">S No.</th>
-                                        <th class="text-left">Name</th>
-                                        <th class="text-left">Email</th>
-                                        <th class="text-left">Looking For</th>
-                                        <th class="text-left">Recommended Properties</th>
-                                        <th class="text-left">Budget</th>
-                                        <th class="text-left">Area</th>
-                                        <th class="text-left">Notes</th>
-                                        <th class="text-left">Action</th>
-                                    </tr>
-                                    </thead>
-                                    <tbody>
-                                    @foreach($applications as $key => $applicant)
-                                        <tr>
-                                            <td class="text-left">{{++$key}}</td>
-                                            <td class="text-left">{{$applicant->name}}</td>
-                                            <td class="text-left">{{$applicant->email}}</td>
-                                            <td class="text-left">
-                                                @foreach($applicant->looking_for as $key => $value)
-                                                    <span
-                                                        class="font-weight-bold">{{ ucfirst(str_replace('_',' ',$key)) }}</span>
-                                                    : @foreach($value as $v)
-                                                        {{ $v }}
-                                                        @if(!$loop->last)
-                                                            ,
-                                                        @endif
-
-                                                    @endforeach
-                                                    <br>
-                                                @endforeach
-                                            </td>
-
-                                            <td class="text-left">
-                                                <ul style="list-style-type: disc">
-                                                    @forelse($applicant->recommendedProperties() as $property)
-                                                        <li style="display: flex; justify-content: space-between; margin-bottom: 5px; gap: 10px">
-                                                            <a style="text-decoration: none; color: black; font-style: italic" href="{{ route('propertyDetails',$property) }}">{{$loop->iteration}}): &nbsp &nbsp{{ $property->title }}</a>
-                                                            <form action="{{ route('notification.notify',['application','applicant',$property->id]) }}" method="POST">
-                                                                @csrf
-                                                                <input type="text" name="property_id" style="display: none" value="{{$property->id}}">
-                                                                <input type="text" name="application_id" style="display: none" value="{{$applicant->id}}">
-
-                                                                <button type="submit" class="mdc-button mdc-button--raised filled-button--success">
-                                                                    Send Offer
-                                                                </button>
-                                                            </form>
-
-
-
-                                                        </li>
-                                                    @empty
-                                                        <li>No Recommended Properties</li>
-                                                    @endforelse
-                                                </ul>
-                                            </td>
-
-                                            <td class="text-left">{{$applicant->budget}}</td>
-                                            <td class="text-left">{{$applicant->area}}</td>
-                                            <td class="text-left">{{$applicant->notes}}</td>
-                                            <td class="text-left">
-                                                <a href="{{route('applicants.form', $applicant)}}"
-                                                   class="mdc-button mdc-button--raised filled-button--info">
-                                                    Edit
-                                                </a>
-                                                <form action="{{route('applicants.destroy', $applicant)}}"
-                                                      method="post">
-                                                    @csrf
-                                                    @method('delete')
-                                                    <button type="submit"
-                                                            class="mdc-button mdc-button--raised filled-button--danger">
-                                                        Delete
-                                                    </button>
-                                                </form>
-                                            </td>
-                                    @endforeach
-                                    </tbody>
-                                </table>
+                            <div class="w-full overflow-x-auto overflow-y-hidden px-16">
+                                <livewire:applicant-table/>
                             </div>
-
 
                         </div>
                     </div>

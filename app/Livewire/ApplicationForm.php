@@ -2,7 +2,7 @@
 
 namespace App\Livewire;
 
-use App\Models\Application;
+use App\Models\Applicant;
 use App\Models\Category;
 use Livewire\Component;
 use Livewire\WithFileUploads;
@@ -13,6 +13,7 @@ class ApplicationForm extends Component
 
     public $name;
     public $email;
+    public $phone;
     public $budget;
     public $area;
     public $attachments;
@@ -41,6 +42,7 @@ class ApplicationForm extends Component
     protected $rules = [
         'name' => 'required',
         'email' => 'required|email',
+        'phone' => 'required|numeric',
         'budget' => 'required|integer',
         'type' => 'required|array',
         'bedrooms' => 'required|array',
@@ -54,6 +56,7 @@ class ApplicationForm extends Component
         if ($this->application) {
             $this->name = $this->application->name;
             $this->email = $this->application->email;
+            $this->phone = $this->application->phone;
             $this->budget = $this->application->budget;
             $this->bedrooms = $this->application->looking_for['bedrooms'];
             $this->type = $this->application->looking_for['property_type'];
@@ -78,9 +81,9 @@ class ApplicationForm extends Component
             if ($this->attachments) {
                 $validatedData['attachments'] = $this->attachments->store('attachments');
             }
-            $this->application = Application::create($validatedData + ['looking_for' => $looking_for]);
+            $this->application = Applicant::create($validatedData + ['looking_for' => $looking_for]);
         }
-        session()->flash('message', 'Application created successfully.');
+        session()->flash('message', 'Applicant created successfully.');
 
         return redirect()->route('applicants.index');
     }

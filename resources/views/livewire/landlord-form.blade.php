@@ -95,19 +95,6 @@
 
 
 
-                <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
-                    <label for="text-field-hero-input" class="">Attachments</label>
-                    <div class="mdc-text-field mdc-text-field--outlined">
-                        <input type="file" multiple wire:model="attachments" name="attachments" class="mdc-text-field__input" id="image-input">
-                        <div class="mdc-notched-outline">
-                            <div class="mdc-notched-outline__leading"></div>
-                            <div class="mdc-notched-outline__notch">
-                            </div>
-                            <div class="mdc-notched-outline__trailing"></div>
-                        </div>
-                    </div>
-                </div>
-
 
                 <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
                     <label for="text-field-hero-input" class="">Communication (Notes)</label>

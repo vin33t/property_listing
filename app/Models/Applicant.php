@@ -2,14 +2,17 @@
 
 namespace App\Models;
 
+use Dyrynda\Database\Support\GeneratesUuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 
-class Application extends Model
+class Applicant extends Model
 {
+    use GeneratesUuid;
     protected $fillable = [
         'name',
         'email',
+        'phone',
         'budget',
         'looking_for',
         'area',
@@ -29,6 +32,11 @@ class Application extends Model
             ->orWhere('area', $this->area)
             ->orWhere('price', '<=', $this->budget)
             ->get();
+    }
+
+    public function viewings(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(Viewing::class);
     }
 
 

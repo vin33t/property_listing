@@ -149,6 +149,8 @@ Route::middleware(['auth'])->group(function(){
         Route::get('/', [ApplicantController::class, 'index'])->name('index');
         Route::get('form/{application?}', [ApplicantController::class, 'form'])->name('form');
         Route::delete('destroy/{application}', [ApplicantController::class, 'destroy'])->name('destroy');
+
+        Route::get('profile/{applicant:uuid}', [ApplicantController::class, 'profile'])->name('profile');
     });
 
 

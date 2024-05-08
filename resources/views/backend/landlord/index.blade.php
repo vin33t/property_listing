@@ -1,13 +1,7 @@
 @extends('backend.layout.root')
 @section('content')
 
-    <style>
-        .placeholder-pg-primary-400 {
-            padding-left: 30px !important;
-            border: 1px solid whitesmoke !important;
-        }
 
-    </style>
 
     <!-- partial -->
     <div class="page-wrapper mdc-toolbar-fixed-adjust">
@@ -18,7 +12,7 @@
                     <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-12">
                         <div class="mdc-card p-0">
                             <div class="flex w-full justify-between align-items-center px-4">
-                                <span class="card-title card-padding">Landlords</span>
+                                <span class="card-title">Landlords</span>
                                 <a href="{{route('landlords.form')}}" class="mdc-button mdc-button--outlined outlined-button--success">
                                     Add
                                 </a>
