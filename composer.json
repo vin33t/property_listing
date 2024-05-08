@@ -17,7 +17,8 @@
         "livewire/livewire": "^3.4",
         "openspout/openspout": "^4.23",
         "power-components/livewire-powergrid": "^5.5",
-        "rawilk/laravel-form-components": "^8.1"
+        "rawilk/laravel-form-components": "^8.1",
+        "wire-elements/modal": "^2.0"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.13",

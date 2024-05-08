@@ -2,6 +2,7 @@
     <div class="w-full col-span-2 border-[1px] border-gray-300 rounded-xs ">
         <div class="w-full p-2 bg-red-500 text-white font-bold text-lg flex justify-content-between align-items-center">
             <span>Viewings</span>
+            <button wire:click="$dispatch('openModal', { component: 'confirm-viewing' })">Edit User</button>
         </div>
         <div class="overflow-x-auto p-2">
             <div class="w-full overflow-x-auto overflow-y-hidden px-16">

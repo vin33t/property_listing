@@ -21,11 +21,13 @@
     <link rel="stylesheet" href="{{asset('assets/css/demo/style.css')}}">
     <link rel="stylesheet" href="https://unpkg.com/leaflet/dist/leaflet.css" />
     @fcScripts
-    @livewireScripts
 
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <x-livewire-alert::scripts />
+    @livewire('wire-elements-modal')
+    @livewireStyles
+    @livewireScripts
     <style>
         #map { /* Define the size of the map */
             height: 400px;
