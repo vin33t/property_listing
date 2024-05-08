@@ -35,6 +35,14 @@ class ApplicantViewing extends Component
         ]
     ];
 
+    // listen for edit event
+    protected $listeners = ['editViewing'];
+
+    public function editViewing($viewingId)
+    {
+        $this->edit($viewingId);
+    }
+
     protected $rules = [
         'viewingForm.organiser' => 'required|in:landlord,agent',
         'viewingForm.property_id' => 'required|exists:properties,id',

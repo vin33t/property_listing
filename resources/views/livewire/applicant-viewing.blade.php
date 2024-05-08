@@ -4,47 +4,9 @@
             <span>Viewings</span>
         </div>
         <div class="overflow-x-auto p-2">
-            <table class="min-w-full divide-y divide-gray-200">
-                <thead class="bg-gray-50">
-                <tr>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-[1px] border-gray-300">Organiser</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-[1px] border-gray-300">Viewing Date</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-[1px] border-gray-300">Property</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-[1px] border-gray-300">Meet at</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-[1px] border-gray-300">Confirmed With</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-[1px] border-gray-300">Status</th>
-                    <th class="px-6 py-3 text-left text-xs font-medium text-gray-500 uppercase tracking-wider border-[1px] border-gray-300">Action</th>
-                </tr>
-                </thead>
-                <tbody class="bg-white divide-y divide-gray-200">
-                @foreach($viewings as $viewing)
-                    <tr>
-                        <td class="px-6 py-4 whitespace-nowrap border-[1px] border-gray-300">{{ ucfirst($viewing->organiser) }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap border-[1px] border-gray-300">{{ $viewing->date->format('d M, Y h:i a') }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap border-[1px] border-gray-300">{{ $viewing->property->title }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap border-[1px] border-gray-300">{{ $viewing->meet_at }}</td>
-                        <td class="px-6 py-4 whitespace-nowrap border-[1px] border-gray-300">
-                            @if($viewing->confirm_with['landlord'])
-                                <span class="text-green-500">Landlord</span>
-                            @endif
-                            @if($viewing->confirm_with['applicant'])
-                                <span class="text-green-500">Applicant</span>
-                            @endif
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap border-[1px] border-gray-300">
-                        <span class="@class(['text-green-500' => $viewing->status == 'confirmed', 'text-red-500' => $viewing->status == 'unconfirmed'])">
-                            {{ strtoupper($viewing->status) }}
-                        </span>
-                        </td>
-                        <td class="px-6 py-4 whitespace-nowrap text-left text-sm font-medium border-[1px] border-gray-300">
-                            <i class="fa fa-edit bg-blue-100 p-1 rounded-md text-blue-800 hover:text-blue-500 cursor-pointer" wire:click="edit({{ $viewing->id }})"></i>
-                            <i class="fa fa-xmark-circle bg-red-100 p-1 rounded-md text-red-800 hover:text-red-500 cursor-pointer" wire:click="edit({{ $viewing->id }})"></i>
-                            <i class="fa fa-check-circle bg-green-100 p-1 rounded-md text-green-800 hover:text-green-500 cursor-pointer" wire:click="edit({{ $viewing->id }})"></i>
-                        </td>
-                    </tr>
-                @endforeach
-                </tbody>
-            </table>
+            <div class="w-full overflow-x-auto overflow-y-hidden px-16">
+                <livewire:viewings-table/>
+            </div>
         </div>
 
     </div>
@@ -53,7 +15,8 @@
         <div class="w-full p-2 bg-red-500 text-white font-bold text-lg flex justify-content-between align-items-center">
             <span>
                 @if($editMode)
-                    Edit @else
+                    Edit
+                @else
                     Add
                 @endif
                 Viewing</span>
