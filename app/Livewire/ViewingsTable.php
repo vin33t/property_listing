@@ -20,6 +20,9 @@ final class ViewingsTable extends PowerGridComponent
 {
     use WithExport;
 
+    protected $listeners = ['viewingUpdated' => '$refresh'];
+
+
     public function setUp(): array
     {
 //        $this->showCheckBox();
@@ -101,6 +104,15 @@ final class ViewingsTable extends PowerGridComponent
         $this->dispatch('editViewing', $rowId);
     }
 
+    #[\Livewire\Attributes\On('complete')]
+    public function complete($rowId): void
+    {
+        $this->dispatch('openModal', [
+            'component' => 'confirm-viewing',
+        ]);
+        $this->dispatch('completeViewing', $rowId);
+    }
+
     public function actions(Viewing $row): array
     {
         return [
@@ -113,7 +125,7 @@ final class ViewingsTable extends PowerGridComponent
                 ->slot()
                 ->id()
                 ->class('fa fa-check-circle bg-green-100 p-1 rounded-md text-green-800 hover:text-green-500 cursor-pointer')
-                ->dispatch('edit', ['rowId' => $row->id])
+                ->dispatch('complete', ['rowId' => $row->id])
         ];
     }
 

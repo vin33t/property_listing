@@ -30,4 +30,8 @@ class Property extends Model
     public function accounts(){
         return $this->hasMany(Account::class, 'property_id');
     }
+
+    public function images(){
+        return $this->hasMany(Media::class, 'model_id')->where('model_type', 'App\Models\Property');
+    }
 }

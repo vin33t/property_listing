@@ -90,6 +90,7 @@ class ApplicantViewing extends Component
             ]);
             $this->reset('viewingForm');
             $this->editMode = false;
+            $this->dispatch('viewingUpdated');
             return;
         }
         Viewing::create([
@@ -108,8 +109,7 @@ class ApplicantViewing extends Component
             'timer' => 3000,
             'toast' => true,
         ]);
-        $this->dispatch('$refresh');
-//        dd($this->viewingForm);
+        $this->dispatch('viewingUpdated');
     }
 
     public function edit($viewingId)

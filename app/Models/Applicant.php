@@ -39,5 +39,11 @@ class Applicant extends Model
         return $this->hasMany(Viewing::class);
     }
 
+    public function attachments()
+    {
+        return $this->hasMany(Media::class, 'model_id')->where('model_type', 'App\Models\Applicant');
+
+    }
+
 
 }

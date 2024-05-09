@@ -24,10 +24,7 @@
 
                     <div style="margin-bottom: 20px" class="swiffy-slider">
                         <ul class="slider-container">
-                            @php
-                                $images = \App\Models\Media::where('model_type', 'App\Models\Property')->where('model_id', $property->id)->get();
-                            @endphp
-                            @foreach($images as $image)
+                            @foreach($property->images as $image)
                                 <li>
                                     <div class="img img-2" style="background-image: url({{asset('storage/'. $image->path)}});" data-aos="fade-up"
                                          data-aos-delay="400" data-aos-duration="1000">
