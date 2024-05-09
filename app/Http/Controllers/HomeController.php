@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Category;
 use App\Models\Gallery;
 use App\Models\GalleryCategory;
-use App\Models\homeSlider;
+use App\Models\HomeSlider;
 use App\Models\Meeting;
 use App\Models\Property;
 use App\Models\User;
@@ -15,6 +15,7 @@ use Illuminate\Http\Request;
 class HomeController extends Controller
 {
     public function dashboard(){
+
         $properties = Property::all();
         $categories = Category::all();
         return view('backend.dashboard', compact('properties', 'categories'));
@@ -23,25 +24,22 @@ class HomeController extends Controller
     public function index(Request $request){
 
        // get all slides where status is 1
-        $slides = homeSlider::where('status', 1)->get();
-        $properties = Property::where('is_featured', true)->get();
+        $slides = HomeSlider::where('status', 1)->get();
+        $properties = Property::where('is_featured', true)->inRandomOrder()->limit(8)->get();
+        $locations = Property::select('location')->distinct()->get();
         $agents = User::where('role', 'agent')->withCount('properties')
             ->get();
         $categories = Category::all();
-        return view('home', compact('properties', 'agents', 'categories', 'slides'));
+        return view('home', compact('properties', 'agents', 'categories', 'slides'))->with('locations', $locations);
     }
 
     public function about(){
         return view('about');
     }
 
-    public function properties($id = null){
-        if($id){
-            $properties = Property::where('category_id', $id)->get();
-        }else{
-            $properties = Property::all();
-        }
-        return view('properties', compact('properties'));
+    public function properties(Category $category = null){
+        $properties = $category ? Property::where('category_id', $category->id)->paginate(8) : Property::paginate(8);
+        return view('properties')->with('properties', $properties);
     }
 
     public function agents(){

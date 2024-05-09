@@ -1,10 +1,7 @@
 @extends('Layouts.layout')
 
 @section('content')
-    @php
-          $media = $property->media->first();
-    @endphp
-    <section class="hero-wrap hero-wrap-2" style="background-image: url({{asset('storage/'. $media?->path)}});">
+    <section class="hero-wrap hero-wrap-2" style="background-image: url({{ $property->getFirstMediaUrl('images') }});">
         <div class="overlay"></div>
         <div class="container">
             <div class="row no-gutters slider-text align-items-center justify-content-center">
@@ -24,9 +21,9 @@
 
                     <div style="margin-bottom: 20px" class="swiffy-slider">
                         <ul class="slider-container">
-                            @foreach($property->images as $image)
+                            @foreach($property->getMedia('images') as $image)
                                 <li>
-                                    <div class="img img-2" style="background-image: url({{asset('storage/'. $image->path)}});" data-aos="fade-up"
+                                    <div class="img img-2" style="background-image: url({{ $image->getFullUrl() }});" data-aos="fade-up"
                                          data-aos-delay="400" data-aos-duration="1000">
                                     </div>
                                 </li>

@@ -37,7 +37,7 @@
                                             </div>
                                             <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop">
                                                 <div class="mdc-text-field mdc-text-field--outlined">
-                                                    <input type="file" multiple name="media[]" class="mdc-text-field__input" id="image-input">
+                                                    <input type="file" multiple name="media" class="mdc-text-field__input" id="image-input">
                                                     <div class="mdc-notched-outline">
                                                         <div class="mdc-notched-outline__leading"></div>
                                                         <div class="mdc-notched-outline__notch">

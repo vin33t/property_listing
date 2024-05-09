@@ -148,77 +148,45 @@
         <div class="container-xl">
             <div class="row">
                 @forelse($properties as $property)
-                    @php
-                        $image = $property->media->first();
-                    @endphp
-                    <div class="col-md-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-                    <div class="property-wrap">
-                        <a href="{{route('propertyDetails', ['property' => $property])}}" class="img img-property" style="background-image: url({{asset('storage/'. $image?->path)}});">
-                            @if($property->is_price_visible)
-                                <p class="price"><span class="orig-price">£{{$property->price}}</span></p>
-
-                            @endif
-
-                        </a>
-                        <div class="text">
-                            <div class="list-team d-flex align-items-center mb-4">
-                                <div class="d-flex align-items-center">
-                                    <div class="img" style="background-image: url({{asset('assets1/images/person_1.jpg')}});"></div>
-                                    <h3 class="ml-2">{{$property->user->name}}</h3>
-                                </div>
-                                @if($property->is_year_visible)
-                                    <span class="text-right">{{($property->created_at->diffInDays(\Carbon\Carbon::now()) == 0 ) ? 'today' : $property->created_at->diffInDays(\Carbon\Carbon::now()) .' days ago'}}</span>
-
-                                @endif
-
-                            </div>
-                            <h3><a href="{{route('propertyDetails', ['property' => $property])}}">{{$property->title}}</a></h3>
-                            <span class="location">
-                           @if($property->is_location_visible)
-                                <i class="ion-ios-pin"></i> {{$property->location}}
-                            @endif
-                                @if($property->is_type_visible)
-                                <span class="sale">{{ucfirst($property->type)}}</span>
-                            @endif
-
-                            </span>
-                            <ul class="property_list mt-3 mb-0">
-                                @if($property->is_rooms_visible)
-                                    <li><span class="flaticon-bed"></span>{{$property->rooms}}</li>
-                                @endif
-                                @if($property->is_bathrooms_visible)
-                                    <li><span class="flaticon-bathtub"></span>{{$property->bathrooms}}</li>
-                                @endif
-                                    @if($property->is_area_visible)
-                                        <li><span class="flaticon-blueprint"></span>{{$property->area}} sqft</li>
-                                    @endif
-
-                            </ul>
-                        </div>
-                    </div>
-                </div>
+                    <x-property-card :property="$property"/>
                 @empty
                     <div class="col-md-12">
                         <h3 class="text-center">No Properties Found</h3>
                     </div>
                 @endforelse
 
+
+
             </div>
             <div class="row mt-5">
                 <div class="col text-center">
                     <div class="block-27">
                         <ul>
-                            <li><a href="#">&lt;</a></li>
-                            <li class="active"><span>1</span></li>
-                            <li><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#">4</a></li>
-                            <li><a href="#">5</a></li>
-                            <li><a href="#">&gt;</a></li>
+                            @if($properties->onFirstPage())
+                                <li class="disabled"><span>&lt;</span></li>
+                            @else
+                                <li><a href="{{ $properties->previousPageUrl() }}"><i class="fa fa-chevron-left"></i></a></li>
+                            @endif
+
+                            @foreach ($properties->getUrlRange(1, $properties->lastPage()) as $page => $url)
+                                @if ($page == $properties->currentPage())
+                                    <li class="active"><span>{{ $page }}</span></li>
+                                @else
+                                    <li><a href="{{ $url }}">{{ $page }}</a></li>
+                                @endif
+                            @endforeach
+
+                            @if($properties->hasMorePages())
+                                <li><a href="{{ $properties->nextPageUrl() }}">&gt;</a></li>
+                            @else
+                                <li class="disabled"><span style="background-color: lightgray;"><i class="fa fa fa-chevron-right"></i></span></li>
+                            @endif
                         </ul>
                     </div>
                 </div>
             </div>
+
+
         </div>
     </section>
 @endsection

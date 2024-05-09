@@ -1,32 +1,6 @@
 @extends('Layouts.layout')
 @section('content')
-    <section class="slider-hero">
-        <div class="overlay"></div>
-        <div class="hero-slider">
-            @foreach($slides as $slide)
-                <x-banner_slide
-                    image="{{asset('storage/'. $slide->image)}}"
-                    {{--                    image="{{asset('storage/'. $media?->path)}}"--}}
-                    title="{{$slide->heading}}"
-                    description="{{$slide->description}}"
-                    link="{{route('properties')}}">
-                </x-banner_slide>
-
-            @endforeach
-            {{--            <x-banner_slide--}}
-            {{--                image="{{asset('assets1/images/bg_2.jpg')}}"--}}
-            {{--                title="Find Your Dream Property"--}}
-            {{--                description="A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth."--}}
-            {{--                link="#">--}}
-            {{--            </x-banner_slide>--}}
-            {{--            <x-banner_slide--}}
-            {{--                image="{{asset('assets1/images/bg_3.jpg')}}"--}}
-            {{--                title="Best Place To Find Your Home"--}}
-            {{--                description="A small river named Duden flows by their place and supplies it with the necessary regelialia. It is a paradisematic country, in which roasted parts of sentences fly into your mouth."--}}
-            {{--                link="#">--}}
-            {{--            </x-banner_slide>--}}
-        </div>
-    </section>
+  <x-hero-slider/>
 
 
     <section class="ftco-section ftco-no-pb ftco-no-pt">
@@ -80,15 +54,10 @@
                                                         <label for="#">Location</label>
                                                         <div class="form-field">
                                                             <div class="icon"><span class="ion-ios-pin"></span></div>
-                                                            @php
-                                                            $properties = \App\Models\Property::all();
-
-                                                            @endphp
-
                                                             <select  name="location" id class="form-control">
-                                                                @foreach($properties as $property)
+                                                                @foreach($locations as $location)
                                                                     <option style="color: black"
-                                                                        value="{{$property->location}}">{{$property->location}}</option>
+                                                                        value="{{$location}}">{{ucfirst($location)}}</option>
                                                                 @endforeach
                                                             </select>
 
@@ -186,20 +155,17 @@
                         <div class="swiffy-slider slider-item-show4">
                             <ul class="slider-container">
                                 @foreach($categories as $category)
-                                    @php
-                                        $media = \App\Models\Media::where('model_type', 'App\Models\Category')->where('model_id', $category->id)->first();
-                                    @endphp
                                     <li>
                                         <div class=" text-center d-flex align-items-stretch" data-aos="fade-up"
                                              data-aos-delay="100" data-aos-duration="1000" style="height: 100%;">
-                                            <a href="{{route('properties', ['id' => $category])}}" class="services" >
-                                                @if($media==Null)
+                                            <a href="{{route('properties', $category)}}" class="services" >
+                                                @if($category->getMedia()?->first())
+                                                    <img src="{{ $category->getFirstMediaUrl() }}"
+                                                         style="height: 100px; width: 100px; border-radius: 50%" alt="">
+                                             @else
                                                     <img src="{{asset('assets1/images/noImg.jpg')}}"
                                                          style="height: 100px; width: 100px; border-radius: 50%" alt="">
-                                                @else
-                                                    <img src="{{asset('storage/'. $media->path)}}"
-                                                         style="height: 100px; width: 100px; border-radius: 50%" alt="">
-                                                @endif
+                                                    @endif
                                                 <div class="text">
                                                     <h2>{{$category->name}}</h2>
                                                 </div>
@@ -232,44 +198,7 @@
             </div>
             <div class="row" style="row-gap: 30px">
                 @foreach($properties as $property)
-                    <div class="col-md-3" data-aos="fade-up" data-aos-delay="100" data-aos-duration="1000">
-                        <div class="property-wrap">
-                            @php
-                                $image = $property->media->first();
-                            @endphp
-                            <a href="{{route('propertyDetails', ['property' => $property])}}" class="img img-property"
-                               style="background-image: url({{asset('storage/'. $image?->path)}});">
-                                <p class="price"><span class="orig-price">£{{$property->price}}</span></p>
-                            </a>
-                            <div class="text" style="min-height: 280px">
-                                <div class="list-team d-flex align-items-center mb-4">
-                                    <div class="d-flex align-items-center">
-                                        <div class="img"
-                                             style="background-image: url({{asset('assets1/images/person_1.jpg')}});"></div>
-                                        <h3 class="ml-2">{{$property->user->name}}</h3>
-                                    </div>
-                                    <span
-                                        class="text-right">{{($property->created_at->diffInDays(\Carbon\Carbon::now()) == 0 ) ? 'today' : $property->created_at->diffInDays(\Carbon\Carbon::now()) .' days ago'}}</span>
-                                </div>
-                                <h3>
-                                    <a href="{{route('propertyDetails', ['property' => $property])}}">{{$property->title}}</a>
-                                </h3>
-                                <span class="location"><i class="ion-ios-pin"></i> {{$property->location}}<span
-                                        class="sale">{{$property->type}}</span></span>
-                                <ul class="property_list mt-3 mb-0">
-                                    @if($property->rooms)
-                                        <li><span class="flaticon-bed"></span>{{$property->rooms}}</li>
-                                    @endif
-
-                                    @if($property->rooms)
-                                        <li><span class="flaticon-bathtub"></span>{{$property->bathrooms}}</li>
-                                    @endif
-
-                                    <li><span class="flaticon-blueprint"></span>{{$property->area}} sqft</li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
+                    <x-property-card :property="$property"/>
                 @endforeach
             </div>
         </div>

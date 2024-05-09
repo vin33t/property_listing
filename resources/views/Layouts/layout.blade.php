@@ -18,6 +18,7 @@
     <link href="https://cdn.jsdelivr.net/npm/swiffy-slider@1.6.0/dist/css/swiffy-slider.min.css" rel="stylesheet" crossorigin="anonymous">
 
 
+
     <style>
         @media (max-width: 1200px) {
             .appraisal_form {

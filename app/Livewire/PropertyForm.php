@@ -109,7 +109,6 @@ class PropertyForm extends Component
             'year' => 'required|string',
             'type' => 'required|string',
             'is_featured' => 'required|in:0,1',
-            'media.*' => 'file', // Adjust max file size as needed
             'description' => 'required|string',
             'latitude' => 'required|string',
             'longitude' => 'required|string',
@@ -133,18 +132,14 @@ class PropertyForm extends Component
         if ($this->property) {
             $this->property->update($data + ['floor_plan' => str_replace('public/', '', $floor_plan), 'epc' => str_replace('public/', '', $epc)]);
             foreach ($this->media as $file) {
-                $this->property->media()->create([
-                    'model_type' => 'App\Models\Property',
-                    'path' => str_replace('public/', '', $file->store('public/'))
-                ]);
+                $this->property->addMedia($file['path'])
+                    ->toMediaCollection('images');
             }
         } else {
             $property = Property::create($data + ['floor_plan' => str_replace('public/', '', $floor_plan), 'epc' => str_replace('public/', '', $epc)]);
             foreach ($this->media as $file) {
-                $property->media()->create([
-                    'model_type' => 'App\Models\Property',
-                    'path' => str_replace('public/', '', $file->store('public/'))
-                ]);
+                $property->addMedia($file['path'])
+                    ->toMediaCollection('images');
             }
         }
 

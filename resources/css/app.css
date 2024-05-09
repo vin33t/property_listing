@@ -3,6 +3,7 @@
 @import "quill/dist/quill.snow.css";
 @import "@fortawesome/fontawesome-free/css/all.min.css";
 @import "@dasundev/livewire-dropzone-styles";
+@import "flatpickr/dist/flatpickr.min.css";
 @tailwind base;
 @tailwind components;
 @tailwind utilities;

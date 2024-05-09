@@ -19,6 +19,8 @@ class ApplicantAttachments extends Component
         'attachments.*' => 'file',
     ];
 
+    protected $listeners = ['attachmentUploaded' => '$refresh','deleteAttachment'=>'$refresh'];
+
     public function render()
     {
         return view('livewire.applicant-attachments');
@@ -27,15 +29,19 @@ class ApplicantAttachments extends Component
     public function uploadAttachment()
     {
         foreach ($this->attachments as $attachment) {
-            $this->applicant->attachments()->create([
-                'path' => Storage::putFile('applicant_attachments', new File($attachment['path'])),
-                'model_type' => 'App\Models\Applicant',
-                'model_id' => $this->applicant->id,
-            ]);
+            $this->applicant->addMedia($attachment['path'])
+                ->toMediaCollection('attachments');
         }
         $this->attachments = [];
-        $this->emit('attachmentUploaded');
+        $this->dispatch('attachmentUploaded');
         $this->alert('success', 'Attachment uploaded successfully!');
+    }
+
+    public function deleteAttachment($attachmentId)
+    {
+        $this->applicant->media()->find($attachmentId)->delete();
+        $this->dispatch('deleteAttachment');
+        $this->alert('success', 'Attachment deleted successfully!');
     }
 
 }

@@ -3,8 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\SliderRequest;
-use App\Models\homeSlider;
-use App\Models\Media;
+use App\Models\HomeSlider;
 use App\Models\Slide;
 use App\Models\Slider;
 use Illuminate\Http\Request;
@@ -13,7 +12,7 @@ class SliderController extends Controller
 {
 
     public function index(){
-        $sliders = homeSlider::all();
+        $sliders = HomeSlider::all();
         return view('backend.homeSlider.index' , compact('sliders'));
     }
 
@@ -34,7 +33,7 @@ class SliderController extends Controller
             'image' => 'required',
         ]);
 
-        $homeSlider = new homeSlider();
+        $homeSlider = new HomeSlider();
         $homeSlider->heading = $request->heading;
         $homeSlider->description = $request->description;
         if ($request->hasFile('image')) {
@@ -45,7 +44,7 @@ class SliderController extends Controller
         return redirect('homeSlider/');
     }
 
-    public function edit(homeSlider $homeSlider){
+    public function edit(HomeSlider $homeSlider){
         $formData= [
             'method' => 'POST',
             'url' => route('homeSlider.update', $homeSlider->id)
@@ -56,13 +55,13 @@ class SliderController extends Controller
         return view('backend.homeSlider.create')->with(['formData' => $formData, 'isEdit' => $isEdit, 'homeSlider' => $homeSlider]);
     }
 
-    public function changeStatus(homeSlider $homeSlider){
+    public function changeStatus(HomeSlider $homeSlider){
         $homeSlider->status = !$homeSlider->status;
         $homeSlider->save();
         return redirect()->back();
     }
 
-    public function update(Request $request, homeSlider $homeSlider){
+    public function update(Request $request, HomeSlider $homeSlider){
         $request->validate([
             'heading' => 'required',
             'description' => 'required',
@@ -79,7 +78,7 @@ class SliderController extends Controller
         return redirect('homeSlider/');
     }
 
-    public function destroy(homeSlider $homeSlider){
+    public function destroy(HomeSlider $homeSlider){
         $homeSlider->delete();
         return redirect()->back();
     }

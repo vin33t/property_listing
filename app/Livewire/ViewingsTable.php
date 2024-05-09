@@ -77,6 +77,7 @@ final class ViewingsTable extends PowerGridComponent
                 ->searchable(),
 
             Column::make('Date', 'date_formatted', 'date')
+                ->searchable()
                 ->sortable(),
 
             Column::make('Meet at', 'meet_at')
@@ -94,7 +95,7 @@ final class ViewingsTable extends PowerGridComponent
     public function filters(): array
     {
         return [
-//            Filter::datetimepicker('date'),
+//            Filter::datepicker('date'),
         ];
     }
 

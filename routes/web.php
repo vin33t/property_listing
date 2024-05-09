@@ -27,11 +27,11 @@ use App\Http\Controllers\GalleryController;
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/about', [HomeController::class, 'about'])->name('about');
-Route::get('/properties/{id?}', [HomeController::class, 'properties'])->name('properties');
+Route::get('/properties/{category:slug?}', [HomeController::class, 'properties'])->name('properties');
 Route::get('/agents', [HomeController::class, 'agents'])->name('agents');
 Route::get('/blog', [HomeController::class, 'blog'])->name('blog');
 Route::get('/blogDetails', [HomeController::class, 'blogDetails'])->name('blogDetails');
-Route::get('/property-details/{property}', [HomeController::class, 'propertyDetails'])->name('propertyDetails');
+Route::get('/property-details/{property:slug}', [HomeController::class, 'propertyDetails'])->name('propertyDetails');
 Route::get('/contact', [HomeController::class, 'contact'])->name('contact');
 Route::get('/feedback-form/{meeting:uuid}', [HomeController::class, 'feedback'])->name('feedbackForm');
 Route::get('/galleries/{id?}', [HomeController::class, 'galleries'])->name('galleries');

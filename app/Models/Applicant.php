@@ -5,10 +5,12 @@ namespace App\Models;
 use Dyrynda\Database\Support\GeneratesUuid;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
+use Spatie\MediaLibrary\HasMedia;
+use Spatie\MediaLibrary\InteractsWithMedia;
 
-class Applicant extends Model
+class Applicant extends Model implements HasMedia
 {
-    use GeneratesUuid;
+    use GeneratesUuid, InteractsWithMedia;
     protected $fillable = [
         'name',
         'email',
@@ -39,10 +41,10 @@ class Applicant extends Model
         return $this->hasMany(Viewing::class);
     }
 
-    public function attachments()
-    {
-        return $this->hasMany(Media::class, 'model_id')->where('model_type', 'App\Models\Applicant');
 
+    public function communicationNote()
+    {
+        return $this->hasMany(Notes::class, 'applicant_id');
     }
 
 
