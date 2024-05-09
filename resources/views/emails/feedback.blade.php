@@ -107,7 +107,7 @@
 
 
     <div>
-        <div>
+        <div style="background-color: deepskyblue; color: black; font-weight: bold; padding: 20px 10px; border-radius: 3px; display: flex; justify-content: center; margin-top: 20px">
             <a href="{{route('feedbackForm',$data['meeting'])}}">Submit</a>
         </div>
     </div>
