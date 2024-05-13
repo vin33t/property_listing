@@ -103,6 +103,8 @@ class ApplicantViewing extends Component
             'reminder_alert' => $this->viewingForm['reminder_alert'],
             'status' => 'unconfirmed',
         ]);
+        $this->dispatch('viewingUpdated');
+
         $this->reset('viewingForm');
         $this->alert('success', 'Viewing Created', [
             'position' => 'top-end',

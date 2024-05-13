@@ -71,10 +71,16 @@
 
 
                 <div class="mdc-layout-grid__cell stretch-card mdc-layout-grid__cell--span-6-desktop" style="display: flex; flex-direction: column">
-                    <label for="text-field-hero-input" class="">Client Name</label>
+                    <label for="text-field-hero-input" class="">Client </label>
 
                     <div class="mdc-text-field mdc-text-field--outlined">
-                        <input wire:model="client_name" name="price" type="text" class="mdc-text-field__input">
+                        <select wire:model="applicant_id" name="price" type="text" class="mdc-text-field__input">
+                            <option value="">-- Select Client --</option>
+                            @foreach($applicants as $client)
+                                <option value="{{$client->id}}">{{$client->name}}</option>
+                            @endforeach
+
+                        </select>
                         <div class="mdc-notched-outline">
                             <div class="mdc-notched-outline__leading"></div>
                             <div class="mdc-notched-outline__notch">

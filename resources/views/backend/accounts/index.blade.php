@@ -40,7 +40,7 @@
                                         <tr>
                                             <td class="text-left">{{$loop->index + 1}}</td>
                                             <td class="text-left">{{$account->property->title}}</td>
-                                            <td class="text-left">{{$account->client_name}}</td>
+                                            <td class="text-left">{{$account->tenant->name}}</td>
                                             <td class="text-left">{{ ucfirst($account->type) }}</td>
                                             <td class="text-left">{{$account->price}}</td>
                                             <td class="text-left">{{$account->commission}}</td>

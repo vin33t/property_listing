@@ -22,47 +22,49 @@ class DatabaseSeeder extends Seeder
     public function run(): void
     {
 
-        HomeSlider::factory()->count(5)->create()->each(function ($slider) {
-            $destinationPath = 'public/sliders';
-            $client = new Client();
-
-            $response = $client->get('https://source.unsplash.com/random');
-
-            $fileContent = $response->getBody()->getContents();
-
-            $tempFilePath = tempnam(sys_get_temp_dir(), 'uploaded_file');
-            file_put_contents($tempFilePath, $fileContent);
-
-            $fileName = Str::random(40) . '.jpg';
-
-            Storage::putFileAs($destinationPath, new File($tempFilePath), $fileName);
-
-            unlink($tempFilePath);
-            $originalProperties = $slider->getAttributes();
-            $originalProperties['image'] = Storage::url($destinationPath . '/' . $fileName);
-
-            $slider->fill($originalProperties);
-            $slider->save();
-        });
 
         $this->call(UserSeeder::class);
 
-        Category::factory()->count(6)->create()->each(function ($property) {
-            $imageUrl = 'https://source.unsplash.com/random';
-            $property->addMediaFromUrl($imageUrl)
-                ->toMediaCollection();
-        });
-
-        Landlord::factory()->count(25)->create();
-
-        Property::factory()->count(35)->create()->each(function ($property) {
-            $mediaCount = rand(5, 15);
-            for ($i = 0; $i < $mediaCount; $i++) {
-                $imageUrl = 'https://source.unsplash.com/random';
-                $property->addMediaFromUrl($imageUrl)
-                    ->toMediaCollection('images');
-            }
-        });
+//        HomeSlider::factory()->count(5)->create()->each(function ($slider) {
+//            $destinationPath = 'public/sliders';
+//            $client = new Client();
+//
+//            $response = $client->get('https://source.unsplash.com/random');
+//
+//            $fileContent = $response->getBody()->getContents();
+//
+//            $tempFilePath = tempnam(sys_get_temp_dir(), 'uploaded_file');
+//            file_put_contents($tempFilePath, $fileContent);
+//
+//            $fileName = Str::random(40) . '.jpg';
+//
+//            Storage::putFileAs($destinationPath, new File($tempFilePath), $fileName);
+//
+//            unlink($tempFilePath);
+//            $originalProperties = $slider->getAttributes();
+//            $originalProperties['image'] = Storage::url($destinationPath . '/' . $fileName);
+//
+//            $slider->fill($originalProperties);
+//            $slider->save();
+//        });
+//
+//
+//        Category::factory()->count(6)->create()->each(function ($property) {
+//            $imageUrl = 'https://source.unsplash.com/random';
+//            $property->addMediaFromUrl($imageUrl)
+//                ->toMediaCollection();
+//        });
+//
+//        Landlord::factory()->count(25)->create();
+//
+//        Property::factory()->count(35)->create()->each(function ($property) {
+//            $mediaCount = rand(5, 15);
+//            for ($i = 0; $i < $mediaCount; $i++) {
+//                $imageUrl = 'https://source.unsplash.com/random';
+//                $property->addMediaFromUrl($imageUrl)
+//                    ->toMediaCollection('images');
+//            }
+//        });
 
 
     }

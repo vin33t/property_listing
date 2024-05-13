@@ -13,7 +13,7 @@ return new class extends Migration {
             $table->enum('type',['rent','buy']);
             $table->string('price');
             $table->string('commission');
-            $table->string('client_name');
+            $table->foreignId('tenant_id')->constrained('tenants');
             $table->string('transaction_date');
             $table->timestamps();
         });

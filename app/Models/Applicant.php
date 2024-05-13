@@ -47,5 +47,4 @@ class Applicant extends Model implements HasMedia
         return $this->hasMany(Notes::class, 'applicant_id');
     }
 
-
 }

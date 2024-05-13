@@ -52,7 +52,7 @@
                                             @foreach($applicant->recommendedProperties() as $property)
                                                 <div class="w-full flex justify-content-between items-center rounded-md">
                                                     <div class="flex flex-col border-[1px] border-gray-200 p-2 shadow-lg shadow-gray-200 rounded-md">
-                                                        <img src="{{ $property->images?->first()->path }}"
+                                                        <img src="{{ $property->getFirstMediaUrl('images') }}"
                                                              alt="property image"
                                                              class="w-full  object-cover rounded-md">
                                                         <div>

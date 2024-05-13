@@ -66,4 +66,8 @@ class Property extends Model implements HasMedia
         return $this->hasMany(Account::class, 'property_id');
     }
 
+    public function tenants(){
+        return $this->hasMany(Tenant::class, 'property_id');
+    }
+
 }

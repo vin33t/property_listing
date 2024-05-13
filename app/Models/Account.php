@@ -12,7 +12,7 @@ class Account extends Model
         'type',
         'price',
         'commission',
-        'client_name',
+        'tenant_id',
         'transaction_date',
     ];
     protected $casts = [
@@ -23,4 +23,10 @@ class Account extends Model
     {
         return $this->belongsTo(Property::class);
     }
+
+    public function tenant(): BelongsTo
+    {
+        return $this->belongsTo(Tenant::class);
+    }
+
 }
